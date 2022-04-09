@@ -1,0 +1,21 @@
+Class Descriptions for Requirement 1: Let it grow!
+
+Class: <<abstract>> Tree
+Description: The original tree class is modified to be abstract, and it will contain all of the common 
+attributes and methods that all sub-classes of tree will need.
+
+Class: <<interface>> GrowCapable
+Description: This interface will contain the method(s) that enable certain trees (sprouts and saplings 
+to grow into larger trees).
+
+Class: Sprout
+Description: The smallest variant of tree. 10% chance to spawn a Goomba each turn, unless an actor stands on it.
+Takes 10 turns to grow into a sapling tree.
+
+Class: Sapling
+Description: The medium tree variant. 10% chance to drop a coin each turn. Takes 10 turns to grow into 
+a Mature tree.
+
+Class: Mature
+Description: The largest tree variant. 15% chance to spawn a Koopa each turn, unless an actor stands on it. 
+20% chance to wither and die, being turned into dirt each turn. Can grow a new sprout nearby every 5 turns.
