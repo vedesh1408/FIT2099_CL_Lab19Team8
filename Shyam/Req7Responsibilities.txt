@@ -1,0 +1,9 @@
+Class Descriptions for Requirement 7: Reset Game
+
+Class: ResetManager
+Description: This class handles the resetting of the game, which the player can do once per game. It will
+reset enemies, coins, player health and status, and 50% of trees.
+
+Class: <<interface>> Resettable
+Description: This class will check whether or not the game can be reset, which is determined by whether the 
+game has already been reset once in this playthrough.
