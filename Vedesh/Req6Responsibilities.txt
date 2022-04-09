@@ -1,0 +1,13 @@
+Class Description for Requirement 6: Monologue
+
+1. Class Toad:
+Description: The class Toad represents an actor of type Toad. The class Toad contains all the attributes/methods specific to the class Toad and can inherit methods/attributes from the abstract class Actor to ensure all requirements of Toad Speaking is fulfilled.
+
+2. Class Speak:
+Description: The class Speak deals with all the dialogues that the instance of class Toad needs to say depending on specific conditions.
+
+3. Trade:
+Description: The class Trade deals with the trading that the user (Mario) does. 
+
+4. <<abstract>> ToadAction
+Description: The class contains all the attributes/methods that all instances of type Toad should have. The class ToadAction inherits from the abstract class Action as there are methods that every actors can do.
