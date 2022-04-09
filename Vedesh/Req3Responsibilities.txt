@@ -1,0 +1,7 @@
+Class description for Requirement 3: Enemies
+
+1. <<abstract>> Enemy: 
+Description: The abstract enemy class has all the attributes and methods that are common for all types of enemies (i.e Goomba and Koopa)
+
+2. Koopa: 
+Description: The Class Koopa represents the enemy of type Koopa. It contains attributes/methods that are inherited from the class Enemy as well as methods/attributes specific to its class
