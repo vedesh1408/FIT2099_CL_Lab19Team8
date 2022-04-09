@@ -1,0 +1,18 @@
+Class Descriptions for Requirement 5: Trading
+
+Class: Toad
+Description: Toad is a friendly NPC actor that mario can interact with. This class will contain Toad's
+core information and functionality.
+
+Class: <<abstract>> ToadAction
+Description: The ToadAction class will contain the various interactions Toad can have with Mario, namely
+speaking with him, or trading with him.
+
+Class: Trade
+Description: The trade class will cause a text-based interaction with Mario, upon which mario can 
+purchase items from Toad.
+
+Class: Coin
+Description: To purchase items from Toad, Mario needs to collect and trade coins for the items. These coins
+are objects that can be found while playing the game, and when picked up by Mario the object will be removed,
+and the value of the coin will be added to Mario's wallet.
