@@ -1,4 +1,4 @@
-Class Descriptions for Requirement 1: Let it grow!
+Class Descriptions for Requirement 1: Let It Grow!
 
 Class: <<abstract>> Tree
 Description: The original tree class is modified to be abstract, and it will contain all of the common 
