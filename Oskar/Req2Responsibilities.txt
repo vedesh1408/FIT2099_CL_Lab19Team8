@@ -1,0 +1,8 @@
+Class: LowGround (abstract)
+This class is responsible for ensuring Floor and Dirt have similar characteristics that define them as ‘low ground’ for the game. This could include that they can be moved down to from higher grounds.
+
+Class: HighGround (abstract)
+This class is responsible for ensuring Wall and Tree have similar characteristics that define them as ‘high ground’ for the game. This may mean that they can be jumped to and sit higher than the lower grounds.
+
+Class: JumpActorAction (abstract)
+This class is responsible for the ‘jump’ movement that the player can do to move from low ground to high ground. it changes the location of the player and is a unique action to the player only. Enemies cannot access this action.

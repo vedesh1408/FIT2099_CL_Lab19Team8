@@ -1,0 +1,10 @@
+Class: MagicalItem (abstract)
+This is the parent class for all magical items. It is inherited from Item and is responsible for defining methods and attributes that are shared by both magical items SuperMushroom and PowerStar. It also has a capability set.
+
+Class: SuperMushroom
+This class is responsible for the item SuperMushroom that the actor can pick up and consume. This defines unique characteristics and dependencies with other classes that are affected by the super mushroom.
+
+
+Class: PowerStar
+This class is responsible for the item PowerStar that the actor can pick up and consume. This defines unique characteristics and dependencies with other classes that are affected by the power star.
+
