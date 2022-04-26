@@ -23,6 +23,12 @@ public class JumpActorAction extends Action {
 
     }
 
+    @Override
+	public String execute(Actor actor, GameMap map) {
+		map.moveActor(actor, moveToLocation);
+		return menuDescription(actor);
+    }
+
     /**
 	 * Returns a description of this movement suitable to display in the menu.
 	 *
@@ -42,4 +48,5 @@ public class JumpActorAction extends Action {
 	@Override
 	public String hotkey() {
 		return hotKey;
+    }
 }
