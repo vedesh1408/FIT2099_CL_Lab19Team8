@@ -112,9 +112,11 @@ public class World {
 	 * @param actor the Actor whose turn it is.
 	 */
 	protected void processActorTurn(Actor actor) {
+		// Finds the game map the actor is currently in using locationOf.
 		Location here = actorLocations.locationOf(actor);
 		GameMap map = here.map();
 
+		// Looping through all the items the actor carries and checks what actions the actor can do with them.
 		ActionList actions = new ActionList();
 		for (Item item : actor.getInventory()) {
 			actions.add(item.getAllowableActions());
