@@ -1,4 +1,4 @@
-package edu.monash.fit2099.engine.magicalitems;
+package edu.monash.fit2099.game.magicalitems;
 
 public class SuperMushroom extends MagicalItem {
     

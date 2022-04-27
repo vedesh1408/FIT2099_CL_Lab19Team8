@@ -25,13 +25,6 @@ public abstract class Ground implements Capable, Printable {
 		this.displayChar = displayChar;
 	}
 
-	/**
-	 * Constructor.
-	 */
-	public Ground() {
-
-	}
-
 	@Override
 	public char getDisplayChar() {
 		return displayChar;
