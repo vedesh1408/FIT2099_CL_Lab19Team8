@@ -55,5 +55,6 @@ public class JumpActorAction extends Action {
 
 	public boolean isSuccessful(Location location){
 		// used to check if jump is successful
+		return true;
 	}
 }
