@@ -52,6 +52,7 @@ public class Application {
 			// FIXME: the Goomba should be generated from the Tree
 			gameMap.at(35, 10).addActor(new Goomba());
 
+			// Added power star and super mushroom to the game map at locations close to the actor
 			gameMap.at(41, 10).addItem(new PowerStar());
 
 			gameMap.at(43, 10).addItem(new SuperMushroom());

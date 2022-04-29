@@ -7,3 +7,4 @@ public class PowerStar extends MagicalItem {
     }
 
 }
+
