@@ -20,7 +20,7 @@ public class Koopa extends Actor{
         this.behaviours.put(15, new WanderBehaviour()); // need to confirm this
     }
     /**
-     * At the moment, we only make it can be attacked by Player.
+     * At the moment, we only make it be attacked by Player.
      * You can do something else with this method.
      * @param otherActor the Actor that might perform an action.
      * @param direction  String representing the direction of the other Actor
@@ -34,6 +34,7 @@ public class Koopa extends Actor{
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
         if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this,direction));
+            // method that allows the koopa to attack the player back
         }
         return actions;
     }
@@ -46,4 +47,5 @@ public class Koopa extends Actor{
         }
         return new DoNothingAction();
     }
+
 }
