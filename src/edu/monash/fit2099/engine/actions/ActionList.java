@@ -30,7 +30,6 @@ public class ActionList implements Iterable<Action> {
 		add(action);
 	}
 
-
 	/**
 	 * Appends the contents of another Actions list to this one.
 	 *

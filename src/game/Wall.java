@@ -5,8 +5,11 @@ import edu.monash.fit2099.engine.positions.Ground;
 
 public class Wall extends Ground {
 
+	double jumpRate;
+
 	public Wall() {
 		super('#');
+		this.jumpRate = 0.8;
 	}
 	
 	@Override
