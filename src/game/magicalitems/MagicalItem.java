@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class MagicalItem extends Item {
     boolean consumable;
-	ActionList allowableActions;
+	ActionList allowableActions = new ActionList();
 
     public MagicalItem(String name, char displayChar, boolean portable, boolean consumable){
         super(name, displayChar, portable);
@@ -30,6 +30,8 @@ public abstract class MagicalItem extends Item {
 		return null;
 	}
 
+
+	//TODO Make this work somehow
 	/**
 	 * Getter.
 	 *
@@ -37,11 +39,10 @@ public abstract class MagicalItem extends Item {
 	 * be able to change what this Item can do without the Item checking.
 	 * @return an unmodifiable list of Actions
 	 */
-	// @Override
-	// public List<Action> getAllowableActions() {
-	// 	this.addAction(new ConsumeItemAction(this));
-	// 	this.addAction(new PickUpItemAction(this));
-	// 	return allowableActions.getUnmodifiableActionList();
-	// }
+	@Override
+	public List<Action> getAllowableActions() {
+		this.addAction(new ConsumeItemAction(this));
+		return allowableActions.getUnmodifiableActionList();
+	}
 
 }

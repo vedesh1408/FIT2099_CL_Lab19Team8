@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.*;
 
 /**
- * Action to allow items to be picked up.
+ * Action to allow items to be consumed.
  */
 public class ConsumeItemAction extends Action {
 
