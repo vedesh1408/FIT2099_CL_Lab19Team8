@@ -20,6 +20,7 @@ public class Goomba extends Actor {
 	 * Constructor.
 	 */
 	public Goomba() {
+		// changed hitpoint to  20
 		super("Goomba", 'g', 20);
 		this.behaviours.put(10, new WanderBehaviour());
 	}

@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class Koopa extends Actor{
     private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
-    //constructor
+    //constructor for koopa
     public Koopa() {
         super("Koopa", 'k', 100);
         this.behaviours.put(15, new WanderBehaviour()); // need to confirm this
