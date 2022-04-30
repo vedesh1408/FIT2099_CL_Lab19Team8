@@ -32,7 +32,6 @@ public class Goomba extends Actor {
 	 */
 	protected FollowBehaviour followBehaviour;
 
-	private Location initialLocation;
 	/**
 	 * Constructor.
 	 */
@@ -65,8 +64,10 @@ public class Goomba extends Actor {
 			actions.add(new AttackAction(this,direction));
 		}
 		// attack player
-		if (this.hasCapability(Status.HOSTILE_TO_PLAYER)){
-			actions.add(new AttackAction(otherActor,direction));
+		if (rand.nextInt(100)<=50 ) {
+			if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
+				actions.add(new AttackAction(otherActor, direction));
+			}
 		}
 		//follow player
 		if (followBehaviour == null){
