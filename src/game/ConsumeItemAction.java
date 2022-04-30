@@ -22,7 +22,7 @@ public class ConsumeItemAction extends Action {
 	}
 
 	/**
-	 * Add the item to the actor's inventory.
+	 * Consume the item from the actor's inventory.
 	 *
 	 * @see Action#execute(Actor, GameMap)
 	 * @param actor The actor performing the action.
@@ -31,7 +31,7 @@ public class ConsumeItemAction extends Action {
 	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		actor.removeItemFromInventory(item);
+		map.locationOf(actor).removeItem(item);
 		return menuDescription(actor);
 	}
 
@@ -40,7 +40,7 @@ public class ConsumeItemAction extends Action {
 	 *
 	 * @see Action#menuDescription(Actor)
 	 * @param actor The actor performing the action.
-	 * @return a string, e.g. "Player picks up the rock"
+	 * @return a string, e.g. "Player consumes the juice"
 	 */
 	@Override
 	public String menuDescription(Actor actor) {
