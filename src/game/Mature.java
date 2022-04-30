@@ -16,6 +16,7 @@ public class Mature extends Tree {
     public void tick(Location location) {
         super.treeLifetime++;
         // every 5 turns call grow sprout method
+        if (super.treeLifetime%5==0) { growSprout(); }
         // every turn call wither function, spawn enemy function
         spawn();
         wither();
