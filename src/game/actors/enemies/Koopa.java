@@ -5,23 +5,34 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.AttackAction;
+import game.behaviours.AttackBehaviour;
+import game.behaviours.FollowBehaviour;
 import game.interfaces.Behaviour;
 import game.enums.Status;
 import game.behaviours.WanderBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * A turtle guy
  */
 public class Koopa extends Actor{
     private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
+    private Random rand = new Random();
+    protected FollowBehaviour followBehaviour;
     //constructor for koopa
     public Koopa() {
         super("Koopa", 'k', 100);
-        this.behaviours.put(15, new WanderBehaviour()); // need to confirm this
+        this.behaviours.put(15, new WanderBehaviour());
+        this.hasCapability(Status.HOSTILE_TO_PLAYER);
+        this.behaviours.put(2,new AttackBehaviour());
+    }
+    public IntrinsicWeapon getIntrinsicWeapon(){
+        return new IntrinsicWeapon(30, "punches");
     }
     /**
      * At the moment, we only make it be attacked by Player.
@@ -40,14 +51,24 @@ public class Koopa extends Actor{
             actions.add(new AttackAction(this,direction));
         }
         // attack player
+        if (rand.nextInt(100) <= 50){
+            if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
+                actions.add(new AttackAction(otherActor, direction));
+            }
+        }
 
+        //follow player
+        if (followBehaviour == null){
+            followBehaviour = new FollowBehaviour(otherActor);
+            this.behaviours.put(2,followBehaviour);
+        }
         return actions;
     }
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 
-        if (!this.isConscious()){
-
+        if (this.hasCapability(Status.DORMANT)){
+            return new DoNothingAction();
         }
         for(Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
