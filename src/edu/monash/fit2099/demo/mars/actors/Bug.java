@@ -20,7 +20,7 @@ public class Bug extends Actor {
 	public Bug() {
 		super("Feature", 'x', 1);
 	}
-	
+
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		for (Behaviour behaviour : behaviours) {
@@ -28,7 +28,7 @@ public class Bug extends Actor {
 			if(action != null)
 				return action;
 		}
-		
+
 		return actions.get(rand.nextInt(actions.size()));
 	}
 

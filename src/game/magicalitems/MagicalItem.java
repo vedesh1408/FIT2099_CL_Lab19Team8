@@ -1,7 +1,5 @@
 package game.magicalitems;
 
-import edu.monash.fit2099.engine.items.DropItemAction;
-import edu.monash.fit2099.engine.items.PickUpItemAction;
 import edu.monash.fit2099.engine.items.Item;
 import game.ConsumeItemAction;
 import edu.monash.fit2099.engine.actions.*;

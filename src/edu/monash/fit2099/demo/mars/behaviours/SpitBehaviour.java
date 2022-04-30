@@ -20,7 +20,7 @@ public class SpitBehaviour extends Action implements Behaviour {
 		return actor + " spits a horrible green slime at " + target + "." + System.lineSeparator()+
 				"It's gross, but harmless.";
 	}
-	
+
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
 		Location here = map.locationOf(actor);
