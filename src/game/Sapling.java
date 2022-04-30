@@ -15,13 +15,22 @@ public class Sapling extends Tree implements Growable {
 
     @Override
     public void tick(Location location) {
-        // increment manual timer to track 10 turns to grow
+        super.treeLifetime++;
         // check if 10 turns have passed, if so call growable function
         // call spawn coin function
+        spawn();
     }
 
-    // Implement growable function from interface
+    // Implement growable function, check timer,
+    @Override
+    public void grow() {
+
+    }
 
     // Method to spawn coin
+    @Override
+    public void spawn() {
+        super.spawn();
         // 10% chance to actually spawn the coin
+    }
 }

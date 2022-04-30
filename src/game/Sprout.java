@@ -5,27 +5,35 @@ import game.interfaces.Growable;
 
 public class Sprout extends Tree implements Growable {
 
-    // Timer attribute MOVE TO TREE
-
-
     /**
      * Constructor.
      *
      */
     public Sprout() {
         super('+');
-        // start timer from 0 MOVE TO TREE
     }
 
     @Override
     public void tick(Location location) {
-        // increment manual timer to track 10 turns to grow
+        super.treeLifetime++;
         // check if 10 turns have passed, if so call growable function
+        if (super.treeLifetime==10) { grow(); }
+        spawn();
     }
 
     // Implement growable function, check timer,
+    @Override
+    public void grow() {
 
-    // chance to Spawn enemy
-        // actor on ground
-        // Stops spawning ability
+    }
+
+    // Chance to Spawn enemy
+    @Override
+    public void spawn() {
+        super.spawn();
+
+        // if actor on ground
+            // Stops spawning ability
+        // 10% chance to actually spawn goomba
+    }
 }
