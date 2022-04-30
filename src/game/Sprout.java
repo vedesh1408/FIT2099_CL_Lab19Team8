@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.positions.Location;
+import game.actors.enemies.Goomba;
 import game.interfaces.Growable;
 
 public class Sprout extends Tree implements Growable {
@@ -18,7 +19,7 @@ public class Sprout extends Tree implements Growable {
         super.treeLifetime++;
         // check if 10 turns have passed, if so call growable function
         if (super.treeLifetime==10) { grow(); }
-        spawn();
+        spawn(location);
     }
 
     // Implement growable function, check timer,
@@ -27,13 +28,18 @@ public class Sprout extends Tree implements Growable {
 
     }
 
-    // Chance to Spawn enemy
+    // Chance to Spawn enemy Goomba
     @Override
-    public void spawn() {
-        super.spawn();
+    public void spawn(Location location) {
+        super.spawn(location);
 
-        // if actor on ground
-            // Stops spawning ability
-        // 10% chance to actually spawn goomba
+        // If there is an actor here, stops Goomba spawning ability
+        if (!location.containsAnActor()) {
+            // 10% chance to actually spawn Goomba
+            if (Utils.ranNum(10)==1) {
+                // Spawn Goomba
+                location.addActor(new Goomba());
+            }
+        }
     }
 }

@@ -4,8 +4,6 @@ import edu.monash.fit2099.engine.actors.*;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.positions.GameMap;
 
-import java.util.Random;
-
 
 public class SpeakAction extends Action {
 
@@ -21,8 +19,7 @@ public class SpeakAction extends Action {
         String line2 = "You better get back to finding the Power Stars.";
         String line3 = "The Princess is depending on you! You are our only hope.";
         String line4 = "Being imprisoned in these walls can drive a fungus crazy :(";
-        Random rand = new Random();
-        int choice = rand.nextInt(4) + 1;
+        int choice = Utils.ranNum(4) + 1;
         if (choice == 1){
             return line1;
         }

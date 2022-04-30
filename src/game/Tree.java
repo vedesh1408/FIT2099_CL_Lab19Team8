@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.positions.Ground;
+import edu.monash.fit2099.engine.positions.Location;
 
 public abstract class Tree extends Ground {
 
@@ -17,6 +18,6 @@ public abstract class Tree extends Ground {
     }
 
     // Spawning function to be overridden, used by all tree sub-types
-    public void spawn() {}
+    public void spawn(Location location) {}
 
 }

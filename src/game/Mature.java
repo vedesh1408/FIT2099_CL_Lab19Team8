@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.positions.Location;
+import game.actors.enemies.Koopa;
 
 public class Mature extends Tree {
 
@@ -18,7 +19,7 @@ public class Mature extends Tree {
         // every 5 turns call grow sprout method
         if (super.treeLifetime%5==0) { growSprout(); }
         // every turn call wither function, spawn enemy function
-        spawn();
+        spawn(location);
         wither();
     }
 
@@ -32,13 +33,18 @@ public class Mature extends Tree {
 
     }
 
-    // Chance to Spawn enemy
+    // Chance to Spawn enemy Koopa
     @Override
-    public void spawn() {
-        super.spawn();
+    public void spawn(Location location) {
+        super.spawn(location);
 
-        // if actor on ground
-            // Stops spawning ability
-        // 15% chance to actually spawn the koopa
+        // if actor on ground, stops Koopa spawning ability
+        if (!location.containsAnActor()) {
+            // 15% chance to actually spawn the koopa
+            if (Utils.ranNum(100)<=15) {
+                // Spawn Koopa
+                location.addActor(new Koopa());
+            }
+        }
     }
 }

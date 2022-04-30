@@ -19,7 +19,7 @@ public class Sapling extends Tree implements Growable {
         // check if 10 turns have passed, if so call growable function
         if (super.treeLifetime==10) { grow(); }
         // call spawn coin function
-        spawn();
+        spawn(location);
     }
 
     // Implement growable function, check timer,
@@ -30,8 +30,8 @@ public class Sapling extends Tree implements Growable {
 
     // Method to spawn coin
     @Override
-    public void spawn() {
-        super.spawn();
+    public void spawn(Location location) {
+        super.spawn(location);
         // 10% chance to actually spawn the coin
     }
 }
