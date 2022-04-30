@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import edu.monash.fit2099.engine.weapons.Weapon;
 
 /**
@@ -38,7 +39,6 @@ public class AttackAction extends Action {
 		this.target = target;
 		this.direction = direction;
 	}
-
 	@Override
 	public String execute(Actor actor, GameMap map) {
 

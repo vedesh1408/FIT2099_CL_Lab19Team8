@@ -7,10 +7,11 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.AttackAction;
 import game.KilledAction;
 import game.interfaces.Behaviour;
-import game.Status;
+import game.enums.Status;
 import game.behaviours.WanderBehaviour;
 
 import java.util.HashMap;
@@ -30,6 +31,11 @@ public class Goomba extends Actor {
 		// changed hit point to 20
 		super("Goomba", 'g', 20);
 		this.behaviours.put(10, new WanderBehaviour());
+		this.hasCapability(Status.HOSTILE_TO_PLAYER);
+	}
+	@Override
+	public IntrinsicWeapon getIntrinsicWeapon(){
+		return new IntrinsicWeapon(10, "kicks");
 	}
 
 	/**
@@ -48,8 +54,11 @@ public class Goomba extends Actor {
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
 			actions.add(new AttackAction(this,direction));
 		}
+		// attack player
+		if (this.hasCapability(Status.HOSTILE_TO_PLAYER)){
+			actions.add(new AttackAction(otherActor,direction));
+		}
 		return actions;
-
 	}
 
 	/**

@@ -6,9 +6,8 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.AttackAction;
-import game.KilledAction;
 import game.interfaces.Behaviour;
-import game.Status;
+import game.enums.Status;
 import game.behaviours.WanderBehaviour;
 
 import java.util.HashMap;
@@ -39,8 +38,9 @@ public class Koopa extends Actor{
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
         if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this,direction));
-            // method that allows the koopa to attack the player back
         }
+        // attack player
+
         return actions;
     }
     @Override
