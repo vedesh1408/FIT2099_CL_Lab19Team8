@@ -7,9 +7,12 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.AttackAction;
 import game.KilledAction;
+import game.behaviours.AttackBehaviour;
+import game.behaviours.FollowBehaviour;
 import game.interfaces.Behaviour;
 import game.enums.Status;
 import game.behaviours.WanderBehaviour;
@@ -25,6 +28,12 @@ public class Goomba extends Actor {
 	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 	private Random rand = new Random();
 	/**
+	 * Enemy has a follow behaviour to follow the player.
+	 */
+	protected FollowBehaviour followBehaviour;
+
+	private Location initialLocation;
+	/**
 	 * Constructor.
 	 */
 	public Goomba() {
@@ -32,6 +41,7 @@ public class Goomba extends Actor {
 		super("Goomba", 'g', 20);
 		this.behaviours.put(10, new WanderBehaviour());
 		this.hasCapability(Status.HOSTILE_TO_PLAYER);
+		this.behaviours.put(1,new AttackBehaviour());
 	}
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon(){
@@ -57,6 +67,11 @@ public class Goomba extends Actor {
 		// attack player
 		if (this.hasCapability(Status.HOSTILE_TO_PLAYER)){
 			actions.add(new AttackAction(otherActor,direction));
+		}
+		//follow player
+		if (followBehaviour == null){
+			followBehaviour = new FollowBehaviour(otherActor);
+			this.behaviours.put(1,followBehaviour);
 		}
 		return actions;
 	}
