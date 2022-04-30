@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.AttackAction;
+import game.KilledAction;
 import game.interfaces.Behaviour;
 import game.Status;
 import game.behaviours.WanderBehaviour;
@@ -44,6 +45,10 @@ public class Koopa extends Actor{
     }
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+
+        if (!this.isConscious()){
+
+        }
         for(Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)

@@ -8,18 +8,21 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.AttackAction;
+import game.KilledAction;
 import game.interfaces.Behaviour;
 import game.Status;
 import game.behaviours.WanderBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
+
 /**
  * A little fungus guy.
  */
 public class Goomba extends Actor {
 	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
-
+	private Random rand = new Random();
 	/**
 	 * Constructor.
 	 */
@@ -55,6 +58,14 @@ public class Goomba extends Actor {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+		// 10% change from being removed from map
+		if (rand.nextInt(100)<=10){
+			return new KilledAction();
+		}
+		//determine if killed
+		if (!this.isConscious()){
+			return new KilledAction();
+		}
 		for(Behaviour Behaviour : behaviours.values()) {
 			Action action = Behaviour.getAction(this, map);
 			if (action != null)
