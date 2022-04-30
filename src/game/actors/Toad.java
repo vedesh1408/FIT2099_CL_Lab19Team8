@@ -1,9 +1,10 @@
-package game;
+package game.actors;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.actions.*;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Display;
+import game.SpeakAction;
 
 
 public class Toad extends Actor {
