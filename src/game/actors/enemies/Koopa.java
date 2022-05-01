@@ -28,8 +28,7 @@ public class Koopa extends Actor{
     protected FollowBehaviour followBehaviour;
     //constructor for koopa
     public Koopa() {
-        super("Koopa", 'k', 14
-                );
+        super("Koopa", 'K', 10);
         this.behaviours.put(15, new WanderBehaviour());
         this.hasCapability(Status.HOSTILE_TO_PLAYER);
         this.behaviours.put(2,new AttackBehaviour());
