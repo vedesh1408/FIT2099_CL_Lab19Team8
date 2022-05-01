@@ -18,15 +18,15 @@ public class Sprout extends Tree implements Growable {
     public void tick(Location location) {
         super.treeLifetime++;
         // check if 10 turns have passed, if so call growable function
-        if (super.treeLifetime==10) { grow(); }
+        if (super.treeLifetime==10) { grow(location); }
         // every turn call spawn enemy goomba function
         spawn(location);
     }
 
-    // Implement growable function, check timer,
+    // Implement growable function
     @Override
-    public void grow() {
-
+    public void grow(Location location) {
+        location.setGround(new Sapling());
     }
 
     // Chance to Spawn enemy Goomba

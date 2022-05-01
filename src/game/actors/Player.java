@@ -14,6 +14,7 @@ import game.enums.Status;
 public class Player extends Actor  {
 
 	private final Menu menu = new Menu();
+	private Integer wallet;
 
 	/**
 	 * Constructor.
@@ -25,6 +26,7 @@ public class Player extends Actor  {
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
+		wallet = 0;
 	}
 
 	@Override
@@ -42,4 +44,8 @@ public class Player extends Actor  {
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
 	}
+
+	public void changeWallet(Integer amount) { wallet += amount; }
+
+	public Integer getWallet() { return wallet; }
 }
