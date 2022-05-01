@@ -32,7 +32,10 @@ public class CollectCoinAction extends Action {
 	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		// add coin value to player wallet (upcasts player to actor to call the changeWallet method)
+		// Add coin value to player wallet (type-cast player to actor to call the changeWallet method)
+		// This use of instanceof would be avoidable by using polymorphism, that is, by declaring the wallet methods
+		// in the parent class Actor, however, we are forbidden from modifying the engine, so this is the alternative.
+		// Essentially we tell the program that the player is a type of actor so that it can accept the child class's method call changeWallet()
 		if (actor instanceof Player) ((Player)actor).changeWallet(coin.getValue());
 		map.locationOf(actor).removeItem(coin);
 		return menuDescription(actor);
