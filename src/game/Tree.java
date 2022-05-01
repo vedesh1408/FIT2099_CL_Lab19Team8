@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.positions.Location;
 public abstract class Tree extends Ground {
 
     // Integer to track tree's lifetime, used by all tree sub-types, and incremented in tick function.
-    Integer treeLifetime;
+    protected Integer treeLifetime;
 
     /**
      * Constructor.;

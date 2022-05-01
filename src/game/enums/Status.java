@@ -11,4 +11,5 @@ public enum Status {
     HOSTILE_TO_PLAYER,
     KILL_KOOPA,
     DEAD,
+    FERTILE, // used to indicate this ground is dirt and can grow a new sprout
 }

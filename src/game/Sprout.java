@@ -19,6 +19,7 @@ public class Sprout extends Tree implements Growable {
         super.treeLifetime++;
         // check if 10 turns have passed, if so call growable function
         if (super.treeLifetime==10) { grow(); }
+        // every turn call spawn enemy goomba function
         spawn(location);
     }
 
@@ -32,7 +33,6 @@ public class Sprout extends Tree implements Growable {
     @Override
     public void spawn(Location location) {
         super.spawn(location);
-
         // If there is an actor here, stops Goomba spawning ability
         if (!location.containsAnActor()) {
             // 10% chance to actually spawn Goomba
