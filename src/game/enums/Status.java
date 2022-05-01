@@ -9,4 +9,6 @@ public enum Status {
     TALL, // use this status to tell that current instance has "grown".
     DORMANT, // use this to indicate that koopa is dormant
     HOSTILE_TO_PLAYER,
+    KILL_KOOPA,
+    DEAD,
 }

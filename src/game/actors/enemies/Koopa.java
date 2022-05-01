@@ -7,11 +7,13 @@ import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.AttackAction;
+import game.KilledAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.FollowBehaviour;
 import game.interfaces.Behaviour;
 import game.enums.Status;
 import game.behaviours.WanderBehaviour;
+import game.magicalitems.SuperMushroom;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +28,7 @@ public class Koopa extends Actor{
     protected FollowBehaviour followBehaviour;
     //constructor for koopa
     public Koopa() {
-        super("Koopa", 'k', 100);
+        super("Koopa", 'k', 10);
         this.behaviours.put(15, new WanderBehaviour());
         this.hasCapability(Status.HOSTILE_TO_PLAYER);
         this.behaviours.put(2,new AttackBehaviour());
@@ -50,13 +52,16 @@ public class Koopa extends Actor{
         if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this,direction));
         }
+        //Actor kill dormant koopa
+//        if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && otherActor.getWeapon().){
+//                this.addCapability(Status.DEAD);
+//        }
         // attack player
         if (rand.nextInt(100) <= 50){
             if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
                 actions.add(new AttackAction(otherActor, direction));
             }
         }
-
         //follow player
         if (followBehaviour == null){
             followBehaviour = new FollowBehaviour(otherActor);
@@ -66,7 +71,17 @@ public class Koopa extends Actor{
     }
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-
+        //make koopa dormant
+        if (!this.isConscious()){
+            this.addCapability(Status.DORMANT);
+            this.setDisplayChar('D');
+        }
+        if (this.hasCapability(Status.DEAD)){
+            //create new super mushroom
+            map.at(map.locationOf(this).x(),map.locationOf(this).y()).addItem(new SuperMushroom());
+            //remove koopa from map
+            return new KilledAction();
+        }
         if (this.hasCapability(Status.DORMANT)){
             return new DoNothingAction();
         }
@@ -75,6 +90,7 @@ public class Koopa extends Actor{
             if (action != null)
                 return action;
         }
+
         return new DoNothingAction();
     }
 
