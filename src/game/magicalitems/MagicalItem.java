@@ -1,7 +1,7 @@
 package game.magicalitems;
 
 import edu.monash.fit2099.engine.items.Item;
-import game.ConsumeItemAction;
+import game.implementedActions.ConsumeItemAction;
 import edu.monash.fit2099.engine.actions.*;
 
 import java.util.List;

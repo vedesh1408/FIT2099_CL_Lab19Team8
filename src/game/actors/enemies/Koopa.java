@@ -49,18 +49,22 @@ public class Koopa extends Actor{
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-        if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.DORMANT))) {
+        if((otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) && !(this.hasCapability(Status.DORMANT))) {
             actions.add(new AttackAction(this,direction));
         }
 
         //Actor kill dormant koopa
-//        if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && otherActor.getWeapon().){
-//                this.addCapability(Status.DEAD);
-//        }
+        if (this.hasCapability(Status.DORMANT) && otherActor.hasCapability(Status.HAS_WRENCH)){
+                actions.add(new KilledAction(this));
+        }
         // attack player
         if (rand.nextInt(100) <= 50){
             if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
-                actions.add(new AttackAction(otherActor, direction));
+                if (otherActor.hasCapability(Status.TALL)){
+                    otherActor.removeCapability(Status.TALL);
+                }else{
+                    actions.add(new AttackAction(otherActor, direction));
+                }
             }
         }
         //follow player
@@ -78,12 +82,6 @@ public class Koopa extends Actor{
             this.setDisplayChar('D');
         }
 
-        if (this.hasCapability(Status.DEAD)){
-            //create new super mushroom
-            map.at(map.locationOf(this).x(),map.locationOf(this).y()).addItem(new SuperMushroom());
-            //remove koopa from map
-            return new KilledAction();
-        }
         if (this.hasCapability(Status.DORMANT)){
             return new DoNothingAction();
         }

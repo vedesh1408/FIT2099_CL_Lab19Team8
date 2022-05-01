@@ -35,7 +35,7 @@ public class Goomba extends Actor {
 	 * Constructor.
 	 */
 	public Goomba() {
-		super("Goomba", 'g', 20);
+		super("Goomba", 'g', 10);
 		this.behaviours.put(10, new WanderBehaviour());
 		this.hasCapability(Status.HOSTILE_TO_PLAYER);
 		this.behaviours.put(1,new AttackBehaviour());
@@ -83,11 +83,11 @@ public class Goomba extends Actor {
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		// 10% change from being removed from map
 		if (rand.nextInt(100)<=10){
-			return new KilledAction();
+			return new KilledAction(this);
 		}
 		//determine if killed
 		if (!this.isConscious()){
-			return new KilledAction();
+			return new KilledAction(this);
 		}
 		for(Behaviour Behaviour : behaviours.values()) {
 			Action action = Behaviour.getAction(this, map);

@@ -10,6 +10,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 import game.actors.Player;
 import game.actors.Toad;
+import game.actors.enemies.Goomba;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.implemetedItems.Wrench;
@@ -52,7 +53,12 @@ public class Application {
 			world.addGameMap(gameMap);
 
 			Actor mario = new Player("Player", 'm', 100);
-			world.addPlayer(mario, gameMap.at(41, 10));
+			mario.addCapability(Status.HAS_WRENCH);
+			world.addPlayer(mario, gameMap.at(29, 10));
+			//gameMap.at(28,10).addActor(new Goomba());
+			Koopa koopa = new Koopa();
+			koopa.addCapability(Status.DORMANT);
+			gameMap.at(28,10).addActor(koopa);
 			mario.addItemToInventory(new PowerStar());
 			gameMap.at(30,9).addActor(new Koopa());
 			// Spawning some (10) trees randomly (left a couple manual trees in around the safezone)

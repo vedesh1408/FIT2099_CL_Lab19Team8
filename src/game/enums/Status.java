@@ -12,4 +12,5 @@ public enum Status {
     KILL_KOOPA,
     DEAD,
     FERTILE, // used to indicate this ground is dirt and can grow a new sprout
+    HAS_WRENCH,
 }

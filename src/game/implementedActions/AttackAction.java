@@ -52,6 +52,7 @@ public class AttackAction extends Action {
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 		target.hurt(damage);
+
 		if (!target.isConscious()) {
 			ActionList dropActions = new ActionList();
 			// drop all items
@@ -59,11 +60,6 @@ public class AttackAction extends Action {
 				dropActions.add(item.getDropAction(actor));
 			for (Action drop : dropActions)
 				drop.execute(target, map);
-//			// remove actor
-//			if (!actor.hasCapability(Status.DORMANT)) {
-//				map.removeActor(target);
-//				result += System.lineSeparator() + target + " is killed.";
-//			}
 		}
 
 		return result;
