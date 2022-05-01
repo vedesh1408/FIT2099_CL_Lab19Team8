@@ -5,7 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.AttackAction;
+import game.implementedActions.AttackAction;
 import game.interfaces.Behaviour;
 import game.enums.Status;
 

@@ -1,6 +1,7 @@
-package game;
+package game.implemetedItems;
 
 import edu.monash.fit2099.engine.items.Item;
+import game.implementedActions.CollectCoinAction;
 
 public class Coin extends Item {
 

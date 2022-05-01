@@ -1,9 +1,10 @@
-package game;
+package game.implementedActions;
 
 import edu.monash.fit2099.engine.actors.*;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.Utils;
 import game.magicalitems.SuperMushroom;
 
 
@@ -50,7 +51,7 @@ public class SpeakAction extends Action {
                 };
             }
         }
-        return null;
+        return "Being imprisoned in these walls can drive a fungus crazy :(";
     }
 
         @Override
