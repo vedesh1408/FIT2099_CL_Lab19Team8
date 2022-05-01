@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.Weapon;
 import game.enums.Status;
 
-public class Wrench extends Item implements Weapon {
+public class Wrench extends Item {
 
     public Wrench() {
         super("Wrench", 'w', true);
@@ -13,18 +13,5 @@ public class Wrench extends Item implements Weapon {
 
     }
 
-    @Override
-    public int damage() {
-        return 50;
-    }
 
-    @Override
-    public String verb() {
-        return "destroys";
-    }
-
-    @Override
-    public int chanceToHit() {
-        return 0;
-    }
 }

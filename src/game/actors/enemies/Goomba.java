@@ -36,7 +36,6 @@ public class Goomba extends Actor {
 	 * Constructor.
 	 */
 	public Goomba() {
-		// changed hit point to 20
 		super("Goomba", 'g', 20);
 		this.behaviours.put(10, new WanderBehaviour());
 		this.hasCapability(Status.HOSTILE_TO_PLAYER);

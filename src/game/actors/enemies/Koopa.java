@@ -28,7 +28,8 @@ public class Koopa extends Actor{
     protected FollowBehaviour followBehaviour;
     //constructor for koopa
     public Koopa() {
-        super("Koopa", 'k', 10);
+        super("Koopa", 'k', 14
+                );
         this.behaviours.put(15, new WanderBehaviour());
         this.hasCapability(Status.HOSTILE_TO_PLAYER);
         this.behaviours.put(2,new AttackBehaviour());
@@ -52,6 +53,7 @@ public class Koopa extends Actor{
         if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this,direction));
         }
+
         //Actor kill dormant koopa
 //        if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && otherActor.getWeapon().){
 //                this.addCapability(Status.DEAD);
@@ -71,11 +73,12 @@ public class Koopa extends Actor{
     }
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        //make koopa dormant
+        // make koopa dormant
         if (!this.isConscious()){
             this.addCapability(Status.DORMANT);
             this.setDisplayChar('D');
         }
+
         if (this.hasCapability(Status.DEAD)){
             //create new super mushroom
             map.at(map.locationOf(this).x(),map.locationOf(this).y()).addItem(new SuperMushroom());

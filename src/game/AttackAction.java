@@ -9,6 +9,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import edu.monash.fit2099.engine.weapons.Weapon;
+import game.enums.Status;
 
 /**
  * Special Action for attacking other Actors.
@@ -58,9 +59,11 @@ public class AttackAction extends Action {
 				dropActions.add(item.getDropAction(actor));
 			for (Action drop : dropActions)
 				drop.execute(target, map);
-			// remove actor
-			map.removeActor(target);
-			result += System.lineSeparator() + target + " is killed.";
+//			// remove actor
+//			if (!actor.hasCapability(Status.DORMANT)) {
+//				map.removeActor(target);
+//				result += System.lineSeparator() + target + " is killed.";
+//			}
 		}
 
 		return result;
