@@ -34,7 +34,7 @@ public class Sapling extends Tree implements Growable {
     public void spawn(Location location) {
         super.spawn(location);
         // 10% chance to actually spawn the coin
-        if (Utils.ranNum(10)==1) {
+        if (Utils.ranNum(10)==0) {
             // Spawn Coin
             location.addItem(new Coin(20));
         }

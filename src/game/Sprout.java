@@ -36,7 +36,7 @@ public class Sprout extends Tree implements Growable {
         // If there is an actor here, stops Goomba spawning ability
         if (!location.containsAnActor()) {
             // 10% chance to actually spawn Goomba
-            if (Utils.ranNum(10)==1) {
+            if (Utils.ranNum(10)==0) {
                 // Spawn Goomba
                 location.addActor(new Goomba());
             }

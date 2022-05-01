@@ -54,11 +54,14 @@ public class Application {
 			Actor mario = new Player("Player", 'm', 100);
 			world.addPlayer(mario, gameMap.at(30, 10));
 
-			// Spawning some trees randomly (left a couple manual trees in around the safezone)
-			for (int i = 0; i < 10; i++) {
-				int sproutX = Utils.ranNum(79);
-				int sproutY = Utils.ranNum(18);
+			// Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
+			for (int i = 0; i <= 10; i++) {
+				// Choose a location
+				int sproutX = Utils.ranNum(80);
+				int sproutY = Utils.ranNum(19);
+				// Check if the location is dirt
 				if (gameMap.at(sproutX, sproutY).getGround().hasCapability(Status.FERTILE)) {
+					// If so, change to a new Sprout
 					gameMap.at(sproutX, sproutY).setGround(new Sprout());
 				}
 			}

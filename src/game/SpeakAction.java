@@ -15,24 +15,13 @@ public class SpeakAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        String line1 = "You might need a wrench to smash Koopa's hard shells.";
-        String line2 = "You better get back to finding the Power Stars.";
-        String line3 = "The Princess is depending on you! You are our only hope.";
-        String line4 = "Being imprisoned in these walls can drive a fungus crazy :(";
-        int choice = Utils.ranNum(4) + 1;
-        if (choice == 1){
-            return line1;
-        }
-        else if (choice == 2){
-            return line2;
-        }
-        else if (choice == 3) {
-            return line3;
-        }
-        else {
-            return line4;
-        }
-
+        int choice = Utils.ranNum(4);
+        return switch (choice) {
+            case 0 -> "You might need a wrench to smash Koopa's hard shells.";
+            case 1 -> "You better get back to finding the Power Stars.";
+            case 2 -> "The Princess is depending on you! You are our only hope.";
+            default -> "Being imprisoned in these walls can drive a fungus crazy :(";
+        };
     }
 
     @Override

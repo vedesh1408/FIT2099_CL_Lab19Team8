@@ -30,7 +30,7 @@ public class Mature extends Tree {
     // Method to wither tree into dirt
     public void wither(Location location) {
         // 20% chance to actually wither
-        if (Utils.ranNum(5)==1) {
+        if (Utils.ranNum(5)==0) {
             // Wither tree into dirt
             location.setGround(new Dirt());
         }
@@ -59,7 +59,7 @@ public class Mature extends Tree {
         // if actor on ground, stops Koopa spawning ability
         if (!location.containsAnActor()) {
             // 15% chance to actually spawn the koopa
-            if (Utils.ranNum(100)<=15) {
+            if (Utils.ranNum(20)<3) {
                 // Spawn Koopa
                 location.addActor(new Koopa());
             }
