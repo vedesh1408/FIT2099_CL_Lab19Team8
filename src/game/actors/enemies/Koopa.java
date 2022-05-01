@@ -49,7 +49,7 @@ public class Koopa extends Actor{
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-        if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
+        if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.DORMANT))) {
             actions.add(new AttackAction(this,direction));
         }
 

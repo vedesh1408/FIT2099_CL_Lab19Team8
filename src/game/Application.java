@@ -52,8 +52,8 @@ public class Application {
 			world.addGameMap(gameMap);
 
 			Actor mario = new Player("Player", 'm', 100);
-			world.addPlayer(mario, gameMap.at(41, 10
-			));
+			world.addPlayer(mario, gameMap.at(41, 10));
+
 			gameMap.at(30,9).addActor(new Koopa());
 			// Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
 			for (int i = 0; i <= 10; i++) {
