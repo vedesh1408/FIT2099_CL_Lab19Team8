@@ -36,7 +36,7 @@ public class Sapling extends Tree implements Growable {
         // 10% chance to actually spawn the coin
         if (Utils.ranNum(10)==1) {
             // Spawn Coin
-            //location.addItem(new Coin(20)); UNCOMMENT THIS LINE ONCE COIN CLASS IS DONE
+            location.addItem(new Coin(20));
         }
     }
 }

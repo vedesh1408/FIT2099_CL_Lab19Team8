@@ -31,7 +31,8 @@ public class Player extends Actor  {
 
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		System.out.println(super.printHp());
+		System.out.println("Mario " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
+		System.out.println("wallet: $" + getWallet());
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();

@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.actors.Player;
 
 /**
  * Action to allow coins to be collected.
@@ -22,7 +23,7 @@ public class CollectCoinAction extends Action {
 	}
 
 	/**
-	 * Consume the coin from the actor's inventory.
+	 * Actor collects the coin from the ground.
 	 *
 	 * @see Action#execute(Actor, GameMap)
 	 * @param actor The actor performing the action.
@@ -31,8 +32,9 @@ public class CollectCoinAction extends Action {
 	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		// add coin value to player wallet (upcasts player to actor to call the changeWallet method)
+		if (actor instanceof Player) ((Player)actor).changeWallet(coin.getValue());
 		map.locationOf(actor).removeItem(coin);
-		// need to call method from player to add value to wallet here.
 		return menuDescription(actor);
 	}
 

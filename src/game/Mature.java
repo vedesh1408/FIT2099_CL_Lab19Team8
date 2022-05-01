@@ -39,7 +39,7 @@ public class Mature extends Tree {
     // Method to grow sprout
     public void growSprout(Location location) {
         // Get all possible exits from this tree (ie all nearby squares)
-        List<Exit> myExits = location.getExits();
+        List<Exit> myExits = new ArrayList<>(location.getExits());
         // Randomise order to exits, to make which square tree grows on randomly selected
         Collections.shuffle(myExits);
         for (Exit myExit : myExits) { // replaced basic for loop with java enhanced for loop upon suggestion
