@@ -99,12 +99,8 @@ public class Koopa extends Actor implements Resettable{
     }
 
     @Override
-	public void resetInstance(Location location) {
-		location.map().removeActor(this);
-	}
+	public void resetInstance(Location location) { location.map().removeActor(this); }
 
     @Override
-    public boolean isPermanent() {
-        return false;
-    }
+    public boolean isPermanent() { return false; }
 }

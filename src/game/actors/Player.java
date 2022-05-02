@@ -9,6 +9,7 @@ import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.enums.Status;
 import game.implementedActions.ResetAction;
+import game.implemetedItems.ResetItem;
 import game.interfaces.Resettable;
 
 /**
@@ -33,6 +34,7 @@ public class Player extends Actor implements Resettable {
 		wallet = 0;
 		this.registerInstance();
 		this.hasReset = false;
+		super.addItemToInventory(new ResetItem());
 	}
 
 	@Override
@@ -65,12 +67,12 @@ public class Player extends Actor implements Resettable {
 		this.setDisplayChar('m');
 	}
 
-	@Override
+/*	@Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList list = super.allowableActions(this, direction, map);
         list.add(new ResetAction(this));
         return list;
-    }
+    } */
 
 	@Override
 	public boolean isPermanent() {

@@ -107,7 +107,5 @@ public class Goomba extends Actor implements Resettable {
 	}
 
 	@Override
-    public boolean isPermanent() {
-        return false;
-    }
+    public boolean isPermanent() { return false; }
 }

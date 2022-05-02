@@ -24,7 +24,5 @@ public class Coin extends Item implements Resettable {
     }
 
     @Override
-    public boolean isPermanent() {
-        return false;
-    }
+    public boolean isPermanent() { return false; }
 }
