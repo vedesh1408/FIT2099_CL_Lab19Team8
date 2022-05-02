@@ -16,57 +16,72 @@ import game.enums.Status;
  */
 public class AttackAction extends Action {
 
-	/**
-	 * The Actor that is to be attacked
-	 */
-	protected Actor target;
+    /**
+     * The Actor that is to be attacked
+     */
+    protected Actor target;
 
-	/**
-	 * The direction of incoming attack.
-	 */
-	protected String direction;
+    /**
+     * The direction of incoming attack.
+     */
+    protected String direction;
 
-	/**
-	 * Random number generator
-	 */
-	protected Random rand = new Random();
+    /**
+     * Random number generator
+     */
+    protected Random rand = new Random();
 
-	/**
-	 * Constructor.
-	 * 
-	 * @param target the Actor to attack
-	 */
-	public AttackAction(Actor target, String direction) {
-		this.target = target;
-		this.direction = direction;
-	}
-	@Override
-	public String execute(Actor actor, GameMap map) {
+    /**
+     * Constructor.
+     *
+     * @param target the Actor to attack
+     */
+    public AttackAction(Actor target, String direction) {
+        this.target = target;
+        this.direction = direction;
+    }
 
-		Weapon weapon = actor.getWeapon();
+    /**
+     * Perform an attack action towards the target.
+     *
+     * @param actor The actor performing the action.
+     * @param map   The map the actor is on.
+     * @return a description to show if the attack is successfully performed by an actor
+     * towards his target.
+     */
+    @Override
+    public String execute(Actor actor, GameMap map) {
 
-		if (!(rand.nextInt(100) <= weapon.chanceToHit())) {
-			return actor + " misses " + target + ".";
-		}
+        Weapon weapon = actor.getWeapon();
 
-		int damage = weapon.damage();
-		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-		target.hurt(damage);
+        if (!(rand.nextInt(100) <= weapon.chanceToHit())) {
+            return actor + " misses " + target + ".";
+        }
 
-		if (!target.isConscious()) {
-			ActionList dropActions = new ActionList();
-			// drop all items
-			for (Item item : target.getInventory())
-				dropActions.add(item.getDropAction(actor));
-			for (Action drop : dropActions)
-				drop.execute(target, map);
-		}
+        int damage = weapon.damage();
+        String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
+        target.hurt(damage);
 
-		return result;
-	}
+        if (!target.isConscious()) {
+            ActionList dropActions = new ActionList();
+            // drop all items
+            for (Item item : target.getInventory())
+                dropActions.add(item.getDropAction(actor));
+            for (Action drop : dropActions)
+                drop.execute(target, map);
+        }
 
-	@Override
-	public String menuDescription(Actor actor) {
-		return actor + " attacks " + target + " at " + direction;
-	}
+        return result;
+    }
+
+    /**
+     * Returns a descriptive string about this attack action.
+     *
+     * @param actor The actor performing the action.
+     * @return the text to put on the menu
+     */
+    @Override
+    public String menuDescription(Actor actor) {
+        return actor + " attacks " + target + " at " + direction;
+    }
 }

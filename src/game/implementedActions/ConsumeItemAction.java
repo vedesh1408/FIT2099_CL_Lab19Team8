@@ -11,47 +11,46 @@ import game.enums.Status;
  */
 public class ConsumeItemAction extends Action {
 
-	private Item item;
+    private Item item;
 
-	/**
-	 * Constructor.
-	 *
-	 * @param item the item to consume
-	 */
-	public ConsumeItemAction(Item item) {
-		this.item = item;
-	}
+    /**
+     * Constructor.
+     *
+     * @param item the item to consume
+     */
+    public ConsumeItemAction(Item item) {
+        this.item = item;
+    }
 
-	/**
-	 * Consume the item from the actor's inventory.
-	 *
-	 * @see Action#execute(Actor, GameMap)
-	 * @param actor The actor performing the action.
-	 * @param map The map the actor is on.
-	 * @return a suitable description to display in the UI
-	 */
-	@Override
-	public String execute(Actor actor, GameMap map) {
-		actor.removeItemFromInventory(item);
-		if (item.toString().equals("Super Mushroom")){
-			actor.addCapability(Status.TALL);
-			return actor + " consumes the" + item;
-		}
-		else {
-			actor.addCapability(Status.INVINCIBILITY);
-			return actor + " is INVINCIBLE";
-		}
-	}
+    /**
+     * Consume the item from the actor's inventory.
+     *
+     * @param actor The actor performing the action.
+     * @param map   The map the actor is on.
+     * @return a suitable description to display in the UI
+     * @see Action#execute(Actor, GameMap)
+     */
+    @Override
+    public String execute(Actor actor, GameMap map) {
+        actor.removeItemFromInventory(item);
+        if (item.toString().equals("Super Mushroom")) {
+            actor.addCapability(Status.TALL);
+            return actor + " consumes the" + item;
+        } else {
+            actor.addCapability(Status.INVINCIBILITY);
+            return actor + " is INVINCIBLE";
+        }
+    }
 
-	/**
-	 * Describe the action in a format suitable for displaying in the menu.
-	 *
-	 * @see Action#menuDescription(Actor)
-	 * @param actor The actor performing the action.
-	 * @return a string, e.g. "Player consumes the juice"
-	 */
-	@Override
-	public String menuDescription(Actor actor) {
-		return actor + " consumes the " + item;
-	}
+    /**
+     * Describe the action in a format suitable for displaying in the menu.
+     *
+     * @param actor The actor performing the action.
+     * @return a string, e.g. " Player consumes the juice "
+     * @see Action#menuDescription(Actor)
+     */
+    @Override
+    public String menuDescription(Actor actor) {
+        return actor + " consumes the " + item;
+    }
 }

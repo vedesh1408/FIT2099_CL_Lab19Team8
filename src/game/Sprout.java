@@ -11,42 +11,65 @@ public class Sprout extends Tree implements Growable {
 
     /**
      * Constructor.
-     *
      */
     public Sprout() {
         super('+');
         this.registerInstance();
     }
 
+    /**
+     * Method to check how many turns sapling has existed
+     *
+     * @param location The location of the Ground
+     */
     @Override
     public void tick(Location location) {
         super.treeLifetime++;
         // check if 10 turns have passed, if so call growable function
-        if (super.treeLifetime==10) { grow(location); }
+        if (super.treeLifetime == 10) {
+            grow(location);
+        }
         // every turn call spawn enemy goomba function
         spawn(location);
     }
 
     // Implement growable function
+
+    /**
+     * Method to grow sprout into sapling
+     *
+     * @param location - location whether the thing to be grown is
+     */
     @Override
     public void grow(Location location) {
         location.setGround(new Sapling());
     }
 
     // Chance to Spawn enemy Goomba
+
+    /**
+     * Method to spawn goomba randomly
+     *
+     * @param location location of sprout
+     */
     @Override
     public void spawn(Location location) {
         super.spawn(location);
         // If there is an actor here, stops Goomba spawning ability
         if (!location.containsAnActor()) {
             // 10% chance to actually spawn Goomba
-            if (Utils.ranNum(10)==0) {
+            if (Utils.ranNum(10) == 0) {
                 // Spawn Goomba
                 location.addActor(new Goomba());
             }
         }
     }
 
+    /**
+     * Method to turn mature into dirt
+     *
+     * @param location location of mature
+     */
     @Override
     public void resetInstance(Location location) {
         Random rand = new Random();
@@ -56,6 +79,11 @@ public class Sprout extends Tree implements Growable {
         }
     }
 
+    /**
+     * Method to check if mature is permanent
+     *
+     * @return boolean to check if mature is permanent
+     */
     @Override
     public boolean isPermanent() {
         return false;

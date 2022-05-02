@@ -18,69 +18,63 @@ import game.magicalitems.*;
 
 /**
  * The main class for the Mario World game.
- *
  */
 public class Application {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-			World world = new World(new Display());
+        World world = new World(new Display());
 
-			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Sprout());
+        FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Sprout());
 
-			List<String> map = Arrays.asList(
-				"..........................................##....................................",
-				"............................................#...................................",
-				"............................................#...................................",
-				".............................................##.................................",
-				"...............................................#................................",
-				"................................................#...............................",
-				"..................................................#.............................",
-				".................................................##.............................",
-				"................................................##..............................",
-				"........................................+#____####..............................",
-				".......................................+#_____###++.............................",
-				".......................................+#______###..............................",
-				"........................................+#_____###..............................",
-				".................................................##.............................",
-				"...................................................#............................",
-				"....................................................#...........................",
-				".....................................................#..........................",
-				"......................................................#.........................",
-				".......................................................##.......................");
+        List<String> map = Arrays.asList(
+                "..........................................##....................................",
+                "............................................#...................................",
+                "............................................#...................................",
+                ".............................................##.................................",
+                "...............................................#................................",
+                "................................................#...............................",
+                "..................................................#.............................",
+                ".................................................##.............................",
+                "................................................##..............................",
+                "........................................+#____####..............................",
+                ".......................................+#_____###++.............................",
+                ".......................................+#______###..............................",
+                "........................................+#_____###..............................",
+                ".................................................##.............................",
+                "...................................................#............................",
+                "....................................................#...........................",
+                ".....................................................#..........................",
+                "......................................................#.........................",
+                ".......................................................##.......................");
 
-			GameMap gameMap = new GameMap(groundFactory, map);
-			world.addGameMap(gameMap);
+        GameMap gameMap = new GameMap(groundFactory, map);
+        world.addGameMap(gameMap);
 
-			Actor mario = new Player("Player", 'm', 100);
-			mario.addCapability(Status.HAS_WRENCH);
-			world.addPlayer(mario, gameMap.at(42, 10));
-			//gameMap.at(28,10).addActor(new Goomba());
-			Koopa koopa = new Koopa();
-			koopa.addCapability(Status.DORMANT);
-			gameMap.at(28,10).addActor(koopa);
-			// mario.addItemToInventory(new PowerStar());
-			gameMap.at(30,9).addActor(new Koopa());
-			// Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
-			for (int i = 0; i <= 10; i++) {
-				// Choose a location
-				int sproutX = Utils.ranNum(80);
-				int sproutY = Utils.ranNum(19);
-				// Check if the location is dirt
-				if (gameMap.at(sproutX, sproutY).getGround().hasCapability(Status.FERTILE)) {
-					// If so, change to a new Sprout
-					gameMap.at(sproutX, sproutY).setGround(new Sprout());
-				}
-			}
+        Actor mario = new Player("Player", 'm', 100);
+        mario.addCapability(Status.HAS_WRENCH);
+        world.addPlayer(mario, gameMap.at(42, 10));
+        gameMap.at(30, 9).addActor(new Koopa());
+        // Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
+        for (int i = 0; i <= 10; i++) {
+            // Choose a location
+            int sproutX = Utils.ranNum(80);
+            int sproutY = Utils.ranNum(19);
+            // Check if the location is dirt
+            if (gameMap.at(sproutX, sproutY).getGround().hasCapability(Status.FERTILE)) {
+                // If so, change to a new Sprout
+                gameMap.at(sproutX, sproutY).setGround(new Sprout());
+            }
+        }
 
-			gameMap.at(31,10).addItem(new Wrench());
-			gameMap.at(42,11).addActor(new Toad());
-			// Added power star and super mushroom to the game map at locations close to the actor
-			gameMap.at(41, 10).addItem(new PowerStar());
+        gameMap.at(31, 10).addItem(new Wrench());
+        gameMap.at(42, 11).addActor(new Toad());
+        // Added power star and super mushroom to the game map at locations close to the actor
+        gameMap.at(41, 10).addItem(new PowerStar());
 
-			gameMap.at(43, 10).addItem(new SuperMushroom());
+        gameMap.at(43, 10).addItem(new SuperMushroom());
 
-			world.run();
+        world.run();
 
-	}
+    }
 }

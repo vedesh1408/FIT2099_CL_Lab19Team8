@@ -10,6 +10,12 @@ public class BuyAction extends Action {
     private final Item target;
     int price;
 
+    /**
+     * Constructor for BuyAction
+     *
+     * @param target represents an item
+     * @param price  represents price of item
+     */
     public BuyAction(Item target, int price) {
         this.target = target;
         this.price = price;
@@ -23,21 +29,26 @@ public class BuyAction extends Action {
          */
         if (actor instanceof Player) {
             // Checking if the wallet has enough funds.
-            if (((Player)actor).getWallet() >= price) {
+            if (((Player) actor).getWallet() >= price) {
                 // If so, add the item to the inventory and update wallet.
                 actor.addItemToInventory(target);
                 // Toggle the portability as the items that are purchased cannot be dropped.
                 target.togglePortability();
-                ((Player)actor).changeWallet(-(price));
+                ((Player) actor).changeWallet(-(price));
                 return actor + " purchased " + target + " for " + price;
-            }
-            else if (((Player)actor).getWallet() < price) {
+            } else if (((Player) actor).getWallet() < price) {
                 return "You don't have enough coins!";
             }
-            }
+        }
         return "Only players can purchase items!";
     }
 
+    /**
+     * Returns a descriptive string about this buy action.
+     *
+     * @param actor The actor performing the action.
+     * @return the text to put on the menu
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " buys " + target + " ($" + price + ")";
