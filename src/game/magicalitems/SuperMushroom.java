@@ -11,15 +11,16 @@ public class SuperMushroom extends Item implements BuyableItem {
     /**
      * Constructor
      */
-    public SuperMushroom(){
-        super("Super Mushroom",'^',true);
+    public SuperMushroom() {
+        super("Super Mushroom", '^', true);
     }
 
     /**
      * Method to return price of mushroom
+     *
      * @return price of mushroom
      */
-    public int getPrice(){
+    public int getPrice() {
         return 400;
     }
 }

@@ -18,21 +18,22 @@ public class AttackBehaviour implements Behaviour {
 
     /**
      * This method is used to get the action that is supposed to attack the player
+     *
      * @param actor the Actor acting
-     * @param map the GameMap containing the Actor
+     * @param map   the GameMap containing the Actor
      * @return an instants of action that determines attack direction and target
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         Location here = map.locationOf(actor);
-        if (!map.contains(actor)){
+        if (!map.contains(actor)) {
             return null;
         }
-        for (Exit exit1 : here.getExits()){
+        for (Exit exit1 : here.getExits()) {
             Location destination = exit1.getDestination();
             Actor target = destination.getActor();
-            if (destination.containsAnActor() && target.hasCapability(Status.HOSTILE_TO_ENEMY)){
-                    return new AttackAction(target,exit1.getName());
+            if (destination.containsAnActor() && target.hasCapability(Status.HOSTILE_TO_ENEMY)) {
+                return new AttackAction(target, exit1.getName());
             }
         }
 

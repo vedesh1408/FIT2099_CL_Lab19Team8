@@ -1,4 +1,5 @@
 package game.actors.enemies;
+
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
@@ -24,7 +25,7 @@ import java.util.Random;
 /**
  * A turtle guy
  */
-public class Koopa extends Actor implements Resettable{
+public class Koopa extends Actor implements Resettable {
     private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
     private Random rand = new Random();
     /**
@@ -32,6 +33,7 @@ public class Koopa extends Actor implements Resettable{
      */
     protected FollowBehaviour followBehaviour;
     //constructor for koopa
+
     /**
      * Constructor.
      */
@@ -39,17 +41,20 @@ public class Koopa extends Actor implements Resettable{
         super("Koopa", 'K', 10);
         this.behaviours.put(15, new WanderBehaviour());
         this.addCapability(Status.HOSTILE_TO_PLAYER);
-        this.behaviours.put(2,new AttackBehaviour());
+        this.behaviours.put(2, new AttackBehaviour());
         this.registerInstance();
         System.out.println("Koopa registered instance.");
     }
+
     /**
      * It returns the default weapon type of Koopa along with its verb
+     *
      * @return it returns an instance of instrinsic weapon
      */
-    public IntrinsicWeapon getIntrinsicWeapon(){
+    public IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(30, "punches");
     }
+
     /**
      * @param otherActor the Actor that might perform an action.
      * @param direction  String representing the direction of the other Actor
@@ -61,65 +66,71 @@ public class Koopa extends Actor implements Resettable{
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-        if((otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) && !(this.hasCapability(Status.DORMANT))) {
-            actions.add(new AttackAction(this,direction));
+        if ((otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) && !(this.hasCapability(Status.DORMANT))) {
+            actions.add(new AttackAction(this, direction));
         }
 
         //Actor kill dormant koopa
-        if (this.hasCapability(Status.DORMANT) && otherActor.hasCapability(Status.HAS_WRENCH)){
-                actions.add(new KilledAction(this));
+        if (this.hasCapability(Status.DORMANT) && otherActor.hasCapability(Status.HAS_WRENCH)) {
+            actions.add(new KilledAction(this));
         }
         // attack player
-        if (rand.nextInt(100) <= 50){
+        if (rand.nextInt(100) <= 50) {
             if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
                 System.out.println("Koopa attacks player");
-                if (otherActor.hasCapability(Status.TALL)){
+                if (otherActor.hasCapability(Status.TALL)) {
                     otherActor.removeCapability(Status.TALL);
-               }else{
+                } else {
                     actions.add(new AttackAction(otherActor, direction));
                 }
             }
         }
         //follow player
-        if (followBehaviour == null){
+        if (followBehaviour == null) {
             followBehaviour = new FollowBehaviour(otherActor);
-            this.behaviours.put(2,followBehaviour);
+            this.behaviours.put(2, followBehaviour);
         }
         return actions;
     }
+
     /**
      * Figure out what to do next.
+     *
      * @see Actor#playTurn(ActionList, Action, GameMap, Display)
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         // make koopa dormant
-        if (!this.isConscious()){
+        if (!this.isConscious()) {
             this.addCapability(Status.DORMANT);
             this.setDisplayChar('D');
         }
 
-        if (this.hasCapability(Status.DORMANT)){
+        if (this.hasCapability(Status.DORMANT)) {
             return new DoNothingAction();
         }
-        for(Behaviour Behaviour : behaviours.values()) {
+        for (Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)
                 return action;
         }
         return new DoNothingAction();
     }
+
     /**
      * When called, it removes the actor from the map
      */
     @Override
-	public void resetInstance(Location location) {
+    public void resetInstance(Location location) {
         System.out.println("KOOPA REMOVED");
         location.map().removeActor(this);
     }
+
     /**
      * It returns true or false based if the item needs to be made permanent or not
      */
     @Override
-    public boolean isPermanent() { return false; }
+    public boolean isPermanent() {
+        return false;
+    }
 }

@@ -28,10 +28,11 @@ public class ResetManager {
 
     /**
      * Get the singleton instance of reset manager
+     *
      * @return ResetManager singleton instance
      */
-    public static ResetManager getInstance(){
-        if(instance == null){
+    public static ResetManager getInstance() {
+        if (instance == null) {
             instance = new ResetManager();
         }
         return instance;
@@ -40,7 +41,7 @@ public class ResetManager {
     /**
      * Constructor
      */
-    public ResetManager(){
+    public ResetManager() {
         resettableList = new ArrayList<>();
     }
 
@@ -48,7 +49,7 @@ public class ResetManager {
      * Reset the game by traversing through all the list
      * By doing this way, it will avoid using `instanceof` all over the place.
      */
-    public void run(Location location){
+    public void run(Location location) {
         for (Resettable reset : resettableList) {
             reset.resetInstance(location);
         }
@@ -58,7 +59,7 @@ public class ResetManager {
     /**
      * Add the Resettable instance to the list
      */
-    public void appendResetInstance(Resettable reset){
+    public void appendResetInstance(Resettable reset) {
         resettableList.add(reset);
     }
 
@@ -67,9 +68,9 @@ public class ResetManager {
      * Remove a Resettable instance from the list
      * Removes all instances of items that aren't permanent in the game.
      */
-    public void cleanUp(){
+    public void cleanUp() {
         ArrayList<Resettable> perm = new ArrayList<>();
-        for (Resettable reset : resettableList){
+        for (Resettable reset : resettableList) {
             if (reset.isPermanent()) {
                 perm.add(reset);
             }

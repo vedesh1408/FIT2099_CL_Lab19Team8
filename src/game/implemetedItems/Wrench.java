@@ -20,6 +20,7 @@ public class Wrench extends Item implements BuyableItem {
 
     /**
      * Return price of wrench
+     *
      * @return price of wrench
      */
     public int getPrice() {

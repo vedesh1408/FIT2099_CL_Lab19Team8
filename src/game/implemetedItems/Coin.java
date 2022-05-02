@@ -26,18 +26,25 @@ public class Coin extends Item implements Resettable {
 
     /**
      * Getter to get value of currency
+     *
      * @return the value of the currency
      */
-    public Integer getValue() { return value; }
+    public Integer getValue() {
+        return value;
+    }
+
     /**
      * When called, it removes the item from the map
      */
     @Override
     public void resetInstance(Location location) {
     }
+
     /**
      * It returns true or false based if the item needs to be made permanent or not
      */
     @Override
-    public boolean isPermanent() { return false; }
+    public boolean isPermanent() {
+        return false;
+    }
 }

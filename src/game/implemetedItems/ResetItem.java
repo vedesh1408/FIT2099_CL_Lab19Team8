@@ -7,7 +7,7 @@ import game.implementedActions.ResetAction;
 import game.interfaces.Resettable;
 
 /**
- * Class to reset items
+ * Class to reset item
  */
 public class ResetItem extends Item {
     /**

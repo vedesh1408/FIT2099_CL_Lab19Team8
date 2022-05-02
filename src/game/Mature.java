@@ -16,7 +16,6 @@ public class Mature extends Tree {
 
     /**
      * Constructor.
-     *
      */
     public Mature() {
         super('T');
@@ -25,13 +24,16 @@ public class Mature extends Tree {
 
     /**
      * Method to check how many turns mature has existed
+     *
      * @param location The location of the Ground
      */
     @Override
     public void tick(Location location) {
         super.treeLifetime++;
         // every 5 turns call grow sprout method
-        if (super.treeLifetime%5==0) { growSprout(location); }
+        if (super.treeLifetime % 5 == 0) {
+            growSprout(location);
+        }
         // every turn call wither function, spawn enemy Koopa function
         spawn(location);
         wither(location);
@@ -39,12 +41,13 @@ public class Mature extends Tree {
 
     /**
      * Method to make tree wither into dirt
+     *
      * @param location location of mature tree
      */
     // Method to wither tree into dirt
     public void wither(Location location) {
         // 20% chance to actually wither
-        if (Utils.ranNum(5)==0) {
+        if (Utils.ranNum(5) == 0) {
             // Wither tree into dirt
             location.setGround(new Dirt());
         }
@@ -52,6 +55,7 @@ public class Mature extends Tree {
 
     /**
      * Method to grow sprout
+     *
      * @param location location of mature
      */
     // Method to grow sprout
@@ -74,6 +78,7 @@ public class Mature extends Tree {
 
     /**
      * Method to spawn koopa randomly
+     *
      * @param location location of mature
      */
     @Override
@@ -82,7 +87,7 @@ public class Mature extends Tree {
         // if actor on ground, stops Koopa spawning ability
         if (!location.containsAnActor()) {
             // 15% chance to actually spawn the koopa
-            if (Utils.ranNum(20)<3) {
+            if (Utils.ranNum(20) < 3) {
                 // Spawn Koopa
                 location.addActor(new Koopa());
             }
@@ -91,6 +96,7 @@ public class Mature extends Tree {
 
     /**
      * Method to turn mature into dirt
+     *
      * @param location location of mature
      */
     @Override
@@ -104,6 +110,7 @@ public class Mature extends Tree {
 
     /**
      * Method to check if mature is permanent
+     *
      * @return boolean to check if mature is permanent
      */
     @Override

@@ -7,18 +7,21 @@ import game.enums.Status;
 /**
  * A class that represents the floor inside a building.
  */
-public class Floor extends Ground{
-	/**
-	 * Constructor
-	 */
-	public Floor() {
-		super('_');
-	}
+public class Floor extends Ground {
+    /**
+     * Constructor
+     */
+    public Floor() {
+        super('_');
+    }
 
-	/**
-	 * Method to check if an actor can enter a floor
-	 * @param actor the Actor to check
-	 * @return boolean to check if an actor can enter a floor
-	 */
-	public boolean canActorEnter(Actor actor){ return actor.hasCapability(Status.HOSTILE_TO_ENEMY);}
+    /**
+     * Method to check if an actor can enter a floor
+     *
+     * @param actor the Actor to check
+     * @return boolean to check if an actor can enter a floor
+     */
+    public boolean canActorEnter(Actor actor) {
+        return actor.hasCapability(Status.HOSTILE_TO_ENEMY);
+    }
 }

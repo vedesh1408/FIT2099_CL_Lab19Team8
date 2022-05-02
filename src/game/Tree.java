@@ -21,7 +21,6 @@ public abstract class Tree extends Ground implements Resettable {
 
     /**
      * Constructor.;
-     *
      */
     public Tree(char displayChar) {
         super(displayChar);
@@ -30,28 +29,28 @@ public abstract class Tree extends Ground implements Resettable {
 
     /**
      * Spawning function to be overridden, used by all tree sub-types
+     *
      * @param location location to spawn items
      */
-    public void spawn(Location location) {}
+    public void spawn(Location location) {
+    }
+
     /**
-     * @param actor the Actor that might perform an action.
-     * @param direction  String representing the direction of the other Actor
-     * @param location        current location
+     * @param actor     the Actor that might perform an action.
+     * @param direction String representing the direction of the other Actor
+     * @param location  current location
      * @return list of actions
      */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
-        if (actor.hasCapability(Status.TALL)){
+        if (actor.hasCapability(Status.TALL)) {
             //actions.add(new JumpActorAction(this,treeName,direction,0,100,location));
-        }
-        else
-        {
-            if (!actor.hasCapability(Status.INVINCIBILITY)){
+        } else {
+            if (!actor.hasCapability(Status.INVINCIBILITY)) {
                 //actions.add(new JumpActorAction(this, treeName, direction, fallDamage, jumpRate, location));
-            }
-            else {
-                actions.add(new DestroyWallAction(this,location,treeName,direction));
+            } else {
+                actions.add(new DestroyWallAction(this, location, treeName, direction));
             }
         }
         return actions;

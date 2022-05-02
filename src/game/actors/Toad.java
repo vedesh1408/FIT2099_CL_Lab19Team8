@@ -18,17 +18,20 @@ public class Toad extends Actor {
     /**
      * Constructor.
      */
-    public Toad(){
-        super("Toad",'0',420);
+    public Toad() {
+        super("Toad", '0', 420);
     }
+
     /**
      * Figure out what to do next.
+     *
      * @see Actor#playTurn(ActionList, Action, GameMap, Display)
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         return new DoNothingAction();
     }
+
     /**
      * @param otherActor the Actor that might perform an action.
      * @param direction  String representing the direction of the other Actor

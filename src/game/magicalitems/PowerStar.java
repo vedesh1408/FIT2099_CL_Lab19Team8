@@ -14,10 +14,11 @@ public class PowerStar extends Item implements BuyableItem {
     /**
      * Constructor
      */
-    public PowerStar(){
+    public PowerStar() {
         super("Power Star", '*', true);
         powerStarCount = 0;
     }
+
     /**
      * Method to check how may turns power star was in the game and remove it based on that
      */
@@ -25,30 +26,32 @@ public class PowerStar extends Item implements BuyableItem {
     public void tick(Location currentLocation) {
         super.tick(currentLocation);
         powerStarCount++;
-        if (powerStarCount>9){
+        if (powerStarCount > 9) {
             currentLocation.removeItem(this);
         }
     }
 
     /**
      * Methd to check how may turns power star was in the game and remove it based on that
+     *
      * @param currentLocation The location of the actor carrying this Item.
-     * @param actor The actor carrying this Item.
+     * @param actor           The actor carrying this Item.
      */
     @Override
     public void tick(Location currentLocation, Actor actor) {
         super.tick(currentLocation, actor);
         powerStarCount++;
-        if (powerStarCount>9){
+        if (powerStarCount > 9) {
             currentLocation.removeItem(this);
         }
     }
 
     /**
      * Get price of power star
+     *
      * @return price of power star
      */
-    public int getPrice(){
+    public int getPrice() {
         return 600;
     }
 }

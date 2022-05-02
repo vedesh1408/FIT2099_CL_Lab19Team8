@@ -7,11 +7,11 @@ import game.enums.Status;
  * A class that represents bare dirt.
  */
 public class Dirt extends Ground {
-	/**
-	 * Constructor
-	 */
-	public Dirt() {
-		super('.');
-		this.addCapability(Status.FERTILE);
-	}
+    /**
+     * Constructor
+     */
+    public Dirt() {
+        super('.');
+        this.addCapability(Status.FERTILE);
+    }
 }
