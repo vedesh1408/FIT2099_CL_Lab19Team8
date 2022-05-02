@@ -4,6 +4,8 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Dirt;
+import game.Utils;
 import game.enums.Status;
 import game.implementedActions.DestroyWallAction;
 import game.implementedActions.JumpActorAction;
@@ -30,6 +32,7 @@ public abstract class Tree extends Ground implements Resettable {
         this.treeName=treeName;
         this. jumpRate = jumpRate;
         this. fallDamage = fallDamage;
+        this.registerInstance();
     }
 
     /**
@@ -59,5 +62,27 @@ public abstract class Tree extends Ground implements Resettable {
             }
         }
         return actions;
+    }
+
+    /**
+     * Method to turn Tree into dirt
+     *
+     * @param location location of Tree
+     */
+    @Override
+    public void resetInstance(Location location) {
+        if (Utils.ranNum(2) == 0) {
+            location.setGround(new Dirt());
+        }
+    }
+
+    /**
+     * Method to check if Tree is permanent
+     *
+     * @return boolean to check if Tree is permanent
+     */
+    @Override
+    public boolean isPermanent() {
+        return false;
     }
 }

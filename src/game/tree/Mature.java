@@ -20,7 +20,6 @@ public class Mature extends Tree {
      */
     public Mature() {
         super("Mature", 'T', 70,30);
-        this.registerInstance();
     }
 
     /**
@@ -93,29 +92,5 @@ public class Mature extends Tree {
                 location.addActor(new Koopa());
             }
         }
-    }
-
-    /**
-     * Method to turn mature into dirt
-     *
-     * @param location location of mature
-     */
-    @Override
-    public void resetInstance(Location location) {
-        Random rand = new Random();
-        double chance = rand.nextDouble();
-        if (chance <= 0.5) {
-            location.setGround(new Dirt());
-        }
-    }
-
-    /**
-     * Method to check if mature is permanent
-     *
-     * @return boolean to check if mature is permanent
-     */
-    @Override
-    public boolean isPermanent() {
-        return false;
     }
 }

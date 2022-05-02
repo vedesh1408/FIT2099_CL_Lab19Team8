@@ -18,7 +18,6 @@ public class Sapling extends Tree implements Growable {
      */
     public Sapling() {
         super("Sapling", 't', 80,20);
-        this.registerInstance();
     }
 
     /**
@@ -64,29 +63,5 @@ public class Sapling extends Tree implements Growable {
             // Spawn Coin
             location.addItem(new Coin(20));
         }
-    }
-
-    /**
-     * Method to turn mature into dirt
-     *
-     * @param location location of mature
-     */
-    @Override
-    public void resetInstance(Location location) {
-        Random rand = new Random();
-        double chance = rand.nextDouble();
-        if (chance <= 0.5) {
-            location.setGround(new Dirt());
-        }
-    }
-
-    /**
-     * Method to check if mature is permanent
-     *
-     * @return boolean to check if mature is permanent
-     */
-    @Override
-    public boolean isPermanent() {
-        return false;
     }
 }

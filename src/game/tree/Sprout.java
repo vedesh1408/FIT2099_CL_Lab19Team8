@@ -17,7 +17,6 @@ public class Sprout extends Tree implements Growable {
      */
     public Sprout() {
         super("Sprout", '+', 90,10);
-        this.registerInstance();
     }
 
     /**
@@ -66,29 +65,5 @@ public class Sprout extends Tree implements Growable {
                 location.addActor(new Goomba());
             }
         }
-    }
-
-    /**
-     * Method to turn mature into dirt
-     *
-     * @param location location of mature
-     */
-    @Override
-    public void resetInstance(Location location) {
-        Random rand = new Random();
-        double chance = rand.nextDouble();
-        if (chance <= 0.5) {
-            location.setGround(new Dirt());
-        }
-    }
-
-    /**
-     * Method to check if mature is permanent
-     *
-     * @return boolean to check if mature is permanent
-     */
-    @Override
-    public boolean isPermanent() {
-        return false;
     }
 }
