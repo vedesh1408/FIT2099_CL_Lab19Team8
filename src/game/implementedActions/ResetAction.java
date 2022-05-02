@@ -19,7 +19,6 @@ public class ResetAction extends Action {
     public ResetAction(Item item) {
         this.item = item;
     }
-
     /**
      * When the actor dies, reset manager is run to execute RESET feature.
      *
