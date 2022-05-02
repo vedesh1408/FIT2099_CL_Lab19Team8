@@ -52,9 +52,9 @@ public class Application {
         world.addGameMap(gameMap);
 
         Actor mario = new Player("Player", 'm', 100);
-        mario.addCapability(Status.HAS_WRENCH);
         world.addPlayer(mario, gameMap.at(42, 10));
-        gameMap.at(30, 9).addActor(new Koopa());
+
+
         // Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
         for (int i = 0; i <= 10; i++) {
             // Choose a location
@@ -66,14 +66,12 @@ public class Application {
                 gameMap.at(sproutX, sproutY).setGround(new Sprout());
             }
         }
-
+        gameMap.at(30, 9).addActor(new Koopa());
         gameMap.at(31, 10).addItem(new Wrench());
         gameMap.at(42, 11).addActor(new Toad());
         // Added power star and super mushroom to the game map at locations close to the actor
         gameMap.at(41, 10).addItem(new PowerStar());
-
         gameMap.at(43, 10).addItem(new SuperMushroom());
-
         world.run();
 
     }
