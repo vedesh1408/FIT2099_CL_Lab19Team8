@@ -7,6 +7,8 @@ import edu.monash.fit2099.engine.displays.Display;
 import game.implementedActions.BuyAction;
 import game.implementedActions.SpeakAction;
 import game.implemetedItems.Wrench;
+import game.magicalitems.PowerStar;
+import game.magicalitems.SuperMushroom;
 
 
 public class Toad extends Actor {
@@ -24,6 +26,8 @@ public class Toad extends Actor {
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList list = super.allowableActions(otherActor, direction, map);
         list.add(new SpeakAction(this));
+        list.add(new BuyAction(new PowerStar(), new PowerStar().getPrice()));
+        list.add(new BuyAction(new SuperMushroom(), new SuperMushroom().getPrice()));
         list.add(new BuyAction(new Wrench(), new Wrench().getPrice()));
         return list;
     }

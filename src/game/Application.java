@@ -54,12 +54,12 @@ public class Application {
 
 			Actor mario = new Player("Player", 'm', 100);
 			mario.addCapability(Status.HAS_WRENCH);
-			world.addPlayer(mario, gameMap.at(29, 10));
+			world.addPlayer(mario, gameMap.at(42, 10));
 			//gameMap.at(28,10).addActor(new Goomba());
 			Koopa koopa = new Koopa();
 			koopa.addCapability(Status.DORMANT);
 			gameMap.at(28,10).addActor(koopa);
-			mario.addItemToInventory(new PowerStar());
+			// mario.addItemToInventory(new PowerStar());
 			gameMap.at(30,9).addActor(new Koopa());
 			// Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
 			for (int i = 0; i <= 10; i++) {
