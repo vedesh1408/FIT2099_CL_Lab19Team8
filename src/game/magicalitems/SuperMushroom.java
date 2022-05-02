@@ -1,11 +1,12 @@
 package game.magicalitems;
 
+import edu.monash.fit2099.engine.items.Item;
 import game.enums.Status;
 
-public class SuperMushroom extends MagicalItem {
+public class SuperMushroom extends Item {
 
     public SuperMushroom(){
-        super("Super Mushroom",'^',false, true);
+        super("Super Mushroom",'^',true);
 
     }
 }

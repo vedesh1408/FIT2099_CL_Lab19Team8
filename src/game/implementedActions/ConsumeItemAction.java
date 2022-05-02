@@ -2,15 +2,17 @@ package game.implementedActions;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.*;
+import game.enums.Status;
 
 /**
  * Action to allow items to be consumed.
  */
 public class ConsumeItemAction extends Action {
 
-	private final Item item;
+	private Item item;
 
 	/**
 	 * Constructor.
@@ -31,8 +33,15 @@ public class ConsumeItemAction extends Action {
 	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
-		map.locationOf(actor).removeItem(item);
-		return menuDescription(actor);
+		actor.removeItemFromInventory(item);
+		if (item.toString().equals("Super Mushroom")){
+			actor.addCapability(Status.TALL);
+			return actor + " consumes the" + item;
+		}
+		else {
+			actor.addCapability(Status.INVISIBILITY);
+			return actor + " is INVINCIBLE";
+		}
 	}
 
 	/**

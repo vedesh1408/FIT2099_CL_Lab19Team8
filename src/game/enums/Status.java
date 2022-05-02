@@ -12,4 +12,6 @@ public enum Status {
     KILL_KOOPA, // use this to indicate what can kill a koopa
     FERTILE, // used to indicate this ground is dirt and can grow a new sprout
     HAS_WRENCH, //use this to indicate if player has a wrench to kill a koopa
+    INVISIBILITY,
+    CAN_JUMP,
 }
