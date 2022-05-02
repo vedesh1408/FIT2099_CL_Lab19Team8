@@ -9,6 +9,9 @@ import game.enums.Status;
 import java.util.*;
 import java.util.Random;
 
+/**
+ * Class to represent a mature tree
+ */
 public class Mature extends Tree {
 
     /**
@@ -20,6 +23,10 @@ public class Mature extends Tree {
         this.registerInstance();
     }
 
+    /**
+     * Method to check how many turns mature has existed
+     * @param location The location of the Ground
+     */
     @Override
     public void tick(Location location) {
         super.treeLifetime++;
@@ -30,6 +37,10 @@ public class Mature extends Tree {
         wither(location);
     }
 
+    /**
+     * Method to make tree wither into dirt
+     * @param location location of mature tree
+     */
     // Method to wither tree into dirt
     public void wither(Location location) {
         // 20% chance to actually wither
@@ -39,6 +50,10 @@ public class Mature extends Tree {
         }
     }
 
+    /**
+     * Method to grow sprout
+     * @param location location of mature
+     */
     // Method to grow sprout
     public void growSprout(Location location) {
         // Get all possible exits from this tree (ie all nearby squares)
@@ -56,6 +71,11 @@ public class Mature extends Tree {
     }
 
     // Chance to Spawn enemy Koopa
+
+    /**
+     * Method to spawn koopa randomly
+     * @param location location of mature
+     */
     @Override
     public void spawn(Location location) {
         super.spawn(location);
@@ -69,6 +89,10 @@ public class Mature extends Tree {
         }
     }
 
+    /**
+     * Method to turn mature into dirt
+     * @param location location of mature
+     */
     @Override
     public void resetInstance(Location location) {
         Random rand = new Random();
@@ -78,6 +102,10 @@ public class Mature extends Tree {
         }
     }
 
+    /**
+     * Method to check if mature is permanent
+     * @return boolean to check if mature is permanent
+     */
     @Override
     public boolean isPermanent() {
         return false;

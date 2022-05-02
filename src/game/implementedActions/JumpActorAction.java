@@ -5,6 +5,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 
+/**
+ * Class that allows the actor to jump
+ */
 public class JumpActorAction extends Action {
 
 	// TODO Modify the class so that it is different from MoveActorAction
@@ -25,7 +28,14 @@ public class JumpActorAction extends Action {
     public JumpActorAction(Location location, String direction, String hotkey){
 
     }
-
+	/**
+	 * Perform an jump action towards the target.
+	 *
+	 * @param actor The actor performing the action.
+	 * @param map 	The map the actor is on.
+	 * @return a description to show if the jump is successfully performed by an actor
+	 *         towards his target.
+	 */
     @Override
 	public String execute(Actor actor, GameMap map) {
 		map.moveActor(actor, moveToLocation);

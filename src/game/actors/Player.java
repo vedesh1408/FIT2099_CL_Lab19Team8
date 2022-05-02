@@ -34,7 +34,10 @@ public class Player extends Actor implements Resettable {
 		this.registerInstance();
 		super.addItemToInventory(new ResetItem());
 	}
-
+	/**
+	 * Figure out what to do next.
+	 * @see Actor#playTurn(ActionList, Action, GameMap, Display)
+	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
@@ -48,15 +51,29 @@ public class Player extends Actor implements Resettable {
 	}
 
 	@Override
+	/**
+	 * It returns the character display based on whether it has the tall capabilities activated
+	 */
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
 	}
 
+	/**
+	 * It increments the wallet amount by the amount
+	 * @param amount The amount to be added to wallet
+	 */
 	public void changeWallet(Integer amount) { wallet += amount; }
 
+	/**
+	 * It returns the wallet
+	 * @return Amount the wallet contains
+	 */
 	public Integer getWallet() { return wallet; }
 
 	@Override
+	/**
+	 * When called, removes all capabilities on player and increase its hP to max
+	 */
 	public void resetInstance(Location location) {
 		// Resetting player's max hp
 		this.resetMaxHp(this.getMaxHp());
@@ -64,7 +81,9 @@ public class Player extends Actor implements Resettable {
 		if (this.hasCapability(Status.INVINCIBILITY)) { this.removeCapability(Status.INVINCIBILITY); }
 		this.setDisplayChar('m');
 	}
-
+	/**
+	 * It returns true or false based if the item needs to be made permanent or not
+	 */
 	@Override
 	public boolean isPermanent() {
 		return true;

@@ -10,6 +10,11 @@ public class BuyAction extends Action {
     private final Item target;
     int price;
 
+    /**
+     * Constructor for BuyAction
+     * @param target represents an item
+     * @param price represents price of item
+     */
     public BuyAction(Item target, int price) {
         this.target = target;
         this.price = price;
@@ -37,7 +42,12 @@ public class BuyAction extends Action {
             }
         return "Only players can purchase items!";
     }
-
+    /**
+     * Returns a descriptive string about this buy action.
+     *
+     * @param actor The actor performing the action.
+     * @return the text to put on the menu
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " buys " + target + " ($" + price + ")";

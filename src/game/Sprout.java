@@ -17,7 +17,10 @@ public class Sprout extends Tree implements Growable {
         super('+');
         this.registerInstance();
     }
-
+    /**
+     * Method to check how many turns sapling has existed
+     * @param location The location of the Ground
+     */
     @Override
     public void tick(Location location) {
         super.treeLifetime++;
@@ -28,12 +31,20 @@ public class Sprout extends Tree implements Growable {
     }
 
     // Implement growable function
+    /**
+     * Method to grow sprout into sapling
+     * @param location - location whether the thing to be grown is
+     */
     @Override
     public void grow(Location location) {
         location.setGround(new Sapling());
     }
 
     // Chance to Spawn enemy Goomba
+    /**
+     * Method to spawn goomba randomly
+     * @param location location of sprout
+     */
     @Override
     public void spawn(Location location) {
         super.spawn(location);
@@ -46,7 +57,10 @@ public class Sprout extends Tree implements Growable {
             }
         }
     }
-
+    /**
+     * Method to turn mature into dirt
+     * @param location location of mature
+     */
     @Override
     public void resetInstance(Location location) {
         Random rand = new Random();
@@ -55,7 +69,10 @@ public class Sprout extends Tree implements Growable {
             location.setGround(new Dirt());
         }
     }
-
+    /**
+     * Method to check if mature is permanent
+     * @return boolean to check if mature is permanent
+     */
     @Override
     public boolean isPermanent() {
         return false;

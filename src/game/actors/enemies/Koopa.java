@@ -27,8 +27,14 @@ import java.util.Random;
 public class Koopa extends Actor implements Resettable{
     private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
     private Random rand = new Random();
+    /**
+     * Enemy has a follow behaviour to follow the player.
+     */
     protected FollowBehaviour followBehaviour;
     //constructor for koopa
+    /**
+     * Constructor.
+     */
     public Koopa() {
         super("Koopa", 'K', 10);
         this.behaviours.put(15, new WanderBehaviour());
@@ -37,12 +43,14 @@ public class Koopa extends Actor implements Resettable{
         this.registerInstance();
         System.out.println("Koopa registered instance.");
     }
+    /**
+     * It returns the default weapon type of Koopa along with its verb
+     * @return it returns an instance of instrinsic weapon
+     */
     public IntrinsicWeapon getIntrinsicWeapon(){
         return new IntrinsicWeapon(30, "punches");
     }
     /**
-     * At the moment, we only make it be attacked by Player.
-     * You can do something else with this method.
      * @param otherActor the Actor that might perform an action.
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap
@@ -79,6 +87,10 @@ public class Koopa extends Actor implements Resettable{
         }
         return actions;
     }
+    /**
+     * Figure out what to do next.
+     * @see Actor#playTurn(ActionList, Action, GameMap, Display)
+     */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         // make koopa dormant
@@ -97,13 +109,17 @@ public class Koopa extends Actor implements Resettable{
         }
         return new DoNothingAction();
     }
-
+    /**
+     * When called, it removes the actor from the map
+     */
     @Override
 	public void resetInstance(Location location) {
         System.out.println("KOOPA REMOVED");
         location.map().removeActor(this);
     }
-
+    /**
+     * It returns true or false based if the item needs to be made permanent or not
+     */
     @Override
     public boolean isPermanent() { return false; }
 }

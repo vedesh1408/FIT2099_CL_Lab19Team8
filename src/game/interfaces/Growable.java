@@ -14,5 +14,9 @@ public interface Growable {
      */
     public void grow(Location location);
 
+    /**
+     * Method to reset growable
+     * @param location Location of growable item
+     */
     void resetInstance(Location location);
 }

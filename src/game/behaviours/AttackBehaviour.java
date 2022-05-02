@@ -9,9 +9,19 @@ import game.implementedActions.AttackAction;
 import game.interfaces.Behaviour;
 import game.enums.Status;
 
+/**
+ * The class is used to attack player automatically
+ */
 public class AttackBehaviour implements Behaviour {
 
     // TODO: develop and use it to attack the player automatically.
+
+    /**
+     * This method is used to get the action that is supposed to attack the player
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return an instants of action that determines attack direction and target
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         Location here = map.locationOf(actor);

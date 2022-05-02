@@ -6,8 +6,13 @@ import game.implementedActions.CollectCoinAction;
 import game.implementedActions.ResetAction;
 import game.interfaces.Resettable;
 
+/**
+ * Class to reset items
+ */
 public class ResetItem extends Item {
-
+    /**
+     * constructor
+     */
     public ResetItem() {
         super("Reset", 'r', false);
         addAction(new ResetAction(this));

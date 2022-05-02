@@ -46,7 +46,7 @@ public class CollectCoinAction extends Action {
 	 *
 	 * @see Action#menuDescription(Actor)
 	 * @param actor The actor performing the action.
-	 * @return a string, e.g. "Player consumes the juice"
+	 * @return a string, e.g. " Player consumes the juice "
 	 */
 	@Override
 	public String menuDescription(Actor actor) { return actor + " collects the " + coin; }

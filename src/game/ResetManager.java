@@ -65,7 +65,6 @@ public class ResetManager {
 
     /**
      * Remove a Resettable instance from the list
-     * @param resettable resettable object
      * Removes all instances of items that aren't permanent in the game.
      */
     public void cleanUp(){

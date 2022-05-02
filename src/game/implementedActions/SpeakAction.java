@@ -15,7 +15,13 @@ public class SpeakAction extends Action {
     public SpeakAction(Actor target) {
         this.target = target;
     }
-
+    /**
+     * When player talks to toad, it can speak the following lines
+     *
+     * @param actor The actor performing the action.
+     * @param map   The map the actor is on.
+     * @return a description of what the toad generates based on Player's inventory
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
 
@@ -53,7 +59,12 @@ public class SpeakAction extends Action {
         }
         return "Being imprisoned in these walls can drive a fungus crazy :(";
     }
-
+    /**
+     * This action that is going to be spoken
+     *
+     * @param actor the name of actor
+     * @return an empty string
+     */
         @Override
         public String menuDescription (Actor actor){
             return actor + " talks with " + target;

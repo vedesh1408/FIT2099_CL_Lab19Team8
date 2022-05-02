@@ -40,6 +40,14 @@ public class AttackAction extends Action {
 		this.target = target;
 		this.direction = direction;
 	}
+	/**
+	 * Perform an attack action towards the target.
+	 *
+	 * @param actor The actor performing the action.
+	 * @param map 	The map the actor is on.
+	 * @return a description to show if the attack is successfully performed by an actor
+	 *         towards his target.
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 
@@ -64,7 +72,12 @@ public class AttackAction extends Action {
 
 		return result;
 	}
-
+	/**
+	 * Returns a descriptive string about this attack action.
+	 *
+	 * @param actor The actor performing the action.
+	 * @return the text to put on the menu
+	 */
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " attacks " + target + " at " + direction;

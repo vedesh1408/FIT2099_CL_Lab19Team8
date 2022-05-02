@@ -44,14 +44,17 @@ public class Goomba extends Actor implements Resettable {
 		this.registerInstance();
 
 	}
+
+	/**
+	 * It returns the default weapon type of Goomba along with its verb
+	 * @return it returns an instance of instrinsic weapon
+	 */
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon(){
 		return new IntrinsicWeapon(10, "kicks");
 	}
 
 	/**
-	 * At the moment, we only make it can be attacked by Player.
-	 * You can do something else with this method.
 	 * @param otherActor the Actor that might perform an action.
 	 * @param direction  String representing the direction of the other Actor
 	 * @param map        current GameMap
@@ -102,10 +105,16 @@ public class Goomba extends Actor implements Resettable {
 	}
 
 	@Override
+	/**
+	 * When called, it removes the actor from the map
+	 */
 	public void resetInstance(Location location) {
 		location.map().removeActor(this);
 	}
 
 	@Override
+	/**
+	 * It returns true or false based if the item needs to be made permanent or not
+	 */
     public boolean isPermanent() { return false; }
 }

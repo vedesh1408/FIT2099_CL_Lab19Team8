@@ -9,7 +9,9 @@ import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.interfaces.Behaviour;
-
+/**
+ * A class that randomly chooses a direction for an Actor to move.
+ */
 public class WanderBehaviour extends Action implements Behaviour {
 
 	private final Random random = new Random();
@@ -41,12 +43,22 @@ public class WanderBehaviour extends Action implements Behaviour {
 		}
 
 	}
-
+	/**
+	 *
+	 * @param actor The actor performing the action.
+	 * @param map   The map the actor is on.
+	 * @return a description from menuDescription
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		return menuDescription(actor);
 	}
-
+	/**
+	 * Returns a descriptive string.
+	 *
+	 * @param actor The actor performing the action.
+	 * @return the text to put on the menu
+	 */
 	@Override
 	public String menuDescription(Actor actor) {
 		return "Raagrh...";
