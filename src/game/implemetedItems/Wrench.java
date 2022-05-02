@@ -2,8 +2,8 @@ package game.implemetedItems;
 
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.Weapon;
-import game.BuyableItem;
 import game.enums.Status;
+import game.interfaces.BuyableItem;
 
 public class Wrench extends Item implements BuyableItem {
 
