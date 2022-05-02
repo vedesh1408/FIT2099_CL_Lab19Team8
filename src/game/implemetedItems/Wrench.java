@@ -9,7 +9,6 @@ public class Wrench extends Item {
     public Wrench() {
         super("Wrench", 'w', true);
         this.addCapability(Status.KILL_KOOPA);
-        this.asWeapon();
 
     }
 

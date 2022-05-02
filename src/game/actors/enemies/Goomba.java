@@ -39,6 +39,7 @@ public class Goomba extends Actor {
 		this.behaviours.put(10, new WanderBehaviour());
 		this.hasCapability(Status.HOSTILE_TO_PLAYER);
 		this.behaviours.put(1,new AttackBehaviour());
+
 	}
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon(){
@@ -82,7 +83,7 @@ public class Goomba extends Actor {
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		// 10% change from being removed from map
-		if (rand.nextInt(100)<=10){
+		if (rand.nextInt(100)<=10 && !this.hasCapability(Status.HOSTILE_TO_PLAYER)){
 			return new KilledAction(this);
 		}
 		//determine if killed
