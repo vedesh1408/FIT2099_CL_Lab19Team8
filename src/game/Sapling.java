@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Random;
+
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.implemetedItems.Coin;
@@ -41,6 +43,11 @@ public class Sapling extends Tree implements Growable {
         }
     }
 
-    public void resetInstance(GameMap map) {
+    public void resetInstance(Location location) {
+        Random rand = new Random();
+        double chance = rand.nextDouble();
+        if (chance <= 0.5) {
+            location.setGround(new Dirt());
+        }
     }
 }

@@ -1,9 +1,12 @@
 package game.implemetedItems;
 
 import edu.monash.fit2099.engine.items.Item;
+import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
 import game.implementedActions.CollectCoinAction;
+import game.interfaces.Resettable;
 
-public class Coin extends Item {
+public class Coin extends Item implements Resettable {
 
     private Integer value;
 
@@ -14,4 +17,10 @@ public class Coin extends Item {
     }
 
     public Integer getValue() { return value; }
+
+    @Override
+    public void resetInstance(Location location) {
+        // TODO Auto-generated method stub
+        
+    }
 }

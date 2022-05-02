@@ -21,7 +21,7 @@ public class ResetAction extends Action {
 	@Override
 	public String execute(Actor actor, GameMap map) {
         ResetManager reset = new ResetManager();
-        reset.run(map);
+        reset.run(map.locationOf(actor));
         return menuDescription(actor);
 	}
 

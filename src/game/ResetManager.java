@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
 
 /**
  * A global Singleton manager that does soft-reset on the instances.
@@ -48,9 +49,9 @@ public class ResetManager {
      * Reset the game by traversing through all the list
      * By doing this way, it will avoid using `instanceof` all over the place.
      */
-    public void run(GameMap map){
+    public void run(Location location){
         for (Resettable reset : resettableList) {
-            reset.resetInstance(map);
+            reset.resetInstance(location);
         }
     }
 
