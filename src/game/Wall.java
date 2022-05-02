@@ -6,7 +6,6 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.enums.Status;
 import game.implementedActions.DestroyWallAction;
-import game.implementedActions.JumpActorAction;
 
 public class Wall extends Ground {
 
@@ -26,7 +25,7 @@ public class Wall extends Ground {
 		}
 		else
 		{
-			if (!actor.hasCapability(Status.INVISIBILITY)){
+			if (!actor.hasCapability(Status.INVINCIBILITY)){
 				//actions.add(new JumpActorAction(this, "Wall", direction, fallDamage, jumpRate, location));
 			}
 			else {

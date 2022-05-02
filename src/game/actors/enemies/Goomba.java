@@ -39,7 +39,7 @@ public class Goomba extends Actor implements Resettable {
 	public Goomba() {
 		super("Goomba", 'g', 10);
 		this.behaviours.put(10, new WanderBehaviour());
-		this.hasCapability(Status.HOSTILE_TO_PLAYER);
+		this.addCapability(Status.HOSTILE_TO_PLAYER);
 		this.behaviours.put(1,new AttackBehaviour());
 		this.registerInstance();
 

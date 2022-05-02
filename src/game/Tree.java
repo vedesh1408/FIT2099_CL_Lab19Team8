@@ -33,7 +33,7 @@ public abstract class Tree extends Ground implements Resettable {
         }
         else
         {
-            if (!actor.hasCapability(Status.INVISIBILITY)){
+            if (!actor.hasCapability(Status.INVINCIBILITY)){
                 //actions.add(new JumpActorAction(this, treeName, direction, fallDamage, jumpRate, location));
             }
             else {

@@ -61,7 +61,7 @@ public class Player extends Actor implements Resettable {
 		// Resetting player's max hp
 		this.resetMaxHp(this.getMaxHp());
 		this.removeCapability(Status.TALL);
-		this.removeCapability(Status.INVISIBILITY);
+		this.removeCapability(Status.INVINCIBILITY);
 		this.setDisplayChar('m');
 	}
 

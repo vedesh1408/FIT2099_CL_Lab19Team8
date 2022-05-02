@@ -2,7 +2,6 @@ package game.implementedActions;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.*;
 import game.enums.Status;
@@ -39,7 +38,7 @@ public class ConsumeItemAction extends Action {
 			return actor + " consumes the" + item;
 		}
 		else {
-			actor.addCapability(Status.INVISIBILITY);
+			actor.addCapability(Status.INVINCIBILITY);
 			return actor + " is INVINCIBLE";
 		}
 	}
