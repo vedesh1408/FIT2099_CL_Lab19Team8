@@ -4,7 +4,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.actions.*;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Display;
+import game.implementedActions.BuyAction;
 import game.implementedActions.SpeakAction;
+import game.implemetedItems.Wrench;
 
 
 public class Toad extends Actor {
@@ -22,6 +24,7 @@ public class Toad extends Actor {
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList list = super.allowableActions(otherActor, direction, map);
         list.add(new SpeakAction(this));
+        list.add(new BuyAction(new Wrench(), new Wrench().getPrice()));
         return list;
     }
 }
