@@ -6,20 +6,22 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.enums.Status;
 import game.implementedActions.DestroyWallAction;
+import game.implementedActions.JumpActorAction;
 
 /**
  * Class representing walls
  */
 public class Wall extends Ground {
 
-    double jumpRate;
-
+    int jumpRate;
+    int fallDamage;
     /**
      * Constructor
      */
     public Wall() {
         super('#');
-        this.jumpRate = 0.8;
+        this.jumpRate = 80;
+        this.fallDamage=20;
 
     }
 
@@ -33,12 +35,18 @@ public class Wall extends Ground {
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
         if (actor.hasCapability(Status.TALL)) {
-            //actions.add(new JumpActorAction(this,"Wall",direction,0,100,location));
+            if (!location.containsAnActor()) {
+                actions.add(new JumpActorAction(this, "Wall", direction, 0, 100, location));
+            }
         } else {
             if (!actor.hasCapability(Status.INVINCIBILITY)) {
-                //actions.add(new JumpActorAction(this, "Wall", direction, fallDamage, jumpRate, location));
+                if (!location.containsAnActor()) {
+                    actions.add(new JumpActorAction(this, "Wall", direction, fallDamage, jumpRate, location));
+                }
             } else {
-                actions.add(new DestroyWallAction(this, location, "Wall", direction));
+                if (!location.containsAnActor()) {
+                    actions.add(new DestroyWallAction(this, location, "Wall", direction));
+                }
             }
         }
         return actions;

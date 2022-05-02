@@ -17,7 +17,7 @@ public class Sapling extends Tree implements Growable {
      * Constructor.
      */
     public Sapling() {
-        super('t');
+        super("Sapling", 't', 80,20);
         this.registerInstance();
     }
 

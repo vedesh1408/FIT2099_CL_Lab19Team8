@@ -16,7 +16,7 @@ public class Sprout extends Tree implements Growable {
      * Constructor.
      */
     public Sprout() {
-        super('+');
+        super("Sprout", '+', 90,10);
         this.registerInstance();
     }
 

@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.enums.Status;
 import game.implementedActions.DestroyWallAction;
+import game.implementedActions.JumpActorAction;
 import game.interfaces.Resettable;
 
 import java.util.Random;
@@ -16,15 +17,19 @@ import java.util.Random;
 public abstract class Tree extends Ground implements Resettable {
 
     // Integer to track tree's lifetime, used by all tree sub-types, and incremented in tick function.
-    protected Integer treeLifetime;
+    protected Integer treeLifetime = 0;
     private String treeName;
+    private int fallDamage;
+    private int jumpRate;
 
     /**
      * Constructor.;
      */
-    public Tree(char displayChar) {
+    public Tree(String treeName,char displayChar, int jumpRate, int fallDamage) {
         super(displayChar);
-        treeLifetime = 0;
+        this.treeName=treeName;
+        this. jumpRate = jumpRate;
+        this. fallDamage = fallDamage;
     }
 
     /**
@@ -45,10 +50,10 @@ public abstract class Tree extends Ground implements Resettable {
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
         if (actor.hasCapability(Status.TALL)) {
-            //actions.add(new JumpActorAction(this,treeName,direction,0,100,location));
+            actions.add(new JumpActorAction(this,treeName,direction,0,100,location));
         } else {
             if (!actor.hasCapability(Status.INVINCIBILITY)) {
-                //actions.add(new JumpActorAction(this, treeName, direction, fallDamage, jumpRate, location));
+                actions.add(new JumpActorAction(this, treeName, direction, fallDamage, jumpRate, location));
             } else {
                 actions.add(new DestroyWallAction(this, location, treeName, direction));
             }

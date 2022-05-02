@@ -19,7 +19,7 @@ public class Mature extends Tree {
      * Constructor.
      */
     public Mature() {
-        super('T');
+        super("Mature", 'T', 70,30);
         this.registerInstance();
     }
 

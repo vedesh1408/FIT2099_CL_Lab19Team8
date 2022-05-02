@@ -3,7 +3,10 @@ package game.implementedActions;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+
+import java.util.Random;
 
 /**
  * Class that allows the actor to jump
@@ -11,6 +14,10 @@ import edu.monash.fit2099.engine.positions.Location;
 public class JumpActorAction extends Action {
 
     // TODO Modify the class so that it is different from MoveActorAction
+    protected Ground target;
+    protected String name;
+    protected int fall;
+    protected int jumpRate;
 
     /**
      * Target location
@@ -24,9 +31,14 @@ public class JumpActorAction extends Action {
      * Or the command key
      */
     protected String hotKey;
-
-    public JumpActorAction(Location location, String direction, String hotkey) {
-
+    protected Random rand = new Random();
+    public JumpActorAction(Ground target, String name, String direction, int fall, int jumpRate, Location location) {
+        this.target = target;
+        this. name = name;
+        this. direction = direction;
+        this. fall = fall;
+        this.jumpRate = jumpRate;
+        this.moveToLocation = location;
     }
 
     /**
@@ -39,8 +51,12 @@ public class JumpActorAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        map.moveActor(actor, moveToLocation);
-        return menuDescription(actor);
+       if (!(rand.nextInt(100)<=jumpRate)){
+           actor.hurt(fall);
+           return actor + " misses " + name;
+       }
+       map.moveActor(actor,moveToLocation);
+       return actor + " jumped and is on top of "+ name;
     }
 
     /**
@@ -51,21 +67,7 @@ public class JumpActorAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " jumps " + direction;
+        return actor + " jumps to " + direction + " " + name;
     }
 
-    /**
-     * Returns this Action's hotkey.
-     *
-     * @return the hotkey
-     */
-    @Override
-    public String hotkey() {
-        return hotKey;
-    }
-
-    public boolean isSuccessful(Location location) {
-        // used to check if jump is successful
-        return true;
-    }
 }
