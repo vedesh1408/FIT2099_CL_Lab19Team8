@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.enums.Status;
+import game.implementedActions.ResetAction;
 import game.interfaces.Resettable;
 
 /**
@@ -17,6 +18,9 @@ public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
 	private Integer wallet;
+	boolean hasReset;
+	ActionList actions = new ActionList();
+	ResetAction reset = new ResetAction();
 
 	/**
 	 * Constructor.
@@ -30,6 +34,7 @@ public class Player extends Actor implements Resettable {
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		wallet = 0;
 		this.registerInstance();
+		this.hasReset = false;
 	}
 
 	@Override
@@ -57,5 +62,15 @@ public class Player extends Actor implements Resettable {
 	public void resetInstance(Location location) {
 		// Resetting player's max hp
 		this.resetMaxHp(this.getMaxHp());
+		this.removeCapability(Status.TALL);
+		this.removeCapability(Status.INVISIBILITY);
+		this.setDisplayChar('m');
+		this.actions.remove(this.reset);
+	}
+
+	@Override
+	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
+		this.actions.add(this.reset);
+		return this.actions;
 	}
 }

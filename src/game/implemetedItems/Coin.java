@@ -20,7 +20,6 @@ public class Coin extends Item implements Resettable {
 
     @Override
     public void resetInstance(Location location) {
-        // TODO Auto-generated method stub
-        
+        location.removeItem(this);
     }
 }
