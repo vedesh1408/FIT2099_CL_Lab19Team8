@@ -4,6 +4,9 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.ResetManager;
 
+/**
+ * Interface to check if something can be reset
+ */
 public interface Resettable {
     /**
      * Allows any classes that use this interface to reset abilities, attributes, and/or items.
