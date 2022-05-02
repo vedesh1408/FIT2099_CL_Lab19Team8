@@ -46,12 +46,7 @@ public class Sprout extends Tree implements Growable {
         }
     }
 
-    public void resetInstance(Location location) {
-        Random rand = new Random();
-        double chance = rand.nextDouble();
-        if (chance <= 0.5) {
-            location.setGround(new Dirt());
-        }
+    public void resetInstance(GameMap map) {
     }
 
     @Override
