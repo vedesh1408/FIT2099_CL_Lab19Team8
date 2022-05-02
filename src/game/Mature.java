@@ -2,10 +2,12 @@ package game;
 
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.Exit;
+import edu.monash.fit2099.engine.positions.GameMap;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 
 import java.util.*;
+import java.util.Random;
 
 public class Mature extends Tree {
 
@@ -65,4 +67,8 @@ public class Mature extends Tree {
             }
         }
     }
+
+    public void resetInstance(GameMap map) {
+    }
+
 }

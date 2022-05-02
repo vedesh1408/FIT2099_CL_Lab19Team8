@@ -7,11 +7,12 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.enums.Status;
+import game.interfaces.Resettable;
 
 /**
  * Class representing the Player.
  */
-public class Player extends Actor  {
+public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
 	private Integer wallet;
@@ -26,7 +27,8 @@ public class Player extends Actor  {
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
-		wallet = 1000;
+		wallet = 0;
+		this.registerInstance();
 	}
 
 	@Override
@@ -49,4 +51,10 @@ public class Player extends Actor  {
 	public void changeWallet(Integer amount) { wallet += amount; }
 
 	public Integer getWallet() { return wallet; }
+
+	@Override
+	public void resetInstance(GameMap map) {
+		// Resetting player's max hp
+		this.resetMaxHp(this.getMaxHp());
+	}
 }

@@ -11,6 +11,7 @@ import game.implementedActions.KilledAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.FollowBehaviour;
 import game.interfaces.Behaviour;
+import game.interfaces.Resettable;
 import game.enums.Status;
 import game.behaviours.WanderBehaviour;
 import game.magicalitems.SuperMushroom;
@@ -22,7 +23,7 @@ import java.util.Random;
 /**
  * A turtle guy
  */
-public class Koopa extends Actor{
+public class Koopa extends Actor implements Resettable{
     private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
     private Random rand = new Random();
     protected FollowBehaviour followBehaviour;
@@ -32,6 +33,7 @@ public class Koopa extends Actor{
         this.behaviours.put(15, new WanderBehaviour());
         this.hasCapability(Status.HOSTILE_TO_PLAYER);
         this.behaviours.put(2,new AttackBehaviour());
+        this.registerInstance();
     }
     public IntrinsicWeapon getIntrinsicWeapon(){
         return new IntrinsicWeapon(30, "punches");
@@ -94,5 +96,10 @@ public class Koopa extends Actor{
 
         return new DoNothingAction();
     }
+
+    @Override
+	public void resetInstance(GameMap map) {
+		map.removeActor(this);
+	}
 
 }

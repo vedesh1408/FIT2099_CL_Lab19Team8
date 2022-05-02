@@ -6,8 +6,9 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.enums.Status;
 import game.implementedActions.DestroyWallAction;
+import game.interfaces.Resettable;
 
-public abstract class Tree extends Ground {
+public abstract class Tree extends Ground implements Resettable {
 
     // Integer to track tree's lifetime, used by all tree sub-types, and incremented in tick function.
     protected Integer treeLifetime;

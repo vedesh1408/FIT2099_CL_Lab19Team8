@@ -1,5 +1,6 @@
 package game;
 
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actors.enemies.Goomba;
 import game.interfaces.Growable;
@@ -41,6 +42,9 @@ public class Sprout extends Tree implements Growable {
                 location.addActor(new Goomba());
             }
         }
+    }
+
+    public void resetInstance(GameMap map) {
     }
 
 }

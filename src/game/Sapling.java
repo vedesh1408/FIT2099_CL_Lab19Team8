@@ -1,5 +1,6 @@
 package game;
 
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.implemetedItems.Coin;
 import game.interfaces.Growable;
@@ -38,5 +39,8 @@ public class Sapling extends Tree implements Growable {
             // Spawn Coin
             location.addItem(new Coin(20));
         }
+    }
+
+    public void resetInstance(GameMap map) {
     }
 }
