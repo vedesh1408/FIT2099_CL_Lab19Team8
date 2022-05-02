@@ -10,11 +10,11 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 import game.actors.Player;
 import game.actors.Toad;
-import game.actors.enemies.Goomba;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.implemetedItems.Wrench;
 import game.magicalitems.*;
+import game.tree.Sprout;
 
 /**
  * The main class for the Mario World game.

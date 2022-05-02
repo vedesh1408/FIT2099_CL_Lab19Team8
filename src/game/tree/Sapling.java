@@ -1,19 +1,23 @@
-package game;
+package game.tree;
 
 import java.util.Random;
 
-import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.actors.enemies.Goomba;
+import game.Dirt;
+import game.Utils;
+import game.implemetedItems.Coin;
 import game.interfaces.Growable;
 
-public class Sprout extends Tree implements Growable {
+/**
+ * Class to represent sapling
+ */
+public class Sapling extends Tree implements Growable {
 
     /**
      * Constructor.
      */
-    public Sprout() {
-        super('+');
+    public Sapling() {
+        super('t');
         this.registerInstance();
     }
 
@@ -29,39 +33,36 @@ public class Sprout extends Tree implements Growable {
         if (super.treeLifetime == 10) {
             grow(location);
         }
-        // every turn call spawn enemy goomba function
+        // every turn call spawn coin function
         spawn(location);
     }
 
     // Implement growable function
 
     /**
-     * Method to grow sprout into sapling
+     * Method to grow sapling into mature
      *
      * @param location - location whether the thing to be grown is
      */
     @Override
     public void grow(Location location) {
-        location.setGround(new Sapling());
+        location.setGround(new Mature());
     }
 
-    // Chance to Spawn enemy Goomba
+    // Method to spawn coin
 
     /**
-     * Method to spawn goomba randomly
+     * Method to spawn coins
      *
-     * @param location location of sprout
+     * @param location location whether the thing is
      */
     @Override
     public void spawn(Location location) {
         super.spawn(location);
-        // If there is an actor here, stops Goomba spawning ability
-        if (!location.containsAnActor()) {
-            // 10% chance to actually spawn Goomba
-            if (Utils.ranNum(10) == 0) {
-                // Spawn Goomba
-                location.addActor(new Goomba());
-            }
+        // 10% chance to actually spawn the coin
+        if (Utils.ranNum(10) == 0) {
+            // Spawn Coin
+            location.addItem(new Coin(20));
         }
     }
 

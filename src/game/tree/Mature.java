@@ -1,8 +1,9 @@
-package game;
+package game.tree;
 
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.Exit;
-import edu.monash.fit2099.engine.positions.GameMap;
+import game.Dirt;
+import game.Utils;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 

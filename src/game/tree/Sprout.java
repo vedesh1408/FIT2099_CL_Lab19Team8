@@ -1,21 +1,22 @@
-package game;
+package game.tree;
 
 import java.util.Random;
 
 import edu.monash.fit2099.engine.positions.Location;
-import game.implemetedItems.Coin;
+import game.Dirt;
+import game.Utils;
+import game.actors.enemies.Goomba;
 import game.interfaces.Growable;
+import game.tree.Sapling;
+import game.tree.Tree;
 
-/**
- * Class to represent sapling
- */
-public class Sapling extends Tree implements Growable {
+public class Sprout extends Tree implements Growable {
 
     /**
      * Constructor.
      */
-    public Sapling() {
-        super('t');
+    public Sprout() {
+        super('+');
         this.registerInstance();
     }
 
@@ -31,36 +32,39 @@ public class Sapling extends Tree implements Growable {
         if (super.treeLifetime == 10) {
             grow(location);
         }
-        // every turn call spawn coin function
+        // every turn call spawn enemy goomba function
         spawn(location);
     }
 
     // Implement growable function
 
     /**
-     * Method to grow sapling into mature
+     * Method to grow sprout into sapling
      *
      * @param location - location whether the thing to be grown is
      */
     @Override
     public void grow(Location location) {
-        location.setGround(new Mature());
+        location.setGround(new Sapling());
     }
 
-    // Method to spawn coin
+    // Chance to Spawn enemy Goomba
 
     /**
-     * Method to spawn coins
+     * Method to spawn goomba randomly
      *
-     * @param location location whether the thing is
+     * @param location location of sprout
      */
     @Override
     public void spawn(Location location) {
         super.spawn(location);
-        // 10% chance to actually spawn the coin
-        if (Utils.ranNum(10) == 0) {
-            // Spawn Coin
-            location.addItem(new Coin(20));
+        // If there is an actor here, stops Goomba spawning ability
+        if (!location.containsAnActor()) {
+            // 10% chance to actually spawn Goomba
+            if (Utils.ranNum(10) == 0) {
+                // Spawn Goomba
+                location.addActor(new Goomba());
+            }
         }
     }
 
