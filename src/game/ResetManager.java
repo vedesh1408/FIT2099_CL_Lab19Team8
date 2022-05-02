@@ -10,7 +10,6 @@ import edu.monash.fit2099.engine.positions.Location;
 
 /**
  * A global Singleton manager that does soft-reset on the instances.
- * TODO: you may modify (add or remove) methods in this class if you think they are not necessary.
  * HINT: refer to Bootcamp Week 5 about static factory method.
  * A3: Think about how will you improve this implementation in the future assessment.
  * What could be the drawbacks of this implementation?
@@ -53,6 +52,7 @@ public class ResetManager {
         for (Resettable reset : resettableList) {
             reset.resetInstance(location);
         }
+        this.cleanUp();
     }
 
     /**
@@ -68,7 +68,7 @@ public class ResetManager {
      * @param resettable resettable object
      * Removes all instances of items that aren't permanent in the game.
      */
-    public void cleanUp(Resettable resettable){
+    public void cleanUp(){
         ArrayList<Resettable> perm = new ArrayList<>();
         for (Resettable reset : resettableList){
             if (reset.isPermanent()) {
