@@ -2,7 +2,6 @@ package game;
 
 import java.util.Random;
 
-import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.implemetedItems.Coin;
 import game.interfaces.Growable;

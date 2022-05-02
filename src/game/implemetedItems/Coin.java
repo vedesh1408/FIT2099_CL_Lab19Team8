@@ -20,7 +20,7 @@ public class Coin extends Item implements Resettable {
     public Integer getValue() { return value; }
 
     @Override
-    public void resetInstance(GameMap map) {
+    public void resetInstance(Location location) {
     }
 
     @Override

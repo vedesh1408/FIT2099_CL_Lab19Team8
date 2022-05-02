@@ -13,4 +13,6 @@ public interface Growable {
      * @param location - location whether the thing to be grown is
      */
     public void grow(Location location);
+
+    void resetInstance(Location location);
 }
