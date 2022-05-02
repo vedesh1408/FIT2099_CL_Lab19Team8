@@ -14,6 +14,7 @@ public class Coin extends Item implements Resettable {
         super("Coin", '$', false);
         this.value = value;
         addAction(new CollectCoinAction(this));
+        this.registerInstance();
     }
 
     public Integer getValue() { return value; }

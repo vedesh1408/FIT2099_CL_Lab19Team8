@@ -15,6 +15,7 @@ public class Sprout extends Tree implements Growable {
      */
     public Sprout() {
         super('+');
+        this.registerInstance();
     }
 
     @Override
@@ -46,6 +47,7 @@ public class Sprout extends Tree implements Growable {
         }
     }
 
+    @Override
     public void resetInstance(Location location) {
         Random rand = new Random();
         double chance = rand.nextDouble();
@@ -58,5 +60,4 @@ public class Sprout extends Tree implements Growable {
     public boolean isPermanent() {
         return false;
     }
-
 }

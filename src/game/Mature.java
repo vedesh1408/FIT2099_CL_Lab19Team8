@@ -17,6 +17,7 @@ public class Mature extends Tree {
      */
     public Mature() {
         super('T');
+        this.registerInstance();
     }
 
     @Override
@@ -68,6 +69,7 @@ public class Mature extends Tree {
         }
     }
 
+    @Override
     public void resetInstance(Location location) {
         Random rand = new Random();
         double chance = rand.nextDouble();
@@ -80,5 +82,4 @@ public class Mature extends Tree {
     public boolean isPermanent() {
         return false;
     }
-
 }

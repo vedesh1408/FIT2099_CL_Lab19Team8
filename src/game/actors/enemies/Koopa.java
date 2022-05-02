@@ -94,7 +94,6 @@ public class Koopa extends Actor implements Resettable{
             if (action != null)
                 return action;
         }
-
         return new DoNothingAction();
     }
 

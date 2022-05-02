@@ -15,6 +15,7 @@ public class Sapling extends Tree implements Growable {
      */
     public Sapling() {
         super('t');
+        this.registerInstance();
     }
 
     @Override
@@ -43,6 +44,7 @@ public class Sapling extends Tree implements Growable {
         }
     }
 
+    @Override
     public void resetInstance(Location location) {
         Random rand = new Random();
         double chance = rand.nextDouble();

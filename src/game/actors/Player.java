@@ -19,7 +19,6 @@ public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
 	private Integer wallet;
-	boolean hasReset;
 
 	/**
 	 * Constructor.
@@ -33,7 +32,6 @@ public class Player extends Actor implements Resettable {
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		wallet = 0;
 		this.registerInstance();
-		this.hasReset = false;
 		super.addItemToInventory(new ResetItem());
 	}
 
@@ -62,17 +60,10 @@ public class Player extends Actor implements Resettable {
 	public void resetInstance(Location location) {
 		// Resetting player's max hp
 		this.resetMaxHp(this.getMaxHp());
-		this.removeCapability(Status.TALL);
-		this.removeCapability(Status.INVINCIBILITY);
+		if (this.hasCapability(Status.TALL)) { this.removeCapability(Status.TALL); }
+		if (this.hasCapability(Status.INVINCIBILITY)) { this.removeCapability(Status.INVINCIBILITY); }
 		this.setDisplayChar('m');
 	}
-
-/*	@Override
-    public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
-        ActionList list = super.allowableActions(this, direction, map);
-        list.add(new ResetAction(this));
-        return list;
-    } */
 
 	@Override
 	public boolean isPermanent() {
