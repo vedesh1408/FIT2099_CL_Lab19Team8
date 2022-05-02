@@ -50,4 +50,9 @@ public class Sapling extends Tree implements Growable {
             location.setGround(new Dirt());
         }
     }
+
+    @Override
+    public boolean isPermanent() {
+        return false;
+    }
 }

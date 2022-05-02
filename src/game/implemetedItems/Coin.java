@@ -22,4 +22,9 @@ public class Coin extends Item implements Resettable {
     public void resetInstance(Location location) {
         location.removeItem(this);
     }
+
+    @Override
+    public boolean isPermanent() {
+        return false;
+    }
 }

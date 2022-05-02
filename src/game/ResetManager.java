@@ -57,7 +57,6 @@ public class ResetManager {
 
     /**
      * Add the Resettable instance to the list
-     * FIXME: it does nothing, you need to implement it :)
      */
     public void appendResetInstance(Resettable reset){
         resettableList.add(reset);
@@ -67,8 +66,16 @@ public class ResetManager {
     /**
      * Remove a Resettable instance from the list
      * @param resettable resettable object
-     * FIXME: it does nothing, you need to implement it :)
+     * Removes all instances of items that aren't permanent in the game.
      */
     public void cleanUp(Resettable resettable){
+        ArrayList<Resettable> perm = new ArrayList<>();
+        for (Resettable reset : resettableList){
+            if (reset.isPermanent()) {
+                perm.add(reset);
+            }
+        }
+        resettableList = new ArrayList<>();
+        resettableList.addAll(perm);
     }
 }

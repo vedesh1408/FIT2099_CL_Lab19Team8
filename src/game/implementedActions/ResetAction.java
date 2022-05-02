@@ -6,16 +6,16 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.ResetManager;
 
 /**
- * An Action that doesn't do anything.
+ * An Action that resets the game.
  *
- * Use this to implement waiting or similar actions in game clients.
+ *
  */
 public class ResetAction extends Action {
 
 	/**
 	 * Constructor
 	 */
-	public ResetAction() {
+	public ResetAction(Actor actor) {
 	}
 
 	@Override

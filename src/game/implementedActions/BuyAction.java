@@ -31,7 +31,7 @@ public class BuyAction extends Action {
                 ((Player)actor).changeWallet(-(price));
                 return actor + " purchased " + target + " for " + price;
             }
-            else {
+            else if (((Player)actor).getWallet() < price) {
                 return "You don't have enough coins!";
             }
             }

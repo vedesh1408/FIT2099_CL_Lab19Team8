@@ -103,4 +103,8 @@ public class Koopa extends Actor implements Resettable{
 		location.map().removeActor(this);
 	}
 
+    @Override
+    public boolean isPermanent() {
+        return false;
+    }
 }

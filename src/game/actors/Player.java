@@ -19,8 +19,6 @@ public class Player extends Actor implements Resettable {
 	private final Menu menu = new Menu();
 	private Integer wallet;
 	boolean hasReset;
-	ActionList actions = new ActionList();
-	ResetAction reset = new ResetAction();
 
 	/**
 	 * Constructor.
@@ -65,12 +63,17 @@ public class Player extends Actor implements Resettable {
 		this.removeCapability(Status.TALL);
 		this.removeCapability(Status.INVISIBILITY);
 		this.setDisplayChar('m');
-		this.actions.remove(this.reset);
 	}
 
 	@Override
-	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
-		this.actions.add(this.reset);
-		return this.actions;
+    public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
+        ActionList list = super.allowableActions(this, direction, map);
+        list.add(new ResetAction(this));
+        return list;
+    }
+
+	@Override
+	public boolean isPermanent() {
+		return true;
 	}
 }

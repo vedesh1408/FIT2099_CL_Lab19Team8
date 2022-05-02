@@ -105,4 +105,9 @@ public class Goomba extends Actor implements Resettable {
 	public void resetInstance(Location location) {
 		location.map().removeActor(this);
 	}
+
+	@Override
+    public boolean isPermanent() {
+        return false;
+    }
 }

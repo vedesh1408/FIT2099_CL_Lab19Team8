@@ -76,4 +76,9 @@ public class Mature extends Tree {
         }
     }
 
+    @Override
+    public boolean isPermanent() {
+        return false;
+    }
+
 }

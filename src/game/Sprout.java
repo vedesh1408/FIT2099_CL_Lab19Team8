@@ -54,4 +54,9 @@ public class Sprout extends Tree implements Growable {
         }
     }
 
+    @Override
+    public boolean isPermanent() {
+        return false;
+    }
+
 }
