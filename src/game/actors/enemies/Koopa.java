@@ -43,7 +43,6 @@ public class Koopa extends Actor implements Resettable {
         this.addCapability(Status.HOSTILE_TO_PLAYER);
         this.behaviours.put(2, new AttackBehaviour());
         this.registerInstance();
-        System.out.println("Koopa registered instance.");
     }
 
     /**
@@ -122,7 +121,6 @@ public class Koopa extends Actor implements Resettable {
      */
     @Override
     public void resetInstance(Location location) {
-        System.out.println("KOOPA REMOVED");
         location.map().removeActor(this);
     }
 
