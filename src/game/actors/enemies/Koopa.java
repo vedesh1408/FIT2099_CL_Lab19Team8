@@ -120,8 +120,8 @@ public class Koopa extends Actor implements Resettable {
      * When called, it removes the actor from the map
      */
     @Override
-    public void resetInstance(Location location) {
-        location.map().removeActor(this);
+    public void resetInstance(GameMap map) {
+        map.removeActor(this);
     }
 
     /**

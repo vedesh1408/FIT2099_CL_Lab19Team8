@@ -12,15 +12,19 @@ import game.interfaces.Resettable;
 public class Coin extends Item implements Resettable {
 
     private Integer value;
+    private int xCoord;
+    private int yCoord;
 
     /***
      * Constructor
      * @param value currency value
      */
-    public Coin(Integer value) {
+    public Coin(Integer value, int xCoord, int yCoord) {
         super("Coin", '$', false);
         this.value = value;
         addAction(new CollectCoinAction(this));
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
         this.registerInstance();
     }
 
@@ -37,7 +41,8 @@ public class Coin extends Item implements Resettable {
      * When called, it removes the item from the map
      */
     @Override
-    public void resetInstance(Location location) {
+    public void resetInstance(GameMap map) {
+        map.at(xCoord, yCoord).removeItem(this);
     }
 
     /**

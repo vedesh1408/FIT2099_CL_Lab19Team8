@@ -94,7 +94,7 @@ public class Player extends Actor implements Resettable {
     /**
      * When called, removes all capabilities on player and increase its hP to max
      */
-    public void resetInstance(Location location) {
+    public void resetInstance(GameMap map) {
         // Resetting player's max hp
         this.resetMaxHp(this.getMaxHp());
         if (this.hasCapability(Status.TALL)) {

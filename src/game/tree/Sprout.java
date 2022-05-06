@@ -15,8 +15,9 @@ public class Sprout extends Tree implements Growable {
     /**
      * Constructor.
      */
-    public Sprout() {
-        super("Sprout", '+', 90,10);
+    public Sprout(int xCoord, int yCoord) {
+        super("Sprout", '+', 90,10, xCoord, yCoord);
+
     }
 
     /**
@@ -44,7 +45,7 @@ public class Sprout extends Tree implements Growable {
      */
     @Override
     public void grow(Location location) {
-        location.setGround(new Sapling());
+        location.setGround(new Sapling(super.getX(), super.getY()));
     }
 
     // Chance to Spawn enemy Goomba

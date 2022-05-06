@@ -2,6 +2,7 @@ package game.tree;
 
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
@@ -23,16 +24,21 @@ public abstract class Tree extends Ground implements Resettable {
     private String treeName;
     private int fallDamage;
     private int jumpRate;
+    private int xCoord;
+    private int yCoord;
 
     /**
      * Constructor.;
      */
-    public Tree(String treeName,char displayChar, int jumpRate, int fallDamage) {
+    public Tree(String treeName,char displayChar, int jumpRate, int fallDamage, int xCoord, int yCoord) {
         super(displayChar);
         this.treeName=treeName;
-        this. jumpRate = jumpRate;
-        this. fallDamage = fallDamage;
+        this.jumpRate = jumpRate;
+        this.fallDamage = fallDamage;
         this.registerInstance();
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
+
     }
 
     /**
@@ -41,6 +47,15 @@ public abstract class Tree extends Ground implements Resettable {
      * @param location location to spawn items
      */
     public void spawn(Location location) {
+    }
+
+
+    public int getX() {
+        return this.xCoord;
+    }
+
+    public int getY() {
+        return this.yCoord;
     }
 
     /**
@@ -70,9 +85,9 @@ public abstract class Tree extends Ground implements Resettable {
      * @param location location of Tree
      */
     @Override
-    public void resetInstance(Location location) {
+    public void resetInstance(GameMap map) {
         if (Utils.ranNum(2) == 0) {
-            location.setGround(new Dirt());
+            map.at(xCoord, yCoord).setGround(new Dirt());
         }
     }
 

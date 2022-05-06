@@ -16,8 +16,8 @@ public class Sapling extends Tree implements Growable {
     /**
      * Constructor.
      */
-    public Sapling() {
-        super("Sapling", 't', 80,20);
+    public Sapling(int xCoord, int yCoord) {
+        super("Sapling", 't', 80,20, xCoord, yCoord);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Sapling extends Tree implements Growable {
      */
     @Override
     public void grow(Location location) {
-        location.setGround(new Mature());
+        location.setGround(new Mature(super.getX(), super.getY()));
     }
 
     // Method to spawn coin
@@ -61,7 +61,7 @@ public class Sapling extends Tree implements Growable {
         // 10% chance to actually spawn the coin
         if (Utils.ranNum(10) == 0) {
             // Spawn Coin
-            location.addItem(new Coin(20));
+            location.addItem(new Coin(20, location.x(), location.y()));
         }
     }
 }

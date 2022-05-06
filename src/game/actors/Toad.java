@@ -4,7 +4,6 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.actions.*;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Display;
-import game.enums.Status;
 import game.implementedActions.BuyAction;
 import game.implementedActions.SpeakAction;
 import game.implemetedItems.Wrench;

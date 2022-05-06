@@ -110,8 +110,8 @@ public class Goomba extends Actor implements Resettable {
     /**
      * When called, it removes the actor from the map
      */
-    public void resetInstance(Location location) {
-        location.map().removeActor(this);
+    public void resetInstance(GameMap map) {
+        map.removeActor(this);
     }
 
     @Override

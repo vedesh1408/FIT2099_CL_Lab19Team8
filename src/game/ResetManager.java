@@ -49,9 +49,9 @@ public class ResetManager {
      * Reset the game by traversing through all the list
      * By doing this way, it will avoid using `instanceof` all over the place.
      */
-    public void run(Location location) {
+    public void run(GameMap map) {
         for (Resettable reset : resettableList) {
-            reset.resetInstance(location);
+            reset.resetInstance(map);
         }
         this.cleanUp();
     }

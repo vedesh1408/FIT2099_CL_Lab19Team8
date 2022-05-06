@@ -45,7 +45,7 @@ public class DestroyWallAction extends Action {
         map.moveActor(actor, locationDestroy);
         Ground newDirt = new Dirt();
         locationDestroy.setGround(newDirt);
-        locationDestroy.addItem(new Coin(5));
+        locationDestroy.addItem(new Coin(5, locationDestroy.x(), locationDestroy.y()));
         return actor + " destroys " + targetNameDestroy;
     }
 

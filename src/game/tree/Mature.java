@@ -18,8 +18,8 @@ public class Mature extends Tree {
     /**
      * Constructor.
      */
-    public Mature() {
-        super("Mature", 'T', 70,30);
+    public Mature(int xCoord, int yCoord) {
+        super("Mature", 'T', 70,30, xCoord, yCoord);
     }
 
     /**
@@ -67,8 +67,10 @@ public class Mature extends Tree {
         for (Exit myExit : myExits) { // replaced basic for loop with java enhanced for loop upon suggestion
             // Check if the next (random) square is free
             if (myExit.getDestination().getGround().hasCapability(Status.FERTILE)) {
+                int newX = myExit.getDestination().x();
+                int newY = myExit.getDestination().y();
                 // Grow a new sprout
-                myExit.getDestination().setGround(new Sprout());
+                myExit.getDestination().setGround(new Sprout(newX, newY));
                 break;
             }
         }
