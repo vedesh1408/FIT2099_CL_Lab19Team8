@@ -10,21 +10,26 @@ import game.maps.Map;
 public class TeleportAction extends Action {
 
     private Location teleportToLocation;
-    private Map map;
+    private Location teleportFromLocation;
+    private Map mapTo;
+    private Map mapFrom;
 
-    public TeleportAction(Map map, Location locationTo) {
+    public TeleportAction(Map mapFrom, Map mapTo, Location locationFrom, Location locationTo) {
         this.teleportToLocation = locationTo;
-        this.map = map;
+        this.teleportFromLocation = locationFrom;
+        this.mapTo = mapTo;
+        this.mapFrom = mapFrom;
     }
 
     @Override
     public String execute(Actor actor, GameMap gMap) {
         gMap.moveActor(actor, teleportToLocation);
-        return actor + " teleports to " + map.menuName();
+        teleportToLocation.setGround(new WarpPipe(mapTo, mapFrom, teleportToLocation, teleportFromLocation));
+        return actor + " teleports to " + mapTo.menuName();
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return "Teleport to " + map.menuName();
+        return "Teleport to " + mapTo.menuName();
     }
 }

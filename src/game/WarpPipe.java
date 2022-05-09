@@ -6,20 +6,24 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.implementedActions.JumpActorAction;
+import game.implementedActions.TeleportAction;
+import game.maps.Map;
 
 public class WarpPipe extends Ground {
 
     ActionList finalActions = new ActionList();
     ActionList actions = new ActionList();
-    Location destination;
+    Map mapDest;
+    Map mapFrom;
+    Location destinationTo;
+    Location destinationFrom;
 
-    public WarpPipe(Location destination) {
+    public WarpPipe(Map mapFrom, Map mapDest, Location destinationTo, Location destinationFrom ) {
         super('C');
-        this.destination = destination;
-    }
-
-    public void addAction(Action action) {
-        actions.add(action);
+        this.destinationTo = destinationTo;
+        this.destinationFrom = destinationFrom;
+        this.mapDest = mapDest;
+        this.actions.add(new TeleportAction(mapFrom, mapDest, destinationFrom, destinationTo));
     }
 
     @Override
