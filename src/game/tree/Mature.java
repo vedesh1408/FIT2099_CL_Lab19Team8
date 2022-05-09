@@ -8,7 +8,6 @@ import game.actors.enemies.Koopa;
 import game.enums.Status;
 
 import java.util.*;
-import java.util.Random;
 
 /**
  * Class to represent a mature tree

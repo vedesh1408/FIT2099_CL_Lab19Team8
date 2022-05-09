@@ -1,7 +1,6 @@
 package game.implemetedItems;
 
 import edu.monash.fit2099.engine.items.Item;
-import edu.monash.fit2099.engine.weapons.Weapon;
 import game.enums.Status;
 import game.interfaces.BuyableItem;
 

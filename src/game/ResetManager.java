@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Location;
 
 /**
  * A global Singleton manager that does soft-reset on the instances.

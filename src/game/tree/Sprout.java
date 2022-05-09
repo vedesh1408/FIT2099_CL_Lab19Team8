@@ -1,14 +1,9 @@
 package game.tree;
 
-import java.util.Random;
-
 import edu.monash.fit2099.engine.positions.Location;
-import game.Dirt;
 import game.Utils;
 import game.actors.enemies.Goomba;
 import game.interfaces.Growable;
-import game.tree.Sapling;
-import game.tree.Tree;
 
 public class Sprout extends Tree implements Growable {
 

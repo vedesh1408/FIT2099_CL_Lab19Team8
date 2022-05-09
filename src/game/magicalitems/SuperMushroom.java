@@ -1,7 +1,6 @@
 package game.magicalitems;
 
 import edu.monash.fit2099.engine.items.Item;
-import game.enums.Status;
 import game.interfaces.BuyableItem;
 
 /**

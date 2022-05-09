@@ -6,7 +6,6 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.implementedActions.AttackAction;
 import game.implementedActions.KilledAction;
@@ -16,7 +15,6 @@ import game.interfaces.Behaviour;
 import game.interfaces.Resettable;
 import game.enums.Status;
 import game.behaviours.WanderBehaviour;
-import game.magicalitems.SuperMushroom;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -12,8 +12,6 @@ import game.implementedActions.DestroyWallAction;
 import game.implementedActions.JumpActorAction;
 import game.interfaces.Resettable;
 
-import java.util.Random;
-
 /**
  * Abstract class for tree
  */

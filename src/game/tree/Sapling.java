@@ -1,9 +1,6 @@
 package game.tree;
 
-import java.util.Random;
-
 import edu.monash.fit2099.engine.positions.Location;
-import game.Dirt;
 import game.Utils;
 import game.implemetedItems.Coin;
 import game.interfaces.Growable;

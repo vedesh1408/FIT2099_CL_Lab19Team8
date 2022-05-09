@@ -1,7 +1,6 @@
 package game.interfaces;
 
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Location;
 import game.ResetManager;
 
 /**
