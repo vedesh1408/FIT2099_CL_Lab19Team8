@@ -11,32 +11,31 @@ import game.maps.Map;
 
 public class WarpPipe extends Ground {
 
-    ActionList finalActions = new ActionList();
     ActionList actions = new ActionList();
-    Map mapDest;
-    Map mapFrom;
+    Map mapTo;
+    Map mapAt;
     Location destinationTo;
     Location destinationFrom;
 
-    public WarpPipe(Map mapFrom, Map mapDest, Location destinationTo, Location destinationFrom ) {
+    public WarpPipe(Map mapAt, Map mapTo, Location destinationTo, Location destinationFrom) {
         super('C');
         this.destinationTo = destinationTo;
         this.destinationFrom = destinationFrom;
-        this.mapDest = mapDest;
-        this.actions.add(new TeleportAction(mapFrom, mapDest, destinationFrom, destinationTo));
+        this.mapTo = mapTo;
+        this.mapAt = mapAt;
     }
 
     @Override
     public void tick(Location location) {
         if (location.containsAnActor()) {
-            finalActions.add(actions);
+            actions.add(new TeleportAction(this.mapAt, this.mapTo, this.destinationFrom, this.destinationTo));
         }
     }
 
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList list = super.allowableActions(actor, location, direction);
-        list.add(finalActions);
+        list.add(actions);
         if (!location.containsAnActor()) {
             list.add(new JumpActorAction(this, "Warp Pipe", direction, 0, 100, location));
         }
