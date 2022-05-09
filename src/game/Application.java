@@ -3,6 +3,7 @@ package game;
 import java.util.Arrays;
 import java.util.List;
 
+import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
@@ -14,6 +15,8 @@ import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.implemetedItems.Wrench;
 import game.magicalitems.*;
+import game.maps.HomeMap;
+import game.maps.LavaZone;
 import game.tree.Sprout;
 
 /**
@@ -25,45 +28,17 @@ public class Application {
 
         World world = new World(new Display());
 
-        FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor());
+        FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Lava());
 
-        List<String> map = Arrays.asList(
-                "..........................................##....................................",
-                     "............................................#...................................",
-                     "............................................#...................................",
-                     ".............................................##.................................",
-                     "...............................................#................................",
-                     "................................................#...............................",
-                     "..................................................#.............................",
-                     ".................................................##.............................",
-                     "................................................##..............................",
-                     ".........................................#____####..............................",
-                     "........................................#_____###...............................",
-                     "........................................#______###..............................",
-                     ".........................................#_____###..............................",
-                     ".................................................##.............................",
-                     "...................................................#............................",
-                     "....................................................#...........................",
-                     ".....................................................#..........................",
-                     "......................................................#.........................",
-                     ".......................................................##.......................");
-
-        // Creating the new, challenging Lava based map
-
-        List<String> lavaMap = Arrays.asList(
-            "____#...L.......LLLLL....L.....L........",
-                 "_____#.....L......LLLL.L........L.......",
-                 "______............LLLL.....L....L___....",
-                 "___##...L........LLLL...........___.....",
-                 "###........L...._______............LLL..",
-                 "..................LLLL..L....L........LL",
-                 "....L........L...LLLLL.............#####",
-                 ".........L.......LLLL......L....#_______",
-                 ".L................LLLL.........#________",
-                 ".......L........L..LLLL........_________");
-
-        GameMap gameMap = new GameMap(groundFactory, map);
+        GameMap gameMap = new GameMap(groundFactory, new HomeMap().map);
         world.addGameMap(gameMap);
+
+        GameMap lava = new GameMap(groundFactory, new LavaZone().map);
+        world.addGameMap(lava);
+
+        WarpPipe warpPipe = new WarpPipe();
+        warpPipe.addAction(new MoveActorAction(lava.at(0,0), "Teleport to the Lava Zone"));
+        gameMap.at(30, 7).setGround(warpPipe);
 
         Actor mario = new Player("Player", 'm', 100);
         world.addPlayer(mario, gameMap.at(42, 10));
