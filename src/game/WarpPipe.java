@@ -11,13 +11,11 @@ public class WarpPipe extends Ground {
 
     ActionList finalActions = new ActionList();
     ActionList actions = new ActionList();
-    int jumpRate;
-    int fallDamage;
+    Location destination;
 
-    public WarpPipe() {
+    public WarpPipe(Location destination) {
         super('C');
-        this.jumpRate = 100;
-        this.fallDamage = 0;
+        this.destination = destination;
     }
 
     public void addAction(Action action) {
@@ -36,7 +34,7 @@ public class WarpPipe extends Ground {
         ActionList list = super.allowableActions(actor, location, direction);
         list.add(finalActions);
         if (!location.containsAnActor()) {
-            list.add(new JumpActorAction(this, "Warp Pipe", direction, this.fallDamage, this.jumpRate, location));
+            list.add(new JumpActorAction(this, "Warp Pipe", direction, 0, 100, location));
         }
         return list;
     }

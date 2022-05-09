@@ -42,7 +42,7 @@ public class Application {
         world.addGameMap(lava);
 
         // Creating a new warp pipe object and adding the teleport action to it.
-        WarpPipe warpPipe = new WarpPipe();
+        WarpPipe warpPipe = new WarpPipe(lava.at(0,0));
         warpPipe.addAction(new TeleportAction(lavaZone, lava.at(0,0)));
         // warpPipe.addAction(new MoveActorAction(lava.at(0,0), "Teleport to the Lava Zone"));
         gameMap.at(30, 7).setGround(warpPipe);

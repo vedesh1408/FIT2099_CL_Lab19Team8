@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
+import game.WarpPipe;
 import game.maps.Map;
 
 public class TeleportAction extends Action {
@@ -11,8 +12,8 @@ public class TeleportAction extends Action {
     private Location teleportToLocation;
     private Map map;
 
-    public TeleportAction(Map map, Location location) {
-        this.teleportToLocation = location;
+    public TeleportAction(Map map, Location locationTo) {
+        this.teleportToLocation = locationTo;
         this.map = map;
     }
 
