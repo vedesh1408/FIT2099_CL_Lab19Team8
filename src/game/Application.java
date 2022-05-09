@@ -13,6 +13,7 @@ import game.actors.Player;
 import game.actors.Toad;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
+import game.implementedActions.TeleportAction;
 import game.implemetedItems.Wrench;
 import game.magicalitems.*;
 import game.maps.HomeMap;
@@ -30,14 +31,24 @@ public class Application {
 
         FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Lava());
 
-        GameMap gameMap = new GameMap(groundFactory, new HomeMap().map);
+        // Creating a new lavaZone *MAP* not GameMap
+        LavaZone lavaZone = new LavaZone();
+
+        // Creating our home map
+        HomeMap home = new HomeMap();
+
+        // Adding the home map to the world's game maps.
+        GameMap gameMap = new GameMap(groundFactory, home.map);
         world.addGameMap(gameMap);
 
-        GameMap lava = new GameMap(groundFactory, new LavaZone().map);
+        //Adding the lava zone to the world's game maps.
+        GameMap lava = new GameMap(groundFactory, lavaZone.map);
         world.addGameMap(lava);
 
+        // Creating a new warp pipe object and adding the teleport action to it.
         WarpPipe warpPipe = new WarpPipe();
-        warpPipe.addAction(new MoveActorAction(lava.at(0,0), "Teleport to the Lava Zone"));
+        warpPipe.addAction(new TeleportAction(lavaZone, lava.at(0,0)));
+        // warpPipe.addAction(new MoveActorAction(lava.at(0,0), "Teleport to the Lava Zone"));
         gameMap.at(30, 7).setGround(warpPipe);
 
         Actor mario = new Player("Player", 'm', 100);
