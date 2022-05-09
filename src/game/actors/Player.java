@@ -9,6 +9,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.enums.Status;
 import game.implementedActions.ConsumeItemAction;
+import game.implementedActions.ResetAction;
 import game.implemetedItems.ResetItem;
 import game.interfaces.Resettable;
 
@@ -21,6 +22,7 @@ public class Player extends Actor implements Resettable {
 
     private final Menu menu = new Menu();
     private Integer wallet;
+    private ResetItem reset = new ResetItem();
 
     /**
      * Constructor.
@@ -34,7 +36,9 @@ public class Player extends Actor implements Resettable {
         this.addCapability(Status.HOSTILE_TO_ENEMY);
         wallet = 0;
         this.registerInstance();
-        super.addItemToInventory(new ResetItem());
+        if (!this.getInventory().contains(reset)){
+            this.addItemToInventory(reset);
+        }
     }
 
     /**
@@ -49,6 +53,12 @@ public class Player extends Actor implements Resettable {
             display.println(this.name + " is dead");
             System.exit(0);
         }
+
+        // Adding a new reset action
+        if (this.getInventory().contains(reset)){
+            actions.add(new ResetAction(reset));
+        }
+
         display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
         display.println("Wallet: $" + getWallet());
         // Handle multi-turn Actions
@@ -56,8 +66,11 @@ public class Player extends Actor implements Resettable {
             return lastAction.getNextAction();
         List<Item> inventoryItems = getInventory();
         for (Item iterator: inventoryItems){
-            actions.add(new ConsumeItemAction(iterator));
+            if (iterator != reset){
+                actions.add(new ConsumeItemAction(iterator));
+            }
         }
+
         // return/print the console menu
         return menu.showMenu(this, actions, display);
     }

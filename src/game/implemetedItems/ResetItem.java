@@ -12,6 +12,5 @@ public class ResetItem extends Item {
      */
     public ResetItem() {
         super("Reset", 'r', false);
-        addAction(new ResetAction(this));
     }
 }
