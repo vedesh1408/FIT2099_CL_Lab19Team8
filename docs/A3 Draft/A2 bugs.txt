@@ -1,7 +1,6 @@
 player attacks player (when near a goomba)
 goomba doesnt always try to attack when near player
 koopa does no damage
-consume items if else needs fixing to fix consume reset option
 invicibility doesn't last 10 turns
 display invicible message while active
 fix monologue (power star doesnt remove the line) (change from inventory to invincible/used)
