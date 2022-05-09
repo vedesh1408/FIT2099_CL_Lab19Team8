@@ -13,7 +13,6 @@ import java.util.Random;
  */
 public class JumpActorAction extends Action {
 
-    // TODO Modify the class so that it is different from MoveActorAction
     protected Ground target;
     protected String name;
     protected int fall;

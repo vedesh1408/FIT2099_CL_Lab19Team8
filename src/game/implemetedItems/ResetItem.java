@@ -1,7 +1,6 @@
 package game.implemetedItems;
 
 import edu.monash.fit2099.engine.items.Item;
-import game.implementedActions.ResetAction;
 
 /**
  * Class to reset item
