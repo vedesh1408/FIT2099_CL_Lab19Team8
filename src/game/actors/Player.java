@@ -46,7 +46,7 @@ public class Player extends Actor implements Resettable {
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         //check if player is dead
         if (!this.isConscious()) {
-            display.println(this.name + "is dead");
+            display.println(this.name + " is dead");
             System.exit(0);
         }
         display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
