@@ -2,15 +2,16 @@ package game;
 
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actors.enemies.PiranhaPlant;
 import game.implementedActions.JumpActorAction;
 import game.implementedActions.TeleportAction;
-import game.maps.LavaZone;
+import game.interfaces.Resettable;
 import game.maps.Map;
 
-public class WarpPipe extends Ground {
+public class WarpPipe extends Ground implements Resettable {
 
     ActionList actions = new ActionList();
     Map mapTo;
@@ -27,6 +28,7 @@ public class WarpPipe extends Ground {
         this.destinationFrom = destinationFrom;
         this.mapTo = mapTo;
         this.mapAt = mapAt;
+        this.registerInstance();
     }
 
     @Override
@@ -64,5 +66,19 @@ public class WarpPipe extends Ground {
     @Override
     public boolean canActorEnter(Actor actor) {
         return actor instanceof PiranhaPlant;
+    }
+
+    @Override
+    public void resetInstance(GameMap map) {
+        int x = this.destinationFrom.x();
+        int y = this.destinationFrom.y();
+        if (!map.at(x,y).containsAnActor()){
+            map.at(x,y).addActor(this.piPlant);
+        }
+    }
+
+    @Override
+    public boolean isPermanent() {
+        return true;
     }
 }
