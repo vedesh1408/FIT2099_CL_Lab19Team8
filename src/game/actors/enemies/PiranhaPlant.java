@@ -15,6 +15,9 @@ import game.implementedActions.AttackAction;
 import game.implementedActions.KilledAction;
 import game.interfaces.Resettable;
 
+/**
+ * Class for our Piranha Plant enemy.
+ */
 public class PiranhaPlant extends Actor implements Resettable {
     private Random rand = new Random();
 
@@ -23,7 +26,7 @@ public class PiranhaPlant extends Actor implements Resettable {
         this.registerInstance();
     }
     /**
-     * It returns the default weapon type of Piranha Plant along with its verb
+     * It returns the default weapon type of Piranha Plant along with its verb.
      *
      * @return it returns an instance of instrinsic weapon
      */
@@ -38,6 +41,7 @@ public class PiranhaPlant extends Actor implements Resettable {
 
     @Override
     public void resetInstance(GameMap map) {
+        // Increasing max hp by 50 and healing to maximum.
         this.increaseMaxHp(50);
         this.heal(this.getMaxHp());
     }
@@ -48,7 +52,7 @@ public class PiranhaPlant extends Actor implements Resettable {
         if (!this.isConscious()) {
             return new KilledAction(this);
             }
-
+        // Otherwise the plant does nothing.
         return new DoNothingAction();
     }
 
