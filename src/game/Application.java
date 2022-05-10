@@ -42,8 +42,9 @@ public class Application {
         world.addGameMap(lava);
 
         // Creating a new warp pipe object and adding the teleport action to it.
-        WarpPipe warpPipe = new WarpPipe(home, lavaZone, lava.at(0,0), gameMap.at(30,7));
-        gameMap.at(30, 7).setGround(warpPipe);
+        WarpPipe warpPipe = new WarpPipe(home, lavaZone, lava.at(0,0), gameMap.at(42,5));
+        gameMap.at(42, 5).setGround(warpPipe);
+        lava.at(0,0).setGround(new WarpPipe(lavaZone, home, gameMap.at(42,5), lava.at(0,0)));
 
         Actor mario = new Player("Player", 'm', 100);
         world.addPlayer(mario, gameMap.at(42, 10));

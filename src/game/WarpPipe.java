@@ -16,6 +16,7 @@ public class WarpPipe extends Ground {
     Map mapAt;
     Location destinationTo;
     Location destinationFrom;
+    boolean hasAction = false;
 
     public WarpPipe(Map mapAt, Map mapTo, Location destinationTo, Location destinationFrom) {
         super('C');
@@ -27,8 +28,13 @@ public class WarpPipe extends Ground {
 
     @Override
     public void tick(Location location) {
-        if (location.containsAnActor()) {
+        if (location.containsAnActor() && !hasAction) {
             actions.add(new TeleportAction(this.mapAt, this.mapTo, this.destinationFrom, this.destinationTo));
+            this.hasAction = true;
+        }
+        else if (this.hasAction) {
+            actions.clear();
+            this.hasAction = false;
         }
     }
 

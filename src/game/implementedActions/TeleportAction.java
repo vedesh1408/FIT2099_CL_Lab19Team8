@@ -24,7 +24,7 @@ public class TeleportAction extends Action {
     @Override
     public String execute(Actor actor, GameMap gMap) {
         gMap.moveActor(actor, teleportToLocation);
-        teleportToLocation.setGround(new WarpPipe(mapTo, mapFrom, teleportToLocation, teleportFromLocation));
+        // teleportToLocation.setGround(new WarpPipe(mapTo, mapFrom, teleportToLocation, teleportFromLocation));
         return actor + " teleports to " + mapTo.menuName();
     }
 
