@@ -9,7 +9,6 @@ import game.actors.Player;
 import game.actors.Toad;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
-import game.implementedActions.TeleportAction;
 import game.implemetedItems.Wrench;
 import game.magicalitems.*;
 import game.maps.HomeMap;

@@ -27,8 +27,8 @@ public class KilledAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        map.at(map.locationOf(player).x(), map.locationOf(player).y()).addItem(new SuperMushroom());
-        map.removeActor(player);
+        map.at(map.locationOf(actor).x(), map.locationOf(actor).y()).addItem(new SuperMushroom());
+        map.removeActor(actor);
         return actor + " is killed.";
     }
 

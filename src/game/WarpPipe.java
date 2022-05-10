@@ -1,12 +1,13 @@
 package game;
 
-import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+import game.actors.enemies.PiranhaPlant;
 import game.implementedActions.JumpActorAction;
 import game.implementedActions.TeleportAction;
+import game.maps.LavaZone;
 import game.maps.Map;
 
 public class WarpPipe extends Ground {
@@ -17,6 +18,8 @@ public class WarpPipe extends Ground {
     Location destinationTo;
     Location destinationFrom;
     boolean hasAction = false;
+    int counter = 1;
+    PiranhaPlant piPlant = new PiranhaPlant();
 
     public WarpPipe(Map mapAt, Map mapTo, Location destinationTo, Location destinationFrom) {
         super('C');
@@ -28,7 +31,17 @@ public class WarpPipe extends Ground {
 
     @Override
     public void tick(Location location) {
-        if (location.containsAnActor() && !hasAction) {
+        if (this.mapAt.menuName() != "Lava Zone") {
+            if (this.counter < 1) {
+                counter++;
+            }
+            else if (this.counter == 1) {
+                location.addActor(this.piPlant);
+                counter++;
+            }
+        }
+
+        if (location.containsAnActor() && !hasAction && location.getActor() != this.piPlant) {
             actions.add(new TeleportAction(this.mapAt, this.mapTo, this.destinationFrom, this.destinationTo));
             this.hasAction = true;
         }
@@ -50,6 +63,6 @@ public class WarpPipe extends Ground {
 
     @Override
     public boolean canActorEnter(Actor actor) {
-        return false;
+        return actor instanceof PiranhaPlant;
     }
 }
