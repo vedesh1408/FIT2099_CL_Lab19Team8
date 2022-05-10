@@ -6,4 +6,4 @@ display invicible message while active
 fix monologue (power star doesnt remove the line) (change from inventory to invincible/used)
 super mushroom doesnt increase max health by 50
 test reset removes invicibility once power star is working
-
+When jumping to a sapling another jump action appears saying "Player jumps to   Sapling".
