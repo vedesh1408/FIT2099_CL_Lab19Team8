@@ -1,5 +1,6 @@
 package game.tree;
 
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Utils;
 import game.implemetedItems.Coin;
@@ -60,5 +61,10 @@ public class Sapling extends Tree implements Growable {
             // Spawn Coin
             location.addItem(new Coin(20, location.x(), location.y()));
         }
+    }
+
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return false;
     }
 }

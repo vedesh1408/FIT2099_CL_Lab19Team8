@@ -1,6 +1,7 @@
 package game.tree;
 
 import edu.monash.fit2099.engine.positions.Location;
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import game.Dirt;
 import game.Utils;
@@ -93,5 +94,10 @@ public class Mature extends Tree {
                 location.addActor(new Koopa());
             }
         }
+    }
+
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return false;
     }
 }

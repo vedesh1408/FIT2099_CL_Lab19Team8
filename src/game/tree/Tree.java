@@ -98,4 +98,9 @@ public abstract class Tree extends Ground implements Resettable {
     public boolean isPermanent() {
         return false;
     }
+
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return false;
+    }
 }
