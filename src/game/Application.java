@@ -13,6 +13,7 @@ import game.implemetedItems.Wrench;
 import game.magicalitems.*;
 import game.maps.HomeMap;
 import game.maps.LavaZone;
+import game.maps.TreasureRoom;
 import game.tree.Sprout;
 
 /**
@@ -26,9 +27,6 @@ public class Application {
 
         FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Lava());
 
-        // Creating a new lavaZone *MAP* not GameMap
-        LavaZone lavaZone = new LavaZone();
-
         // Creating our home map
         HomeMap home = new HomeMap();
 
@@ -36,9 +34,19 @@ public class Application {
         GameMap gameMap = new GameMap(groundFactory, home.map);
         world.addGameMap(gameMap);
 
+        // Creating a new lavaZone *MAP* not GameMap
+        LavaZone lavaZone = new LavaZone();
+
         //Adding the lava zone to the world's game maps.
         GameMap lava = new GameMap(groundFactory, lavaZone.map);
         world.addGameMap(lava);
+
+        // Creating a Treaure Room map
+        TreasureRoom treasure = new TreasureRoom();
+
+        // Adding the Treasure room to the world's game maps.
+        GameMap treasureRoom = new GameMap(groundFactory, treasure.map);
+        world.addGameMap(treasureRoom);
 
         // Creating a new warp pipe object
         for (int i = 0; i <= 5; i++) {

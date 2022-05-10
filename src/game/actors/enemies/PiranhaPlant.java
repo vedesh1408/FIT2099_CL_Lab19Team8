@@ -17,7 +17,6 @@ import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.implementedActions.AttackAction;
 import game.implementedActions.KilledAction;
 import game.interfaces.Resettable;
-import game.behaviours.AttackBehaviour;
 import game.interfaces.Behaviour;
 
 /**
