@@ -74,7 +74,6 @@ public class Koopa extends Actor implements Resettable {
         // attack player
         if (rand.nextInt(100) <= 50) {
             if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
-                System.out.println("Koopa attacks player");
                 if (otherActor.hasCapability(Status.TALL)) {
                     otherActor.removeCapability(Status.TALL);
                 } else {

@@ -1,7 +1,10 @@
 package game.actors.enemies;
 
+import game.behaviours.AttackBehaviour;
 import game.enums.Status;
 
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Random;
 
 import edu.monash.fit2099.engine.actions.Action;
@@ -14,16 +17,21 @@ import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.implementedActions.AttackAction;
 import game.implementedActions.KilledAction;
 import game.interfaces.Resettable;
+import game.behaviours.AttackBehaviour;
+import game.interfaces.Behaviour;
 
 /**
  * Class for our Piranha Plant enemy.
  */
 public class PiranhaPlant extends Actor implements Resettable {
+    private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
     private Random rand = new Random();
 
     public PiranhaPlant(){
         super("Piranha Plant", 'Y', 150);
         this.registerInstance();
+        this.behaviours.put(1, new AttackBehaviour());
+        this.addCapability(Status.HOSTILE_TO_PLAYER);
     }
     /**
      * It returns the default weapon type of Piranha Plant along with its verb.
@@ -31,7 +39,7 @@ public class PiranhaPlant extends Actor implements Resettable {
      * @return it returns an instance of instrinsic weapon
      */
     public IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(50, "chomps");
+        return new IntrinsicWeapon(90, "chomps");
     }
 
     @Override
@@ -52,6 +60,12 @@ public class PiranhaPlant extends Actor implements Resettable {
         if (!this.isConscious()) {
             return new KilledAction(this);
             }
+        // Get next action to perform.
+        for (Behaviour Behaviour : behaviours.values()) {
+            Action action = Behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
         // Otherwise the plant does nothing.
         return new DoNothingAction();
     }
