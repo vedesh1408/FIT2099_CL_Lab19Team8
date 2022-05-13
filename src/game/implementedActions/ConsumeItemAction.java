@@ -36,11 +36,11 @@ public class ConsumeItemAction extends Action {
         if (item.toString().equals("Super Mushroom")) {
             actor.addCapability(Status.TALL);
             actor.increaseMaxHp(50);
-
             return actor + " consumes the" + item;
         } else {
             actor.addCapability(Status.INVINCIBILITY);
             return actor + " is INVINCIBLE";
+
         }
     }
 
