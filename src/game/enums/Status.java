@@ -14,4 +14,5 @@ public enum Status {
     HAS_WRENCH, //use this to indicate if player has a wrench to kill a koopa
     INVINCIBILITY, //use this to indicate if player is invincible
     CAN_JUMP,
+    LAVAWALKER,
 }

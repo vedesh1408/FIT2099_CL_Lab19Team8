@@ -39,6 +39,7 @@ public class Player extends Actor implements Resettable {
         if (!this.getInventory().contains(reset)){
             this.addItemToInventory(reset);
         }
+        this.addCapability(Status.LAVAWALKER);
     }
 
     /**
