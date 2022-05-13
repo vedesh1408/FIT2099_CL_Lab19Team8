@@ -61,6 +61,10 @@ public class Player extends Actor implements Resettable {
 
         display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
         display.println("Wallet: $" + getWallet());
+
+        if (this.hasCapability(Status.INVINCIBILITY)) {
+            display.println("Mario is INVINCIBLE!");
+        }
         // Handle multi-turn Actions
         if (lastAction.getNextAction() != null)
             return lastAction.getNextAction();

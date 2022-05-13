@@ -1,4 +1,4 @@
-package game;
+package game.grounds;
 
 import game.actors.Player;
 import edu.monash.fit2099.engine.actors.Actor;
