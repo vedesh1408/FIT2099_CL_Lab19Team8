@@ -66,7 +66,7 @@ public class Mature extends Tree {
         Collections.shuffle(myExits);
         for (Exit myExit : myExits) { // replaced basic for loop with java enhanced for loop upon suggestion
             // Check if the next (random) square is free
-            if (myExit.getDestination().getGround().hasCapability(Status.FERTILE)) {
+            if (myExit.getDestination().getGround().hasCapability(Status.DIRT)) {
                 int newX = myExit.getDestination().x();
                 int newY = myExit.getDestination().y();
                 // Grow a new sprout

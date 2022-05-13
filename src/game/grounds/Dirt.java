@@ -12,6 +12,6 @@ public class Dirt extends Ground {
      */
     public Dirt() {
         super('.');
-        this.addCapability(Status.FERTILE);
+        this.addCapability(Status.DIRT);
     }
 }
