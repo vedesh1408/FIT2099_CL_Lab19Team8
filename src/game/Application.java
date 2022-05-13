@@ -41,13 +41,6 @@ public class Application {
         GameMap lava = new GameMap(groundFactory, lavaZone.map);
         world.addGameMap(lava);
 
-        // Creating a Treaure Room map
-        TreasureRoom treasure = new TreasureRoom();
-
-        // Adding the Treasure room to the world's game maps.
-        GameMap treasureRoom = new GameMap(groundFactory, treasure.map);
-        world.addGameMap(treasureRoom);
-
         // Creating a new warp pipe object
         for (int i = 0; i <= 5; i++) {
             int warpX = Utils.ranNum(80);
