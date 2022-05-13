@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.WalletManager;
 
 public class BuyAction extends Action {
     private final Item target;
@@ -24,23 +25,26 @@ public class BuyAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         /**
-         * Just like the CollectCoinAction class, we have to use instanceof as we cannot edit the parent class Actor.
-         * We tell the program that the actor is of Player type and then we can access the Player's wallet.
+         * Executes a trade/purchase of an item
+         *
+         * @param actor the actor conducting the purchase
+         * @param map the map that the purchase is taking place on
+         * @return display whether the purchase was successful or not
          */
-        if (actor instanceof Player) {
-            // Checking if the wallet has enough funds.
-            if (((Player) actor).getWallet() >= price) {
-                // If so, add the item to the inventory and update wallet.
-                actor.addItemToInventory(target);
-                // Toggle the portability as the items that are purchased cannot be dropped.
-                target.togglePortability();
-                ((Player) actor).changeWallet(-(price));
-                return actor + " purchased " + target + " for " + price;
-            } else if (((Player) actor).getWallet() < price) {
-                return "You don't have enough coins!";
-            }
+        // Checking if the wallet has enough funds.
+        if (WalletManager.getInstance().getWallet() >= price) {
+            // If so, continue with purchase
+            // Add the item to the inventory.
+            actor.addItemToInventory(target);
+            // Toggle the portability as the items that are purchased cannot be dropped.
+            target.togglePortability();
+            // Update the wallet to reflect purchase cost
+            WalletManager.getInstance().changeWallet(-(price));
+            return actor + " purchased " + target + " for " + price;
+        } else //if (WalletManager.getInstance().getWallet() < price)
+        {
+            return "You don't have enough coins!";
         }
-        return "Only players can purchase items!";
     }
 
     /**

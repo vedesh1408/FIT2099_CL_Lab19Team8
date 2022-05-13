@@ -12,6 +12,7 @@ import game.implementedActions.ConsumeItemAction;
 import game.implementedActions.ResetAction;
 import game.implemetedItems.ResetItem;
 import game.interfaces.Resettable;
+import game.WalletManager;
 
 import java.util.List;
 
@@ -21,7 +22,6 @@ import java.util.List;
 public class Player extends Actor implements Resettable {
 
     private final Menu menu = new Menu();
-    private Integer wallet;
     private ResetItem reset = new ResetItem();
 
     /**
@@ -34,7 +34,6 @@ public class Player extends Actor implements Resettable {
     public Player(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
         this.addCapability(Status.HOSTILE_TO_ENEMY);
-        wallet = 0;
         this.registerInstance();
         if (!this.getInventory().contains(reset)){
             this.addItemToInventory(reset);
@@ -60,7 +59,7 @@ public class Player extends Actor implements Resettable {
         }
 
         display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
-        display.println("Wallet: $" + getWallet());
+        display.println("Wallet: $" + WalletManager.getInstance().getWallet());
 
         if (this.hasCapability(Status.INVINCIBILITY)) {
             display.println("Mario is INVINCIBLE!");
@@ -85,24 +84,6 @@ public class Player extends Actor implements Resettable {
      */
     public char getDisplayChar() {
         return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()) : super.getDisplayChar();
-    }
-
-    /**
-     * It increments the wallet amount by the amount
-     *
-     * @param amount The amount to be added to wallet
-     */
-    public void changeWallet(Integer amount) {
-        wallet += amount;
-    }
-
-    /**
-     * It returns the wallet
-     *
-     * @return Amount the wallet contains
-     */
-    public Integer getWallet() {
-        return wallet;
     }
 
     @Override

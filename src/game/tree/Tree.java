@@ -80,7 +80,7 @@ public abstract class Tree extends Ground implements Resettable {
     /**
      * Method to turn Tree into dirt
      *
-     * @param location location of Tree
+     * @param map map of Tree
      */
     @Override
     public void resetInstance(GameMap map) {
