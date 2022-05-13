@@ -10,7 +10,7 @@ public enum Status {
     DORMANT, // use this to indicate that koopa is dormant
     HOSTILE_TO_PLAYER, // use this status to be considered hostile towards player
     KILL_KOOPA, // use this to indicate what can kill a koopa
-    FERTILE, // used to indicate this ground is dirt and can grow a new sprout
+    DIRT, // used to indicate this ground is dirt and can be replaced (eg. to grow a new sprout)
     HAS_WRENCH, //use this to indicate if player has a wrench to kill a koopa
     INVINCIBILITY, //use this to indicate if player is invincible
     CAN_JUMP,

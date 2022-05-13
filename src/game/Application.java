@@ -45,7 +45,8 @@ public class Application {
         for (int i = 0; i <= 5; i++) {
             int warpX = Utils.ranNum(80);
             int warpY = Utils.ranNum(19);
-            if (gameMap.at(warpX, warpY).getGround().hasCapability(Status.FERTILE)) {
+            // Check if the location is dirt
+            if (gameMap.at(warpX, warpY).getGround().hasCapability(Status.DIRT)) {
                 // If so, change to a new WarpPipe
                 gameMap.at(warpX, warpY).setGround(new WarpPipe(home, lavaZone, lava.at(0,0), gameMap.at(warpX, warpY)));
             }
@@ -59,13 +60,13 @@ public class Application {
         world.addPlayer(mario, gameMap.at(42, 10));
 
 
-        // Spawning some (10) trees randomly (left a couple manual trees in around the safezone)
+        // Spawning some (20) trees randomly
         for (int i = 0; i <= 20; i++) {
             // Choose a location
             int sproutX = Utils.ranNum(80);
             int sproutY = Utils.ranNum(19);
             // Check if the location is dirt
-            if (gameMap.at(sproutX, sproutY).getGround().hasCapability(Status.FERTILE)) {
+            if (gameMap.at(sproutX, sproutY).getGround().hasCapability(Status.DIRT)) {
                 // If so, change to a new Sprout
                 gameMap.at(sproutX, sproutY).setGround(new Sprout(sproutX, sproutY));
             }
