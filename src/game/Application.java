@@ -13,7 +13,6 @@ import game.implemetedItems.Wrench;
 import game.magicalitems.*;
 import game.maps.HomeMap;
 import game.maps.LavaZone;
-import game.maps.TreasureRoom;
 import game.tree.Sprout;
 
 /**
