@@ -35,6 +35,6 @@ public class Lava extends Ground {
      */
     @Override
     public boolean canActorEnter(Actor actor) {
-        return actor.hasCapability(Status.LAVAWALKER);
+        return actor.hasCapability(Status.HOSTILE_TO_ENEMY);
     }
 }
