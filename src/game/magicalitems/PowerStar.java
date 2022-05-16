@@ -3,6 +3,7 @@ package game.magicalitems;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Location;
+import game.enums.Status;
 import game.interfaces.BuyableItem;
 
 /**
@@ -17,6 +18,7 @@ public class PowerStar extends Item implements BuyableItem {
     public PowerStar() {
         super("Power Star", '*', true);
         powerStarCount = 0;
+        this.addCapability(Status.CONSUMABLE);
     }
 
     /**

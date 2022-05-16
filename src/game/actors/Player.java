@@ -81,7 +81,7 @@ public class Player extends Actor implements Resettable {
             return lastAction.getNextAction();
         List<Item> inventoryItems = getInventory();
         for (Item iterator: inventoryItems){
-            if (iterator != reset){
+            if (iterator != reset && iterator.hasCapability(Status.CONSUMABLE)){
                 actions.add(new ConsumeItemAction(iterator));
             }
         }
