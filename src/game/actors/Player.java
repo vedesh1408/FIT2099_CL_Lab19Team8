@@ -6,11 +6,13 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.enums.Status;
 import game.implementedActions.ConsumeItemAction;
 import game.implementedActions.ResetAction;
 import game.implemetedItems.ResetItem;
+import game.implemetedItems.SecretKey;
 import game.interfaces.Resettable;
 import game.WalletManager;
 
@@ -23,6 +25,7 @@ public class Player extends Actor implements Resettable {
 
     private final Menu menu = new Menu();
     private ResetItem reset = new ResetItem();
+    private boolean isKeyPlaced = false;
 
     /**
      * Constructor.
@@ -56,6 +59,15 @@ public class Player extends Actor implements Resettable {
         // Adding a new reset action
         if (this.getInventory().contains(reset)){
             actions.add(new ResetAction(reset));
+        }
+
+        // testing the fog of war secret key concept
+
+        System.out.println(getDistance(map.locationOf(this), 72, 2));
+        SecretKey secretKey = new SecretKey();
+        if (this.getDistance(map.locationOf(this), 72, 2) <= 5 && !isKeyPlaced) {
+            map.at(72,2).addItem(secretKey);
+            this.isKeyPlaced = true;
         }
 
         display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
@@ -108,5 +120,10 @@ public class Player extends Actor implements Resettable {
     @Override
     public boolean isPermanent() {
         return true;
+    }
+
+    private double getDistance(Location playerLocation, int keyX, int keyY) {
+        // Returns the distance between the player and the secret key
+        return Math.sqrt((Math.pow((playerLocation.x() - keyX),2) + Math.pow((playerLocation.y() - keyY),2)));
     }
 }

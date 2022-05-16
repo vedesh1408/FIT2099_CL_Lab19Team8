@@ -52,10 +52,6 @@ public class Application {
             }
         }
 
-        // WarpPipe warpPipe = new WarpPipe(home, lavaZone, lava.at(0,0), gameMap.at(42,5));
-        // gameMap.at(42, 5).setGround(warpPipe);
-        // lava.at(0,0).setGround(new WarpPipe(lavaZone, home, gameMap.at(42,5), lava.at(0,0)));
-
         Actor mario = new Player("Mario", 'm', 100);
         world.addPlayer(mario, gameMap.at(42, 10));
 
@@ -77,6 +73,7 @@ public class Application {
         // Added power star and super mushroom to the game map at locations close to the actor
         gameMap.at(41, 10).addItem(new PowerStar());
         gameMap.at(43, 10).addItem(new SuperMushroom());
+
         world.run();
 
     }
