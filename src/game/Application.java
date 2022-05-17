@@ -1,6 +1,5 @@
 package game;
 
-import game.grounds.LockedDoor;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
@@ -30,13 +29,6 @@ public class Application {
 
         FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Lava());
 
-        // Creating our home map
-        HomeMap home = new HomeMap();
-
-        // Adding the home map to the world's game maps.
-        GameMap gameMap = new GameMap(groundFactory, home.map);
-        world.addGameMap(gameMap);
-
         // Creating a new lavaZone *MAP* not GameMap
         LavaZone lavaZone = new LavaZone();
 
@@ -44,12 +36,12 @@ public class Application {
         GameMap lava = new GameMap(groundFactory, lavaZone.map);
         world.addGameMap(lava);
 
-        // Creating a new Treasure Room map
-        TreasureRoom treasure = new TreasureRoom();
+        // Creating our home map
+        HomeMap home = new HomeMap();
 
-        // Adding the treasure room to the world's game maps.
-        GameMap treasureRoom = new GameMap(groundFactory, treasure.map);
-        world.addGameMap(treasureRoom);
+        // Adding the home map to the world's game maps.
+        GameMap gameMap = new GameMap(groundFactory, home.map);
+        world.addGameMap(gameMap);
 
         // Creating a new warp pipe object
         for (int i = 0; i <= 5; i++) {
@@ -61,6 +53,30 @@ public class Application {
                 gameMap.at(warpX, warpY).setGround(new WarpPipe(home, lavaZone, lava.at(0,0), gameMap.at(warpX, warpY)));
             }
         }
+
+        // Creating a new Treasure Room map
+        TreasureRoom treasure = new TreasureRoom();
+
+        // Adding the treasure room to the world's game maps.
+        GameMap treasureRoom = new GameMap(groundFactory, treasure.map);
+        world.addGameMap(treasureRoom);
+
+        // Adding in the treasure chest, coins and door to the treasure room
+
+        // Open door
+        treasureRoom.at(10,0).setGround(new OpenDoor(gameMap.at(4,10)));
+        // Treasure chest
+        treasureRoom.at(10,3).setGround(new Chest(treasureRoom.at(10,3)));
+
+        for (int i = 0; i <= 10; i ++) {
+            int coinX = Utils.ranNum(21);
+            int coinY = Utils.ranNum(5);
+
+            if (treasureRoom.at(coinX, coinY).getGround().getDisplayChar() == '_') {
+                treasureRoom.at(coinX, coinY).addItem(new Coin(20, coinX, coinY));
+            }
+        }
+
 
         Actor mario = new Player("Mario", 'm', 100);
         world.addPlayer(mario, gameMap.at(42, 10));
@@ -83,7 +99,7 @@ public class Application {
         // Added power star and super mushroom to the game map at locations close to the actor
         gameMap.at(41, 10).addItem(new PowerStar());
         gameMap.at(43, 10).addItem(new SuperMushroom());
-        gameMap.at(4,10).setGround(new LockedDoor(gameMap.at(4,10), treasureRoom.at(10,0)));
+        gameMap.at(4,10).setGround(new LockedDoor(gameMap.at(4,10), treasureRoom.at(10,1)));
 
         world.run();
 

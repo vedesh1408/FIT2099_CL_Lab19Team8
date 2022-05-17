@@ -30,4 +30,9 @@ public class LockedDoor extends Ground{
         }
         return list;
     }
+
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return false;
+    }
 }
