@@ -6,7 +6,9 @@ import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 import game.actors.Player;
+import game.actors.PrincessPeach;
 import game.actors.Toad;
+import game.actors.enemies.Bowser;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.grounds.*;
@@ -35,6 +37,10 @@ public class Application {
         //Adding the lava zone to the world's game maps.
         GameMap lava = new GameMap(groundFactory, lavaZone.map);
         world.addGameMap(lava);
+
+        // Adding Princess Peach and Bowser to the map
+        lava.addActor(new Bowser(), lava.at(36,1));
+        lava.addActor(new PrincessPeach(), lava.at(37,1));
 
         // Creating our home map
         HomeMap home = new HomeMap();
