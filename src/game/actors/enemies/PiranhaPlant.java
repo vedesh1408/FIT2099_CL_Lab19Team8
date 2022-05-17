@@ -2,6 +2,8 @@ package game.actors.enemies;
 
 import game.behaviours.AttackBehaviour;
 import game.enums.Status;
+import game.implementedactions.AttackAction;
+import game.implementedactions.KilledAction;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -14,8 +16,6 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
-import game.implementedActions.AttackAction;
-import game.implementedActions.KilledAction;
 import game.interfaces.Resettable;
 import game.interfaces.Behaviour;
 

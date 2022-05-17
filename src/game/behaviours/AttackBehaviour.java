@@ -5,9 +5,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.implementedActions.AttackAction;
 import game.interfaces.Behaviour;
 import game.enums.Status;
+import game.implementedactions.AttackAction;
 
 /**
  * The class is used to attack player automatically

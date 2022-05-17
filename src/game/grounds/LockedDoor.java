@@ -5,7 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.enums.Status;
-import game.implementedActions.UnlockDoorAction;
+import game.implementedactions.UnlockDoorAction;
 
 public class LockedDoor extends Ground{
 

@@ -4,9 +4,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.actions.*;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Display;
-import game.implementedActions.BuyAction;
-import game.implementedActions.SpeakAction;
-import game.implemetedItems.Wrench;
+import game.implementedactions.BuyAction;
+import game.implementedactions.SpeakAction;
+import game.implementeditems.Wrench;
 import game.magicalitems.PowerStar;
 import game.magicalitems.SuperMushroom;
 

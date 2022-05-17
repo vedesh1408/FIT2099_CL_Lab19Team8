@@ -1,4 +1,4 @@
-package game.implementedActions;
+package game.implementedactions;
 
 import edu.monash.fit2099.engine.actors.*;
 import edu.monash.fit2099.engine.items.Item;

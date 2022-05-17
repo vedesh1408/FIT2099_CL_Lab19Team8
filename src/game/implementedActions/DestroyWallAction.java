@@ -1,4 +1,4 @@
-package game.implementedActions;
+package game.implementedactions;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.grounds.Dirt;
-import game.implemetedItems.Coin;
+import game.implementeditems.Coin;
 
 /**
  * Class that allows to destroy items when certain magical items are activated

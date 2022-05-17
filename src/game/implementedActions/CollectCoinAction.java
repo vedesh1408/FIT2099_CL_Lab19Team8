@@ -1,10 +1,10 @@
-package game.implementedActions;
+package game.implementedactions;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.WalletManager;
-import game.implemetedItems.Coin;
+import game.implementeditems.Coin;
 
 /**
  * Action to allow coins to be collected.

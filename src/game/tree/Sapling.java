@@ -3,7 +3,7 @@ package game.tree;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Utils;
-import game.implemetedItems.Coin;
+import game.implementeditems.Coin;
 import game.interfaces.Growable;
 
 /**

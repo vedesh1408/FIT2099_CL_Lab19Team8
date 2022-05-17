@@ -6,8 +6,8 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actors.enemies.PiranhaPlant;
-import game.implementedActions.JumpActorAction;
-import game.implementedActions.TeleportAction;
+import game.implementedactions.JumpActorAction;
+import game.implementedactions.TeleportAction;
 import game.interfaces.Resettable;
 import game.maps.Map;
 

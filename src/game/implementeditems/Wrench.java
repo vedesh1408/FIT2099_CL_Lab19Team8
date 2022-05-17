@@ -1,4 +1,4 @@
-package game.implemetedItems;
+package game.implementeditems;
 
 import edu.monash.fit2099.engine.items.Item;
 import game.enums.Status;

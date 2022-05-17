@@ -9,10 +9,10 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.enums.Status;
-import game.implementedActions.ConsumeItemAction;
-import game.implementedActions.ResetAction;
-import game.implemetedItems.ResetItem;
-import game.implemetedItems.SecretKey;
+import game.implementedactions.ConsumeItemAction;
+import game.implementedactions.ResetAction;
+import game.implementeditems.ResetItem;
+import game.implementeditems.SecretKey;
 import game.interfaces.Resettable;
 import game.WalletManager;
 

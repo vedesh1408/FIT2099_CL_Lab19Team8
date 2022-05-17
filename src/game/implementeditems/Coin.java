@@ -1,8 +1,8 @@
-package game.implemetedItems;
+package game.implementeditems;
 
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.implementedActions.CollectCoinAction;
+import game.implementedactions.CollectCoinAction;
 import game.interfaces.Resettable;
 
 /**
