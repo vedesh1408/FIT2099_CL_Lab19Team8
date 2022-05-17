@@ -68,6 +68,7 @@ public class Application {
         // Treasure chest
         treasureRoom.at(10,3).setGround(new Chest(treasureRoom.at(10,3)));
 
+        // In the treasure room, placing 10 coins around the map for the player to pick up
         for (int i = 0; i <= 10; i ++) {
             int coinX = Utils.ranNum(21);
             int coinY = Utils.ranNum(5);

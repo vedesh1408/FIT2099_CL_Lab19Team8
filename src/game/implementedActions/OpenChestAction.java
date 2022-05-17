@@ -10,12 +10,18 @@ public class OpenChestAction extends Action {
 
     Location chestLocation;
 
+
+    /**
+     * Constructor
+     * @param chestLocation Location of the chest we are opening.
+     */
     public OpenChestAction(Location chestLocation) {
         this.chestLocation = chestLocation;
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
+        // Set the ground to the open chest object
         this.chestLocation.setGround(new OpenChest());
         return this.menuDescription(actor);
     }

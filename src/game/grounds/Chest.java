@@ -10,6 +10,10 @@ public class Chest extends Ground {
 
     Location chestLocation;
 
+    /**
+     * Constructor
+     * @param chestLocation The location of this chest
+     */
     public Chest(Location chestLocation) {
         super('=');
         this.chestLocation = chestLocation;
@@ -17,12 +21,14 @@ public class Chest extends Ground {
 
     @Override
     public boolean canActorEnter(Actor actor) {
+        // No one can enter this ground
         return false;
     }
 
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList list = new ActionList();
+        // Adding the open chest action to this chest
         list.add(new OpenChestAction(this.chestLocation));
         return list;
     }

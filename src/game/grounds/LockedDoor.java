@@ -12,10 +12,18 @@ public class LockedDoor extends Ground{
     private Location doorLocation;
     Location destination;
 
+    /**
+     * Constructor
+     */
     public LockedDoor(){
         super(']');
     }
 
+    /**
+     * Constructor
+     * @param doorLocation The location of this door
+     * @param destination Where this door leads
+     */
     public LockedDoor(Location doorLocation, Location destination) {
         super(']');
         this.doorLocation = doorLocation;
@@ -25,6 +33,7 @@ public class LockedDoor extends Ground{
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList list = new ActionList();
+        // If the actor has the key, add a new unlock door action
         if (actor.hasCapability(Status.HAS_KEY)) {
             list.add(new UnlockDoorAction(this.doorLocation, this.destination));
         }
@@ -33,6 +42,7 @@ public class LockedDoor extends Ground{
 
     @Override
     public boolean canActorEnter(Actor actor) {
+        // No one can walk onto the same ground as the door
         return false;
     }
 }
