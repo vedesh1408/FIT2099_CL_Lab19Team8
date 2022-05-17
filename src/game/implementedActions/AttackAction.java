@@ -60,13 +60,15 @@ public class AttackAction extends Action {
         int damage = weapon.damage();
         String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 
-
-        if (target.hasCapability(Status.TALL)){
+        if (target.hasCapability((Status.INVINCIBILITY))){
+            target.hurt(0);
+        }
+        else if (target.hasCapability(Status.TALL)){
             target.removeCapability(Status.TALL);
             target.hurt(damage);
         }
-        if (target.hasCapability((Status.INVINCIBILITY))){
-            target.hurt(0);
+        else {
+            target.hurt(damage);
         }
 
         if (!target.isConscious()) {
