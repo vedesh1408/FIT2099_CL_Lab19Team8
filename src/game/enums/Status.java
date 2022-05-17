@@ -14,5 +14,6 @@ public enum Status {
     HAS_WRENCH, //use this to indicate if player has a wrench to kill a koopa
     INVINCIBILITY, //use this to indicate if player is invincible
     CAN_JUMP,
-    CONSUMABLE,
+    CONSUMABLE, // used for items that are consumable by the player
+    HAS_KEY, // used to indicate that the player has the key in their inventory
 }

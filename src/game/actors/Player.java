@@ -26,6 +26,7 @@ public class Player extends Actor implements Resettable {
     private final Menu menu = new Menu();
     private ResetItem reset = new ResetItem();
     private boolean isKeyPlaced = false;
+    private SecretKey secretKey = new SecretKey();
 
     /**
      * Constructor.
@@ -61,13 +62,17 @@ public class Player extends Actor implements Resettable {
             actions.add(new ResetAction(reset));
         }
 
-        // testing the fog of war secret key concept
-
-        System.out.println(getDistance(map.locationOf(this), 72, 2));
-        SecretKey secretKey = new SecretKey();
-        if (this.getDistance(map.locationOf(this), 72, 2) <= 5 && !isKeyPlaced) {
-            map.at(72,2).addItem(secretKey);
+        // Secret key code
+        // When the player gets within 5 blocks of the key it shows on the map.
+        if (this.getDistance(map.locationOf(this), 72, 2) <= 5 && !this.isKeyPlaced) {
+            map.at(72,2).addItem(this.secretKey);
             this.isKeyPlaced = true;
+        }
+
+        // Removing the key when the player moves away from it.
+        if (this.getDistance(map.locationOf(this), 72, 2) > 5 && this.isKeyPlaced) {
+            map.at(72,2).removeItem(this.secretKey);
+            this.isKeyPlaced = false;
         }
 
         display.println(super.name + " " + super.printHp() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ")");
@@ -122,6 +127,14 @@ public class Player extends Actor implements Resettable {
         return true;
     }
 
+    /**
+     * Distance method to calculate the distance between the player and the secret key on the map.
+     * Uses the Math module's sqrt() and pow() methods.
+     * @param playerLocation Location of the player
+     * @param keyX The x coordinate of the key
+     * @param keyY The y coordinate of the key
+     * @return A double representing the distance between playerLocation and the keyX and keyY.
+     */
     private double getDistance(Location playerLocation, int keyX, int keyY) {
         // Returns the distance between the player and the secret key
         return Math.sqrt((Math.pow((playerLocation.x() - keyX),2) + Math.pow((playerLocation.y() - keyY),2)));

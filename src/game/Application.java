@@ -1,5 +1,6 @@
 package game;
 
+import game.grounds.LockedDoor;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
@@ -10,10 +11,12 @@ import game.actors.Toad;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.grounds.*;
+import game.implemetedItems.Coin;
 import game.implemetedItems.Wrench;
 import game.magicalitems.*;
 import game.maps.HomeMap;
 import game.maps.LavaZone;
+import game.maps.TreasureRoom;
 import game.tree.Sprout;
 
 /**
@@ -40,6 +43,13 @@ public class Application {
         //Adding the lava zone to the world's game maps.
         GameMap lava = new GameMap(groundFactory, lavaZone.map);
         world.addGameMap(lava);
+
+        // Creating a new Treasure Room map
+        TreasureRoom treasure = new TreasureRoom();
+
+        // Adding the treasure room to the world's game maps.
+        GameMap treasureRoom = new GameMap(groundFactory, treasure.map);
+        world.addGameMap(treasureRoom);
 
         // Creating a new warp pipe object
         for (int i = 0; i <= 5; i++) {
@@ -73,6 +83,7 @@ public class Application {
         // Added power star and super mushroom to the game map at locations close to the actor
         gameMap.at(41, 10).addItem(new PowerStar());
         gameMap.at(43, 10).addItem(new SuperMushroom());
+        gameMap.at(4,10).setGround(new LockedDoor(gameMap.at(4,10), treasureRoom.at(10,0)));
 
         world.run();
 
