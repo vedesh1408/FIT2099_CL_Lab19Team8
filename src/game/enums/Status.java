@@ -16,4 +16,5 @@ public enum Status {
     CAN_JUMP,
     CONSUMABLE, // used for items that are consumable by the player
     HAS_KEY, // used to indicate that the player has the key in their inventory
+    BOWSER_DEFEATED, // used to indicate that the player has defeated bowser
 }
