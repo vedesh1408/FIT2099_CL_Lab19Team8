@@ -18,7 +18,7 @@ game.actors.enemies
 game.behaviours
 game.enums
 game.grounds
-game.implementedActions
+game.implementedactions
 game.implemetedItems
 game.interfaces
 game.magicalitems
