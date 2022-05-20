@@ -52,7 +52,9 @@ public class ConsumeItemAction extends Action {
             Bottle.getBottle().pop();
             if (item.toString().equals("Health water")){
                 actor.heal(50);
+
                 return actor + " drinks health water";
+
             }
             else {
                 if (actor instanceof Player){

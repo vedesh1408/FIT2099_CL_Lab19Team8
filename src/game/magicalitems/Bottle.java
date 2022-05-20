@@ -24,6 +24,7 @@ public class Bottle extends Item {
         if (!bottle.empty()){
             Item fountainWater = Bottle.getBottle().peek();
             this.addAction(new ConsumeItemAction(fountainWater));
+
         }
     }
 
