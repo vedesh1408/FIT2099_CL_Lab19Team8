@@ -65,13 +65,15 @@ public abstract class Tree extends Ground implements Resettable {
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
-        if (actor.hasCapability(Status.TALL)) {
-            actions.add(new JumpActorAction(this,treeName,direction,0,100,location));
-        } else {
-            if (!actor.hasCapability(Status.INVINCIBILITY)) {
-                actions.add(new JumpActorAction(this, treeName, direction, fallDamage, jumpRate, location));
+        if (!location.containsAnActor()) {
+            if (actor.hasCapability(Status.TALL)) {
+                actions.add(new JumpActorAction(this, treeName, direction, 0, 100, location));
             } else {
-                actions.add(new DestroyWallAction(this, location, treeName, direction));
+                if (!actor.hasCapability(Status.INVINCIBILITY)) {
+                    actions.add(new JumpActorAction(this, treeName, direction, fallDamage, jumpRate, location));
+                } else {
+                    actions.add(new DestroyWallAction(this, location, treeName, direction));
+                }
             }
         }
         return actions;

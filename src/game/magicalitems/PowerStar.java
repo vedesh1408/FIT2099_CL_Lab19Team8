@@ -19,6 +19,7 @@ public class PowerStar extends Item implements BuyableItem {
         super("Power Star", '*', true);
         powerStarCount = 0;
         this.addCapability(Status.CONSUMABLE);
+        this.addCapability(Status.MAGICAL_ITEMS);
     }
 
     /**

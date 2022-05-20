@@ -9,6 +9,7 @@ import game.actors.Player;
 import game.actors.PrincessPeach;
 import game.actors.Toad;
 import game.actors.enemies.Bowser;
+import game.actors.enemies.Goomba;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.grounds.*;
@@ -18,6 +19,7 @@ import game.magicalitems.*;
 import game.maps.HomeMap;
 import game.maps.LavaZone;
 import game.maps.TreasureRoom;
+import game.tree.Sapling;
 import game.tree.Sprout;
 
 /**
@@ -86,8 +88,11 @@ public class Application {
 
 
         Actor mario = new Player("Mario", 'm', 100);
+        mario.hurt(70);
         world.addPlayer(mario, gameMap.at(42, 10));
 
+        gameMap.at(42,7).setGround(new HealthFountain());
+        gameMap.at(40,5).setGround(new PowerFountain());
 
         // Spawning some (20) trees randomly
         for (int i = 0; i <= 20; i++) {

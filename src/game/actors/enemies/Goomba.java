@@ -71,7 +71,8 @@ public class Goomba extends Actor implements Resettable {
         // attack player
         if (rand.nextInt(100) <= 50) {
             if (this.hasCapability(Status.HOSTILE_TO_PLAYER)) {
-                actions.add(new AttackAction(otherActor, direction));
+                //8
+                // actions.add(new AttackAction(otherActor, direction));
             }
         }
         //follow player

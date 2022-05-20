@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.displays.Menu;
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.enums.Status;
 import game.implementedactions.ConsumeItemAction;
 import game.implementedactions.ResetAction;
@@ -15,6 +16,7 @@ import game.implementeditems.ResetItem;
 import game.implementeditems.SecretKey;
 import game.interfaces.Resettable;
 import game.WalletManager;
+import game.magicalitems.Bottle;
 
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class Player extends Actor implements Resettable {
     private ResetItem reset = new ResetItem();
     private boolean isKeyPlaced = false;
     private SecretKey secretKey = new SecretKey();
+    private int intrinsicValue;
 
     /**
      * Constructor.
@@ -42,6 +45,8 @@ public class Player extends Actor implements Resettable {
         if (!this.getInventory().contains(reset)){
             this.addItemToInventory(reset);
         }
+        this.intrinsicValue = 5;
+        this.addItemToInventory(new Bottle());
     }
 
     /**
@@ -91,6 +96,7 @@ public class Player extends Actor implements Resettable {
             }
         }
 
+        display.println("Player's bottle: " + Bottle.getBottle());
         // return/print the console menu
         return menu.showMenu(this, actions, display);
     }
@@ -138,5 +144,14 @@ public class Player extends Actor implements Resettable {
     private double getDistance(Location playerLocation, int keyX, int keyY) {
         // Returns the distance between the player and the secret key
         return Math.sqrt((Math.pow((playerLocation.x() - keyX),2) + Math.pow((playerLocation.y() - keyY),2)));
+    }
+
+    @Override
+    protected IntrinsicWeapon getIntrinsicWeapon() {
+        return new IntrinsicWeapon(intrinsicValue, "punches");
+    }
+
+    public void increaseIntrinsicValue(int newValue){
+        intrinsicValue += newValue;
     }
 }

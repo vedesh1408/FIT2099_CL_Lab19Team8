@@ -1,4 +1,3 @@
-player attacks player (when near a goomba)
 invicibility doesn't last 10 turns
 display invicible message while active
 fix monologue (power star doesnt remove the line) (change from inventory to invincible/used)

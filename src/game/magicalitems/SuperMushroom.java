@@ -14,6 +14,7 @@ public class SuperMushroom extends Item implements BuyableItem {
     public SuperMushroom() {
         super("Super Mushroom", '^', true);
         this.addCapability(Status.CONSUMABLE);
+        this.addCapability(Status.MAGICAL_ITEMS);
     }
 
     /**

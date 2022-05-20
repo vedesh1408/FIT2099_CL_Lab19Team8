@@ -77,7 +77,7 @@ public class Koopa extends Actor implements Resettable {
                 if (otherActor.hasCapability(Status.TALL)) {
                     otherActor.removeCapability(Status.TALL);
                 } else {
-                    actions.add(new AttackAction(otherActor, direction));
+                    //actions.add(new AttackAction(otherActor, direction));
                 }
             }
         }
