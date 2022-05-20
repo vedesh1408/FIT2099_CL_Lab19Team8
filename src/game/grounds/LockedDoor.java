@@ -34,7 +34,7 @@ public class LockedDoor extends Ground{
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList list = new ActionList();
         // If the actor has the key, add a new unlock door action
-        if (actor.hasCapability(Status.HAS_KEY)) {
+        if (actor.hasCapability(Status.TREASURE_KEY)) {
             list.add(new UnlockDoorAction(this.doorLocation, this.destination));
         }
         return list;

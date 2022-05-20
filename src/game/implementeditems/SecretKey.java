@@ -14,10 +14,10 @@ public class SecretKey extends Item {
     @Override
     public void tick(Location currentLocation, Actor actor) {
         if (actor.getInventory().contains(this)) {
-            actor.addCapability(Status.HAS_KEY);
+            actor.addCapability(Status.TREASURE_KEY);
         }
-        else if (!actor.hasCapability(Status.HAS_KEY)) {
-            actor.removeCapability(Status.HAS_KEY);
+        else if (!actor.hasCapability(Status.TREASURE_KEY)) {
+            actor.removeCapability(Status.TREASURE_KEY);
         }
     }
 }

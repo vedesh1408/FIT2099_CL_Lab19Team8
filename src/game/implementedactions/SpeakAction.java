@@ -48,7 +48,7 @@ public class SpeakAction extends Action {
                 lines.remove("You might need a wrench to smash Koopa's hard shells.");
             }
             // And if there is a secret key, remove the secret key line
-            else if (item.toString() == "Secret Key" || actor.hasCapability(Status.HAS_KEY)) {
+            else if (item.toString() == "Secret Key" || actor.hasCapability(Status.TREASURE_KEY)) {
                 lines.remove("You may stumble upon a key that unlocks that mysterious door.");
             }
         }

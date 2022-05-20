@@ -15,7 +15,7 @@ public enum Status {
     INVINCIBILITY, //use this to indicate if player is invincible
     CAN_JUMP,
     CONSUMABLE, // used for items that are consumable by the player
-    HAS_KEY, // used to indicate that the player has the key in their inventory
+    TREASURE_KEY, // used to indicate that the player has the key in their inventory
     BOWSER_DEFEATED, // used to indicate that the player has defeated bowser
     MAGICAL_ITEMS, // used to indicate if the item is a magical item i.e powerStar or super mushroom
     MAGICAL_WATER, // used to indicate whether item is a type of magical water
