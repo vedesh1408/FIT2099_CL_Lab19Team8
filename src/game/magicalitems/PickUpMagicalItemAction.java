@@ -28,7 +28,6 @@ public class PickUpMagicalItemAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        System.out.println("EXECUTE!!");
         map.locationOf(actor).removeItem(item);
         actor.addItemToInventory(item);
         return menuDescription(actor);

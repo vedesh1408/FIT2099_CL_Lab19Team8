@@ -8,7 +8,7 @@ import game.implementedactions.ConsumeItemAction;
 import java.util.Stack;
 
 public class Bottle extends Item {
-
+    private int numTurn = 0;
     public Bottle() {
         super("Bottle", 'b', false);
     }
@@ -21,10 +21,23 @@ public class Bottle extends Item {
 
     @Override
     public void tick(Location currentLocation, Actor actor){
+        Item fountainWater;
         if (!bottle.empty()){
-            Item fountainWater = Bottle.getBottle().peek();
-            this.addAction(new ConsumeItemAction(fountainWater));
+            if (numTurn != 1) {
+                fountainWater = Bottle.getBottle().peek();
+                ConsumeItemAction consumeFountainWater = new ConsumeItemAction(fountainWater);
+                this.addAction(consumeFountainWater);
+                numTurn = 1;
 
+            }
+        }
+        else {
+            if (bottle.empty()){
+                if (!this.getAllowableActions().isEmpty()){
+                    this.removeAction(this.getAllowableActions().get(0));
+                }
+                numTurn = 0;
+            }
         }
     }
 
