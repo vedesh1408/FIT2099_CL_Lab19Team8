@@ -3,6 +3,9 @@ package game.magicalitems;
 import edu.monash.fit2099.engine.items.Item;
 import game.enums.Status;
 
+/**
+ * Class representing power water
+ */
 public class PowerWater extends Item {
 
 
