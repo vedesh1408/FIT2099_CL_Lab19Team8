@@ -12,10 +12,10 @@ import game.magicalitems.SuperMushroom;
  * is killed.
  */
 public class KilledAction extends Action {
-    protected Actor player;
+    protected Actor actor;
 
-    public KilledAction(Actor player) {
-        this.player = player;
+    public KilledAction(Actor actor) {
+        this.actor = actor;
     }
 
     /**
@@ -27,9 +27,9 @@ public class KilledAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        map.at(map.locationOf(actor).x(), map.locationOf(actor).y()).addItem(new SuperMushroom());
-        map.removeActor(actor);
-        return actor + " is killed.";
+        map.at(map.locationOf(this.actor).x(), map.locationOf(this.actor).y()).addItem(new SuperMushroom());
+        map.removeActor(this.actor);
+        return this.actor + " is killed.";
     }
 
     /**
@@ -40,8 +40,8 @@ public class KilledAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        if (player.hasCapability(Status.DORMANT)) {
-            return actor + " destroys Koopa's Shell";
+        if (this.actor.hasCapability(Status.DORMANT)) {
+            return "Mario destroys Koopa's Shell";
         }
         return "";
     }

@@ -96,7 +96,7 @@ public class Goomba extends Actor implements Resettable {
         }
         //determine if killed
         if (!this.isConscious()) {
-            return new KilledAction(this);
+            map.removeActor(this);
         }
         for (Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
