@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.enums.Status;
 
 public class PickUpMagicalItemAction extends Action {
 
@@ -42,6 +43,6 @@ public class PickUpMagicalItemAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " picks up the magical " + item;
+        return actor + " picks up the magical hi " + item;
     }
 }

@@ -71,7 +71,7 @@ public class Application {
 
         Actor mario = new Player("Mario", 'm', 100);
         world.addPlayer(mario, homeGM.at(42, 10));
-//        mario.addCapability(Status.HAS_WRENCH);
+        homeGM.at(42,9).addItem(new Wrench());   //        mario.addCapability(Status.HAS_WRENCH);
         homeGM.at(42,7).setGround(new HealthFountain());
         homeGM.at(40,5).setGround(new PowerFountain());
 
