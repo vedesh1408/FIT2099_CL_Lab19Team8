@@ -11,12 +11,15 @@ import game.implementedactions.TakeChestItemAction;
 import game.magicalitems.PowerStar;
 import game.magicalitems.SuperMushroom;
 
+/**
+ * Special ground chest, once it has been opened by the player
+ */
 public class OpenChest extends Ground {
     // Initialising the inventory of the chest
     ArrayList<Item> inventory = new ArrayList<Item>();
 
     /**
-     * Constructor
+     * Constructor for open chest
      */
     public OpenChest() {
         super('-');

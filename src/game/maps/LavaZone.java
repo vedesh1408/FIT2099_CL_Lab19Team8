@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Map representing lava zone
+ * Map representing lava zone with the boss Bowser and Princess Peach
  */
 public class LavaZone extends Map {
 

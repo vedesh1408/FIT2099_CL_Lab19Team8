@@ -8,14 +8,17 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 /**
  * A big turtle guy
+ * Enemy boss Bowser class
  */
 public class Bowser extends Actor {
+
     /**
-     * Constructor bowser
+     * Constructor for Bowser
      */
     public Bowser() {
         super("Bowser", 'B', 500);
     }
+
     /**
      * Figure out what to do next.
      *

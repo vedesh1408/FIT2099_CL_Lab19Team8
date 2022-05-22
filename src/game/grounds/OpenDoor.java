@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.implementedactions.EnterDoorAction;
 
+/**
+ * Special ground door, has been opened by player
+ */
 public class OpenDoor extends Ground{
 
     Location destination;

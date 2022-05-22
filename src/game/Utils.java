@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * Static class to generate a random number
+ * Randomises a number from 0 (inclusive) to the specified value (exclusive)
  */
 public class Utils {
     // Function to randomise a number from 0 (inclusive) to the specified value (exclusive)

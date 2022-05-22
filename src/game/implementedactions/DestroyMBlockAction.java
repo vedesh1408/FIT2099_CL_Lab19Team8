@@ -13,8 +13,7 @@ import game.magicalitems.PowerStar;
 import game.magicalitems.SuperMushroom;
 
 /**
- * An action that remove an actor from map and show that the actor
- * is killed.
+ * Action for the player to destroy the Mystery Block with a wrench and spawn its rewards.
  */
 public class DestroyMBlockAction extends Action {
 
@@ -23,7 +22,7 @@ public class DestroyMBlockAction extends Action {
 
     /**
      * Constructor
-     * @param blockLocation Location of the chest we are opening.
+     * @param blockLocation Location of the mystery block we are breaking.
      */
     public DestroyMBlockAction(Location blockLocation) {
         this.blockLocation = blockLocation;

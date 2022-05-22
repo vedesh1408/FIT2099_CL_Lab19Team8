@@ -7,13 +7,17 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.enums.Status;
 import game.implementedactions.UnlockDoorAction;
 
+/**
+ * Special ground door in locked state, can be interacted with by player to unlock.
+ * Used for treasure room
+ */
 public class LockedDoor extends Ground{
 
     private Location doorLocation;
     Location destination;
 
     /**
-     * Constructor
+     * Constructor for locked door
      */
     public LockedDoor(){
         super(']');

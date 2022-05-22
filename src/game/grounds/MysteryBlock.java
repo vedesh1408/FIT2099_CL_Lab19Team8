@@ -8,12 +8,15 @@ import game.enums.Status;
 import game.implementedactions.DestroyMBlockAction;
 import game.implementedactions.OpenChestAction;
 
+/**
+ * Class of the Mystery Block special ground, which the player can interact with
+ */
 public class MysteryBlock extends Ground {
 
     Location blockLocation;
 
     /**
-     * Constructor
+     * Constructor for the mystery block ground
      * @param blockLocation The location of this chest
      */
     public MysteryBlock(Location blockLocation) {

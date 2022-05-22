@@ -9,8 +9,14 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.enums.Status;
 import game.implementedactions.FreePeachAction;
 
+/**
+ * Class for the ally Princess Peach, who Mario must save!
+ */
 public class PrincessPeach extends Actor {
 
+    /**
+     * Constructor for Princess Peach
+     */
     public PrincessPeach() {
         super("Princess Peach", 'P', 100);
     }

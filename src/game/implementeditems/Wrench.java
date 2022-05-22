@@ -5,7 +5,7 @@ import game.enums.Status;
 import game.interfaces.BuyableItem;
 
 /**
- * Class for wrench to kill koopa
+ * Class for wrench to kill koopa and destroy mystery blocks
  */
 public class Wrench extends Item implements BuyableItem {
     /**

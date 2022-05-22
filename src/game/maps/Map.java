@@ -30,11 +30,12 @@ public abstract class Map {
     public int getMaxY() { return map.size() - 1; }
 
     /**
-     * Method to add random things on map
-     * @param gameMap
-     * @param overwriteGround
-     * @param genObj
-     * @param count
+     * Method to add objects to random places on the map
+     * Objects must be added to the GenerationObject enum, and their switch case added to this function in order to work
+     * @param gameMap the GameMap objects are to be spawned on
+     * @param overwriteGround the type of ground to be overwritten by objects, usually dirt '.' but floor '_' on treasure room
+     * @param genObj The type of object to be spawned. Most actors or enemies. Must be in the GenerationObject enum and have a switch case
+     * @param count the number of objects to be spawned randomly throughout the map
      */
     // To add a new object to be generated, add it to the enum GenerationObject and then create a new line in the switch statement below.
     public void RanGen(GameMap gameMap, char overwriteGround, GenerationObject genObj, int count)
@@ -62,6 +63,13 @@ public abstract class Map {
         }
     }
 
+    /**
+     * Special method to add Warp Pipes to random places on the map. Needs its own function due to needing to access multiple maps to create the exit of the warp pipe.
+     * @param thisGM the GameMap objects are to be spawned on
+     * @param targetGM the GameMap the end of the pipe should be spawned on.
+     * @param targetMap the Map (not GameMap) to be passed to the Warp Pipe on construction
+     * @param count the number of pipes to be spawned randomly throughout the map
+     */
     public void RanGenWP(GameMap thisGM, GameMap targetGM, Map targetMap, int count)
     {
         // Spawning some actors randomly *count* times

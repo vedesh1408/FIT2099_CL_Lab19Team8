@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.implementedactions.OpenChestAction;
 
+/**
+ * Special ground chest, can be interacted with for rewards
+ */
 public class Chest extends Ground {
 
     Location chestLocation;
