@@ -5,10 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 
-public class FreePeachAction extends Action {
-
-    public FreePeachAction() {
-    }
+public class UnlockPeachAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
@@ -18,9 +15,8 @@ public class FreePeachAction extends Action {
         return null;
     }
 
-
     @Override
     public String menuDescription(Actor actor) {
-        return "Free Peach!";
+        return actor + " has set peach free";
     }
 }

@@ -28,8 +28,8 @@ public class PrincessPeach extends Actor {
 
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
-        ActionList list = super.allowableActions(otherActor, direction, map);
-        if (otherActor.hasCapability(Status.BOWSER_DEFEATED)) {
+        ActionList list = new ActionList();
+        if (otherActor.hasCapability(Status.BOWSER_DEFEATED)){
             list.add(new FreePeachAction());
         }
         return list;
