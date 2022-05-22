@@ -65,7 +65,6 @@ public class Application {
         treasureMap.RanGen(treasureGM, '_', GenerationObject.COIN20, 10);
 
         Actor mario = new Player("Mario", 'm', 100);
-        mario.hurt(70);
         world.addPlayer(mario, homeGM.at(42, 10));
 
         homeGM.at(42,7).setGround(new HealthFountain());
@@ -76,7 +75,6 @@ public class Application {
         homeMap.RanGen(homeGM, '.', GenerationObject.KOOPA, 2);
         homeMap.RanGen(homeGM, '.', GenerationObject.GOOMBA, 5);
 
-        homeGM.at(30, 9).addActor(new Koopa());
         homeGM.at(31, 10).addItem(new Wrench());
         homeGM.at(42, 11).addActor(new Toad());
         // Added power star and super mushroom to the game map at locations close to the actor
