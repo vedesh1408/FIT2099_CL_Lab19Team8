@@ -71,16 +71,6 @@ public class AttackAction extends Action {
             target.hurt(damage);
         }
 
-        if (!target.isConscious()) {
-            ActionList dropActions = new ActionList();
-            // drop all items
-            for (Item item : target.getInventory())
-                dropActions.add(item.getDropAction(actor));
-            for (Action drop : dropActions)
-                drop.execute(target, map);
-            map.removeActor(target);
-        }
-
         return result;
     }
 
