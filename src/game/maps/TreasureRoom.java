@@ -12,7 +12,7 @@ public class TreasureRoom extends Map {
                  "_____________________",
                  "_____________________",
                  "_____________________");
-        this.map = map;
+        setMap(map);
     }
 
     @Override

@@ -37,7 +37,7 @@ public class Application {
         LavaZone lavaZone = new LavaZone();
 
         //Adding the lava zone to the world's game maps.
-        GameMap lava = new GameMap(groundFactory, lavaZone.map);
+        GameMap lava = new GameMap(groundFactory, lavaZone.getMap());
         world.addGameMap(lava);
 
         // Adding Princess Peach and Bowser to the map
@@ -48,7 +48,7 @@ public class Application {
         HomeMap home = new HomeMap();
 
         // Adding the home map to the world's game maps.
-        GameMap gameMap = new GameMap(groundFactory, home.map);
+        GameMap gameMap = new GameMap(groundFactory, home.getMap());
         world.addGameMap(gameMap);
 
         // Creating a new warp pipe object
@@ -66,7 +66,7 @@ public class Application {
         TreasureRoom treasure = new TreasureRoom();
 
         // Adding the treasure room to the world's game maps.
-        GameMap treasureRoom = new GameMap(groundFactory, treasure.map);
+        GameMap treasureRoom = new GameMap(groundFactory, treasure.getMap());
         world.addGameMap(treasureRoom);
 
         // Adding in the treasure chest, coins and door to the treasure room

@@ -17,7 +17,7 @@ public class LavaZone extends Map {
                  ".........L.......LLLL......L....#_______",
                  ".L................LLLL.........#________",
                  ".......L........L..LLLL........_________");
-        this.map = map;
+        setMap(map);
     }
 
     @Override
