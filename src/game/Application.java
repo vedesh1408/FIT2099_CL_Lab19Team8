@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.positions.World;
 import game.actors.Player;
 import game.actors.allies.*;
 import game.actors.enemies.Bowser;
+import game.actors.enemies.Goomba;
 import game.actors.enemies.Koopa;
 import game.enums.GenerationObject;
 import game.enums.Status;
@@ -67,7 +68,7 @@ public class Application {
 
         Actor mario = new Player("Mario", 'm', 100);
         world.addPlayer(mario, homeGM.at(42, 10));
-        homeGM.at(42,9).addActor(new Koopa());
+        homeGM.at(42,9).addActor(new Goomba());
         mario.addCapability(Status.HAS_WRENCH);
 
         homeGM.at(42,7).setGround(new HealthFountain());
