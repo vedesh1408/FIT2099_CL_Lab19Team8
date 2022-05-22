@@ -8,8 +8,18 @@ import game.magicalitems.Bottle;
 import game.magicalitems.HealthWater;
 import game.magicalitems.PowerWater;
 
+/**
+ * Class to fill up bottle
+ */
 public class FillBottleAction extends Action {
-
+    /**
+     * Perform a fill action towards the target.
+     *
+     * @param actor The actor performing the action.
+     * @param map   The map the actor is on.
+     * @return a description to show if the jump is successfully performed by an actor
+     * towards his target.
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
 
@@ -25,7 +35,12 @@ public class FillBottleAction extends Action {
         }
         return null;
     }
-
+    /**
+     * Returns a description of this movement suitable to display in the menu.
+     *
+     * @param actor The actor performing the action.
+     * @return a String, e.g. "Player moves east"
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " fills up bottle" ;

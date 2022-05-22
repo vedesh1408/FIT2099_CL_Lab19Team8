@@ -18,13 +18,23 @@ public class Chest extends Ground {
         super('=');
         this.chestLocation = chestLocation;
     }
-
+    /**
+     * Method to check if an actor can enter a floor
+     *
+     * @param actor the Actor to check
+     * @return boolean to check if an actor can enter a floor
+     */
     @Override
     public boolean canActorEnter(Actor actor) {
         // No one can enter this ground
         return false;
     }
-
+    /**
+     * @param actor     the Actor that might perform an action.
+     * @param direction String representing the direction of the other Actor
+     * @param location  current location
+     * @return list of actions
+     */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList list = new ActionList();

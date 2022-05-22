@@ -26,6 +26,9 @@ public class PiranhaPlant extends Actor implements Resettable {
     private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
     private Random rand = new Random();
 
+    /**
+     * Constructor for piranha plant
+     */
     public PiranhaPlant(){
         super("Piranha Plant", 'Y', 150);
         this.registerInstance();
@@ -45,14 +48,20 @@ public class PiranhaPlant extends Actor implements Resettable {
     public boolean isPermanent() {
         return false;
     }
-
+    /**
+     * When called, it removes the actor from the map
+     */
     @Override
     public void resetInstance(GameMap map) {
         // Increasing max hp by 50 and healing to maximum.
         this.increaseMaxHp(50);
         this.heal(this.getMaxHp());
     }
-
+    /**
+     * Figure out what to do next.
+     *
+     * @see Actor#playTurn(ActionList, Action, GameMap, Display)
+     */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         //determine if killed
@@ -68,7 +77,13 @@ public class PiranhaPlant extends Actor implements Resettable {
         // Otherwise the plant does nothing.
         return new DoNothingAction();
     }
-
+    /**
+     * @param otherActor the Actor that might perform an action.
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return list of actions
+     * @see Status#HOSTILE_TO_ENEMY
+     */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();

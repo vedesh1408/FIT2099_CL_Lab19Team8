@@ -7,6 +7,9 @@ import game.implementedactions.ConsumeItemAction;
 
 import java.util.Stack;
 
+/**
+ * Class representing a bottle
+ */
 public class Bottle extends Item {
     private int numTurn = 0;
     public Bottle() {
@@ -18,7 +21,12 @@ public class Bottle extends Item {
     public static Stack <Item> getBottle() {
         return bottle;
     }
-
+    /**
+     * Methd to fill up the bottle with an instance of a specific water
+     *
+     * @param currentLocation The location of the actor carrying this Item.
+     * @param actor           The actor carrying this Item.
+     */
     @Override
     public void tick(Location currentLocation, Actor actor){
         Item fountainWater;
