@@ -1,11 +1,10 @@
-package game.tree;
+package game.grounds.tree;
 
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import game.Utils;
 import game.actors.enemies.Koopa;
-import game.enums.Status;
 import game.grounds.Dirt;
 
 import java.util.*;

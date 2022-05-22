@@ -7,7 +7,7 @@ import game.actors.enemies.Koopa;
 import game.enums.GenerationObject;
 import game.grounds.WarpPipe;
 import game.implementeditems.Coin;
-import game.tree.Sprout;
+import game.grounds.tree.Sprout;
 
 import java.util.List;
 

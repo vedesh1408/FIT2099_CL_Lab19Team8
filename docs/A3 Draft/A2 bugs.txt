@@ -1,4 +1,0 @@
-invicibility doesn't last 10 turns
-display invicible message while active
-fix monologue (power star doesnt remove the line) (change from inventory to invincible/used)
-test reset removes invicibility once power star is working
