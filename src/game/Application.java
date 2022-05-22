@@ -6,20 +6,15 @@ import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 import game.actors.Player;
-import game.actors.PrincessPeach;
-import game.actors.Toad;
+import game.actors.allies.*;
 import game.actors.enemies.Bowser;
-import game.actors.enemies.Goomba;
 import game.actors.enemies.Koopa;
 import game.enums.Status;
 import game.grounds.*;
 import game.implementeditems.Coin;
 import game.implementeditems.Wrench;
 import game.magicalitems.*;
-import game.maps.HomeMap;
-import game.maps.LavaZone;
-import game.maps.TreasureRoom;
-import game.tree.Sapling;
+import game.maps.*;
 import game.tree.Sprout;
 
 /**
