@@ -10,6 +10,7 @@ import game.actors.allies.*;
 import game.actors.enemies.Bowser;
 import game.actors.enemies.Koopa;
 import game.enums.GenerationObject;
+import game.enums.Status;
 import game.grounds.*;
 import game.implementeditems.Wrench;
 import game.magicalitems.*;
@@ -66,6 +67,8 @@ public class Application {
 
         Actor mario = new Player("Mario", 'm', 100);
         world.addPlayer(mario, homeGM.at(42, 10));
+        homeGM.at(42,9).addActor(new Koopa());
+        mario.addCapability(Status.HAS_WRENCH);
 
         homeGM.at(42,7).setGround(new HealthFountain());
         homeGM.at(40,5).setGround(new PowerFountain());
