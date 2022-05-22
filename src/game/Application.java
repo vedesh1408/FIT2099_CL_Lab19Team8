@@ -62,20 +62,22 @@ public class Application {
         treasureGM.at(10,0).setGround(new OpenDoor(homeGM.at(4,10)));
         // Treasure chest
         treasureGM.at(10,3).setGround(new Chest(treasureGM.at(10,3)));
+        // Adding 2 mystery blocks to the treasure room
+        treasureGM.at(8,2).setGround(new MysteryBlock(treasureGM.at(8,2)));
+        treasureGM.at(12,2).setGround(new MysteryBlock(treasureGM.at(12,2)));
 
         // In the treasure room, placing 10 coins around the map for the player to pick up
         treasureMap.RanGen(treasureGM, '_', GenerationObject.COIN20, 10);
 
         Actor mario = new Player("Mario", 'm', 100);
         world.addPlayer(mario, homeGM.at(42, 10));
-        homeGM.at(42,9).addActor(new Goomba());
-        mario.addCapability(Status.HAS_WRENCH);
 
         homeGM.at(42,7).setGround(new HealthFountain());
         homeGM.at(40,5).setGround(new PowerFountain());
 
-        // Spawning initial trees and enemies randomly
+        // Spawning initial trees, mystery blocks and enemies randomly
         homeMap.RanGen(homeGM, '.', GenerationObject.SPROUT, 20);
+        homeMap.RanGen(homeGM, '.', GenerationObject.MBLOCK, 3);
         homeMap.RanGen(homeGM, '.', GenerationObject.KOOPA, 2);
         homeMap.RanGen(homeGM, '.', GenerationObject.GOOMBA, 5);
 

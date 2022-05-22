@@ -5,6 +5,7 @@ import game.Utils;
 import game.actors.enemies.Goomba;
 import game.actors.enemies.Koopa;
 import game.enums.GenerationObject;
+import game.grounds.MysteryBlock;
 import game.grounds.WarpPipe;
 import game.implementeditems.Coin;
 import game.grounds.tree.Sprout;
@@ -24,9 +25,9 @@ public abstract class Map {
 
     public void setMap(List<String> map) { this.map = map; }
 
-    public int getMaxX() { return map.get(0).length(); }
+    public int getMaxX() { return map.get(0).length() - 1; }
 
-    public int getMaxY() { return map.size(); }
+    public int getMaxY() { return map.size() - 1; }
 
     // To add a new object to be generated, add it to the enum GenerationObject and then create a new line in the switch statement below.
     public void RanGen(GameMap gameMap, char overwriteGround, GenerationObject genObj, int count)
@@ -46,6 +47,7 @@ public abstract class Map {
                         case GOOMBA -> gameMap.at(xCoord, yCoord).addActor(new Goomba());
                         case SPROUT -> gameMap.at(xCoord, yCoord).setGround(new Sprout(xCoord, yCoord));
                         case COIN20 -> gameMap.at(xCoord, yCoord).addItem(new Coin(20, xCoord, yCoord));
+                        case MBLOCK -> gameMap.at(xCoord,yCoord).setGround(new MysteryBlock(gameMap.at(xCoord,yCoord)));
                     }
                     validGround = true;
                 }

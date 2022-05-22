@@ -67,7 +67,7 @@ public class Koopa extends Actor implements Resettable {
             actions.add(new AttackAction(this, direction));
         }
 
-        //Actor kill dormant koopa
+        // Player kill dormant koopa
         if (this.hasCapability(Status.DORMANT) && otherActor.hasCapability(Status.HAS_WRENCH)) {
             actions.add(new KilledAction(this));
         }

@@ -6,7 +6,7 @@ import java.util.Random;
  * Static class to generate a random number
  */
 public class Utils {
-    // Function to randomise a number from - to the specified value
+    // Function to randomise a number from 0 (inclusive) to the specified value (exclusive)
     public static int ranNum(Integer max) {
         Random r = new Random();
         return r.nextInt(max);

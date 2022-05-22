@@ -10,5 +10,5 @@ public enum GenerationObject {
     SPROUT,
     WARPPIPE,
     COIN20,
-
+    MBLOCK,
 }
