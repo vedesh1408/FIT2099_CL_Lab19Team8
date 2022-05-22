@@ -3,6 +3,9 @@ package game.maps;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class representing home map
+ */
 public class HomeMap extends Map {
 
     public HomeMap(){

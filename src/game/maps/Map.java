@@ -28,6 +28,13 @@ public abstract class Map {
 
     public int getMaxY() { return map.size(); }
 
+    /**
+     * Method to add random things on map
+     * @param gameMap
+     * @param overwriteGround
+     * @param genObj
+     * @param count
+     */
     // To add a new object to be generated, add it to the enum GenerationObject and then create a new line in the switch statement below.
     public void RanGen(GameMap gameMap, char overwriteGround, GenerationObject genObj, int count)
     {
